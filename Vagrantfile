@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu12.04-givenchy-beauty"
 
-  config.vm.hostname = "Coach Friends"
+  config.vm.hostname = "Coach-Friends"
 
   config.vm.network :forwarded_port, guest: 80, host: 9011
   config.vm.network :forwarded_port, guest: 3306, host: 33081
