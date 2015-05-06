@@ -2,6 +2,7 @@
 session_start();
 include_once('./config/database.php');
 include_once('./config/Pdb.php');
+include_once('./config/uUid.php');
 
 define("ISMEMCACHE",true);
 
@@ -49,8 +50,14 @@ if (isset($_POST['model'])) {
 				print json_encode(array("code" => 3, "msg" => "该手机号码已经提交过了"));
 				exit;
 			}
-			$sql = "insert into user_info(name,mobile,city,address) values (" . $db->quote($name) 
-				. "," . $db->quote($mobile) . "," . $db->quote($city) . "," . $db->quote($address) . ")";
+			if(isset($_COOKIE['lv_ibeacon_uuid'])){
+				$uuid=$_COOKIE['lv_ibeacon_uuid'];
+			}else{
+				$uuid=getUuid::guid();
+				@setcookie("lv_ibeacon_uuid",$uuid,time()+3600*24*365,"/");
+			}
+			$sql = "insert into user_info(uuid,name,mobile,city,address) values (" . $db->quote($uuid) 
+				. "," . $db->quote($name) . "," . $db->quote($mobile) . "," . $db->quote($city) . "," . $db->quote($address) . ")";
 			$db->execute($sql);
 			print json_encode(array("code" => 1, "msg" => "提交成功"));
 			exit;
