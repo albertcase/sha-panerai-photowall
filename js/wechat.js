@@ -6,6 +6,7 @@ var shareData = {
 };
 
 function wechatFun(){
+    alert(6)
     $.ajax({
         type: "POST",
         url: "/Request.php?model=weixinjs",
