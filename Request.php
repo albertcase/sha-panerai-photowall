@@ -61,7 +61,7 @@ if (isset($_POST['model'])) {
 			$time = getData("time");
 			$access_token = getData("access_token");
 			$ticket = getData("ticket");
-			if (time() - $time >= 100) {
+			if (time() - $time >= 1800) {
 				//token过期重新获取
 				$appid = "wx737a6d5fe4d19c89";
 				$secret = "f6f990e973d09b7d3da722b9390bfd09";
