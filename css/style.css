@@ -114,8 +114,17 @@ html{
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-    background: url("../images/arr_r.png") no-repeat;
+    background: url("../images/arr_r.png") center no-repeat;
     background-size: auto 100%;
+    height:56px;
+    margin-top: -28px;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+    background: url("../images/arr_l.png") center no-repeat;
+    background-size: auto 100%;
+    height:56px;
+    margin-top: -28px;
 }
 
 
