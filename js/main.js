@@ -100,7 +100,7 @@ var dataId = {
         				$.map(v.photo,function(bv){
         					if(bv.photo_nid == photoId){
         						this.modelData = $.map(bv.product,function(cv){
-	        						return '<li><img src="'+cv.pic_thumbnail+'" data-id="'+cv.photo_nid+'"><p>'+cv.name+'</p></li>';
+	        						return '<li><img src="'+cv.pic_thumbnail+'" data-id="'+cv.photo_nid+'"><p> 款号:'+cv.name+'</p></li>';
 	        					});
         					}
         				});

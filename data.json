@@ -9,12 +9,10 @@
                     "pic_thumbnail": "models/angelababy/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34940",
                             "pic_thumbnail": "models/angelababy/photos/p1/34940.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85790",
                             "pic_thumbnail": "models/angelababy/photos/p1/85790.jpg"
                         }
@@ -25,22 +23,18 @@
                     "pic_thumbnail": "models/angelababy/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35324",
                             "pic_thumbnail": "models/angelababy/photos/p2/35324.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85795",
                             "pic_thumbnail": "models/angelababy/photos/p2/85795.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q7084",
                             "pic_thumbnail": "models/angelababy/photos/p2/q7084.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "w1381",
                             "pic_thumbnail": "models/angelababy/photos/p2/w1381.jpg"
                         }
@@ -51,17 +45,14 @@
                     "pic_thumbnail": "models/angelababy/photos/3.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34408",
                             "pic_thumbnail": "models/angelababy/photos/p3/34408.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85781",
                             "pic_thumbnail": "models/angelababy/photos/p3/85781.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85890",
                             "pic_thumbnail": "models/angelababy/photos/p3/85890.jpg"
                         }
@@ -72,12 +63,10 @@
                     "pic_thumbnail": "models/angelababy/photos/4.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34404",
                             "pic_thumbnail": "models/angelababy/photos/p4/34404.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85992",
                             "pic_thumbnail": "models/angelababy/photos/p4/85992.jpg"
                         }
@@ -88,22 +77,18 @@
                     "pic_thumbnail": "models/angelababy/photos/5.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34409",
                             "pic_thumbnail": "models/angelababy/photos/p5/34409.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85782",
                             "pic_thumbnail": "models/angelababy/photos/p5/85782.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85770",
                             "pic_thumbnail": "models/angelababy/photos/p5/85770.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q7104",
                             "pic_thumbnail": "models/angelababy/photos/p5/q7104.jpg"
                         }
@@ -121,17 +106,14 @@
                     "pic_thumbnail": "models/luhan/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "71709",
                             "pic_thumbnail": "models/luhan/photos/p1/71709.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85819",
                             "pic_thumbnail": "models/luhan/photos/p1/85819.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q6994",
                             "pic_thumbnail": "models/luhan/photos/p1/q6994.jpg"
                         }
@@ -142,17 +124,14 @@
                     "pic_thumbnail": "models/luhan/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "71622",
                             "pic_thumbnail": "models/luhan/photos/p2/71622.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85647",
                             "pic_thumbnail": "models/luhan/photos/p2/85647.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q6994",
                             "pic_thumbnail": "models/luhan/photos/p2/q6994.jpg"
                         }
@@ -170,22 +149,18 @@
                     "pic_thumbnail": "models/liyuchun/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35798",
                             "pic_thumbnail": "models/liyuchun/photos/p1/35798.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85788",
                             "pic_thumbnail": "models/liyuchun/photos/p1/85788.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85798",
                             "pic_thumbnail": "models/liyuchun/photos/p1/85798.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q7091",
                             "pic_thumbnail": "models/liyuchun/photos/p1/q7091.jpg"
                         }
@@ -203,32 +178,26 @@
                     "pic_thumbnail": "models/zhangjunmi/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35153",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/35153.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85801",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/85801.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85781",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/85781.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "85777",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/85777.jpg"
                         },
                         {
-                            "pro_nid": "5",
                             "name": "q7098",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/q7098.jpg"
                         },
                         {
-                            "pro_nid": "6",
                             "name": "l120",
                             "pic_thumbnail": "models/zhangjunmi/photos/p1/l120.jpg"
                         }
@@ -248,22 +217,18 @@
                     "pic_thumbnail": "models/tangyan/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34816",
                             "pic_thumbnail": "models/tangyan/photos/p1/34816.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85785",
                             "pic_thumbnail": "models/tangyan/photos/p1/85785.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q7155",
                             "pic_thumbnail": "models/tangyan/photos/p1/q7155.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "85784",
                             "pic_thumbnail": "models/tangyan/photos/p1/85784.jpg"
                         }
@@ -274,17 +239,14 @@
                     "pic_thumbnail": "models/tangyan/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34816",
                             "pic_thumbnail": "models/tangyan/photos/p2/34816.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85785",
                             "pic_thumbnail": "models/tangyan/photos/p2/85785.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q7155",
                             "pic_thumbnail": "models/tangyan/photos/p2/q7155.jpg"
                         }
@@ -295,24 +257,20 @@
                     "pic_thumbnail": "models/tangyan/photos/3.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34816",
-                            "pic_thumbnail": "models/tangyan/photos/p2/34816.jpg"
+                            "pic_thumbnail": "models/tangyan/photos/p3/34816.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85785",
-                            "pic_thumbnail": "models/tangyan/photos/p2/85785.jpg"
+                            "pic_thumbnail": "models/tangyan/photos/p3/85785.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q7155",
-                            "pic_thumbnail": "models/tangyan/photos/p2/q7155.jpg"
+                            "pic_thumbnail": "models/tangyan/photos/p3/q7155.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "85885",
-                            "pic_thumbnail": "models/tangyan/photos/p2/85885.jpg"
+                            "pic_thumbnail": "models/tangyan/photos/p3/85885.jpg"
                         }
                     ]
                 }
@@ -330,22 +288,18 @@
                     "pic_thumbnail": "models/tongliya/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34816",
                             "pic_thumbnail": "models/tongliya/photos/p1/34816.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85802",
                             "pic_thumbnail": "models/tongliya/photos/p1/85802.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85777",
                             "pic_thumbnail": "models/tongliya/photos/p1/85777.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q7089",
                             "pic_thumbnail": "models/tongliya/photos/p1/q7089.jpg"
                         }
@@ -356,22 +310,18 @@
                     "pic_thumbnail": "models/tongliya/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34940",
                             "pic_thumbnail": "models/tongliya/photos/p2/34940.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85793",
                             "pic_thumbnail": "models/tongliya/photos/p2/85793.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85779",
                             "pic_thumbnail": "models/tongliya/photos/p2/85779.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q7150",
                             "pic_thumbnail": "models/tongliya/photos/p2/q7150.jpg"
                         }
@@ -391,22 +341,18 @@
                     "pic_thumbnail": "models/liuwen/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35798",
                             "pic_thumbnail": "models/liuwen/photos/p1/35798.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85885",
                             "pic_thumbnail": "models/liuwen/photos/p1/85885.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85772",
                             "pic_thumbnail": "models/liuwen/photos/p1/85772.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q7091",
                             "pic_thumbnail": "models/liuwen/photos/p1/q7091.jpg"
                         }
@@ -417,22 +363,18 @@
                     "pic_thumbnail": "models/liuwen/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35798",
                             "pic_thumbnail": "models/liuwen/photos/p1/35798.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85885",
                             "pic_thumbnail": "models/liuwen/photos/p1/85885.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85769",
                             "pic_thumbnail": "models/liuwen/photos/p2/85769.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "85776",
                             "pic_thumbnail": "models/liuwen/photos/p2/85776.jpg"
                         }
@@ -452,24 +394,20 @@
                     "pic_thumbnail": "models/yanyalun/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35302",
                             "pic_thumbnail": "models/yanyalun/photos/p1/35302.jpg"
                         },
                         {
-                            "pro_nid": "2",
-                            "name": "85885",
-                            "pic_thumbnail": "models/yanyalun/photos/p1/85885.jpg"
-                        },
-                        {
-                            "pro_nid": "3",
                             "name": "85803",
                             "pic_thumbnail": "models/yanyalun/photos/p1/85803.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "85777",
                             "pic_thumbnail": "models/yanyalun/photos/p1/85777.jpg"
+                        },
+                        {
+                            "name": "85800",
+                            "pic_thumbnail": "models/yanyalun/photos/p1/85800.jpg"
                         }
                     ]
                 },
@@ -478,22 +416,18 @@
                     "pic_thumbnail": "models/yanyalun/photos/2.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "71649",
                             "pic_thumbnail": "models/yanyalun/photos/p2/71649.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85634",
                             "pic_thumbnail": "models/yanyalun/photos/p2/85634.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "q6966",
                             "pic_thumbnail": "models/yanyalun/photos/p2/q6966.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "l703",
                             "pic_thumbnail": "models/yanyalun/photos/p2/l703.jpg"
                         }
@@ -513,22 +447,18 @@
                     "pic_thumbnail": "models/zhuzhu/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "34816",
                             "pic_thumbnail": "models/zhuzhu/photos/p1/34816.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85803",
                             "pic_thumbnail": "models/zhuzhu/photos/p1/85803.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85777",
                             "pic_thumbnail": "models/zhuzhu/photos/p1/85777.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q5400",
                             "pic_thumbnail": "models/zhuzhu/photos/p1/q5400.jpg"
                         }
@@ -548,22 +478,18 @@
                     "pic_thumbnail": "models/zhangxinyi/photos/1.jpg",
                     "product": [
                         {
-                            "pro_nid": "1",
                             "name": "35796",
                             "pic_thumbnail": "models/zhangxinyi/photos/p1/35796.jpg"
                         },
                         {
-                            "pro_nid": "2",
                             "name": "85882",
                             "pic_thumbnail": "models/zhangxinyi/photos/p1/85882.jpg"
                         },
                         {
-                            "pro_nid": "3",
                             "name": "85892",
                             "pic_thumbnail": "models/zhangxinyi/photos/p1/85892.jpg"
                         },
                         {
-                            "pro_nid": "4",
                             "name": "q7155",
                             "pic_thumbnail": "models/zhangxinyi/photos/p1/q7155.jpg"
                         }
@@ -644,7 +570,7 @@
         {
             "model_nid": "12",
             "name": "韩火火",
-            "pic_thumbnail": "models/hanhuohou/jjf.jpg",
+            "pic_thumbnail": "models/hanhuohou/hhh.jpg",
             "photo": [
                 {
                     "photo_nid": "A",
@@ -724,6 +650,166 @@
                         {
                             "name": "q6681",
                             "pic_thumbnail": "models/gulinaza/photos/p2/q6681.jpg"
+                        }
+                    ]
+                }
+            ]  
+        },
+
+
+        {
+            "model_nid": "14",
+            "name": "小宋佳",
+            "pic_thumbnail": "models/songjia/sj.jpg",
+            "photo": [
+                {
+                    "photo_nid": "A",
+                    "pic_thumbnail": "models/songjia/photos/1.jpg",
+                    "product": [
+                        {
+                            "name": "35302",
+                            "pic_thumbnail": "models/songjia/photos/p1/35302.jpg"
+                        },
+                        {
+                            "name": "85803",
+                            "pic_thumbnail": "models/songjia/photos/p1/85803.jpg"
+                        },
+                        {
+                            "name": "85777",
+                            "pic_thumbnail": "models/songjia/photos/p1/85777.jpg"
+                        }
+                    ]
+                },
+                {
+                    "photo_nid": "B",
+                    "pic_thumbnail": "models/songjia/photos/2.jpg",
+                    "product": [
+                        {
+                            "name": "34816",
+                            "pic_thumbnail": "models/songjia/photos/p2/34816.jpg"
+                        },
+                        {
+                            "name": "85785",
+                            "pic_thumbnail": "models/songjia/photos/p2/85785.jpg"
+                        },
+                        {
+                            "name": "q7155",
+                            "pic_thumbnail": "models/songjia/photos/p2/q7155.jpg"
+                        },
+                        {
+                            "name": "85786",
+                            "pic_thumbnail": "models/songjia/photos/p2/85786.jpg"
+                        },
+                        {
+                            "name": "q7166",
+                            "pic_thumbnail": "models/songjia/photos/p2/q7166.jpg"
+                        }
+                    ]
+                }
+            ]  
+        },
+
+
+        {
+            "model_nid": "15",
+            "name": "娄艺潇",
+            "pic_thumbnail": "models/louyixiao/lyx.jpg",
+            "photo": [
+                {
+                    "photo_nid": "A",
+                    "pic_thumbnail": "models/louyixiao/photos/1.jpg",
+                    "product": [
+                        {
+                            "name": "34340",
+                            "pic_thumbnail": "models/louyixiao/photos/p1/34340.jpg"
+                        },
+                        {
+                            "name": "85886",
+                            "pic_thumbnail": "models/louyixiao/photos/p1/85886.jpg"
+                        },
+                        {
+                            "name": "85890",
+                            "pic_thumbnail": "models/louyixiao/photos/p1/85890.jpg"
+                        },
+                        {
+                            "name": "85778",
+                            "pic_thumbnail": "models/louyixiao/photos/p1/85778.jpg"
+                        },
+                        {
+                            "name": "q7156",
+                            "pic_thumbnail": "models/louyixiao/photos/p1/q7156.jpg"
+                        }
+                    ]
+                }
+            ]  
+        },
+
+
+        {
+            "model_nid": "16",
+            "name": "张辛苑",
+            "pic_thumbnail": "models/zhangxinyuan/zxy.jpg",
+            "photo": [
+                {
+                    "photo_nid": "A",
+                    "pic_thumbnail": "models/zhangxinyuan/photos/1.jpg",
+                    "product": [
+                        {
+                            "name": "35153",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p1/35153.jpg"
+                        },
+                        {
+                            "name": "85781",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p1/85781.jpg"
+                        },
+                        {
+                            "name": "85890",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p1/85890.jpg"
+                        },
+                        {
+                            "name": "90657",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p1/90657.jpg"
+                        }
+                    ]
+                },
+                {
+                    "photo_nid": "B",
+                    "pic_thumbnail": "models/zhangxinyuan/photos/2.jpg",
+                    "product": [
+                        {
+                            "name": "35153",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p2/35153.jpg"
+                        },
+                        {
+                            "name": "85781",
+                            "pic_thumbnail": "models/zhangxinyuan/photos/p2/85781.jpg"
+                        }
+                    ]
+                }
+            ]  
+        },
+
+
+        {
+            "model_nid": "17",
+            "name": "孙艺洲",
+            "pic_thumbnail": "models/sunyizhou/syz.jpg",
+            "photo": [
+                {
+                    "photo_nid": "A",
+                    "pic_thumbnail": "models/sunyizhou/photos/1.jpg",
+                    "product": [
+                        {
+                            "name": "71709",
+                            "pic_thumbnail": "models/sunyizhou/photos/p1/71709.jpg"
+                        },
+                        {
+                            "name": "85635",
+                            "pic_thumbnail": "models/sunyizhou/photos/p1/85635.jpg"
+                        },
+                        {
+                            "name": "q6990",
+                            "pic_thumbnail": "models/sunyizhou/photos/p1/q6990.jpg"
                         }
                     ]
                 }
