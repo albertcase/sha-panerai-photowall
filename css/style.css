@@ -77,6 +77,9 @@ html{
     height:100%;
     overflow: auto;
     opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .modelList,.product{
@@ -85,8 +88,12 @@ html{
     text-align: center;
 }
 
+.modelList{
+    height:100%;
+    overflow: auto;
+}
+
 .modelList li{
-    float: left;
     width: 32%;
     margin: 0.6%;
     display: inline-block;
@@ -102,13 +109,14 @@ html{
     position: relative;;
 }
 
-
 .modelList li img,.product li img{
     width:100%;
 }
 
-
-
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background: url("../images/arr_r.png") no-repeat;
+    background-size: auto 100%;
+}
 
 
 /* model详细 */

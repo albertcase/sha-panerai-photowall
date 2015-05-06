@@ -205,10 +205,14 @@
                 }
             ]  
         },
-
-
         {
             "model_nid": "5",
+            "name": "COACH",
+            "pic_thumbnail": "models/coach/c.jpg",
+            "photo": []
+        },
+        {
+            "model_nid": "6",
             "name": "唐嫣",
             "pic_thumbnail": "models/tangyan/ty.jpg",
             "photo": [
@@ -279,7 +283,7 @@
 
 
         {
-            "model_nid": "6",
+            "model_nid": "7",
             "name": "佟丽娅",
             "pic_thumbnail": "models/tongliya/tly.jpg",
             "photo": [
@@ -332,7 +336,7 @@
 
 
         {
-            "model_nid": "7",
+            "model_nid": "8",
             "name": "刘雯",
             "pic_thumbnail": "models/liuwen/lw.jpg",
             "photo": [
@@ -385,7 +389,7 @@
 
 
         {
-            "model_nid": "8",
+            "model_nid": "9",
             "name": "炎亚纶",
             "pic_thumbnail": "models/yanyalun/yyl.jpg",
             "photo": [
@@ -438,7 +442,7 @@
 
 
         {
-            "model_nid": "9",
+            "model_nid": "10",
             "name": "朱珠",
             "pic_thumbnail": "models/zhuzhu/zz.jpg",
             "photo": [
@@ -469,7 +473,7 @@
 
 
         {
-            "model_nid": "10",
+            "model_nid": "11",
             "name": "张歆艺",
             "pic_thumbnail": "models/zhangxinyi/zxy.jpg",
             "photo": [
@@ -522,7 +526,7 @@
 
 
         {
-            "model_nid": "11",
+            "model_nid": "12",
             "name": "蒋劲夫",
             "pic_thumbnail": "models/jiangjinfu/jjf.jpg",
             "photo": [
@@ -568,7 +572,7 @@
 
 
         {
-            "model_nid": "12",
+            "model_nid": "13",
             "name": "韩火火",
             "pic_thumbnail": "models/hanhuohou/hhh.jpg",
             "photo": [
@@ -605,7 +609,7 @@
 
 
         {
-            "model_nid": "13",
+            "model_nid": "14",
             "name": "古力娜扎",
             "pic_thumbnail": "models/gulinaza/glnz.jpg",
             "photo": [
@@ -658,7 +662,7 @@
 
 
         {
-            "model_nid": "14",
+            "model_nid": "15",
             "name": "小宋佳",
             "pic_thumbnail": "models/songjia/sj.jpg",
             "photo": [
@@ -711,7 +715,7 @@
 
 
         {
-            "model_nid": "15",
+            "model_nid": "16",
             "name": "娄艺潇",
             "pic_thumbnail": "models/louyixiao/lyx.jpg",
             "photo": [
@@ -746,7 +750,7 @@
 
 
         {
-            "model_nid": "16",
+            "model_nid": "17",
             "name": "张辛苑",
             "pic_thumbnail": "models/zhangxinyuan/zxy.jpg",
             "photo": [
@@ -791,7 +795,7 @@
 
 
         {
-            "model_nid": "17",
+            "model_nid": "18",
             "name": "孙艺洲",
             "pic_thumbnail": "models/sunyizhou/syz.jpg",
             "photo": [

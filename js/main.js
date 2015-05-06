@@ -2,10 +2,7 @@ var LoadingImg = [],_doing;
 var allDataVal = "";
 $(".loading").fadeIn();
 
-document.addEventListener('touchmove' , function (ev){
-  ev.preventDefault();
-  return false;
-} , false)
+
 
 var dataId = {
 	"mId" : "",
@@ -88,7 +85,7 @@ var dataId = {
 				        paginationClickable: true,
 				        nextButton: '.swiper-button-next',
 				        prevButton: '.swiper-button-prev',
-				        loop: true,
+				        loop: false,
 			        	onTouchEnd: function(data) {
 					      	holdPosition = 0;
 					    }
