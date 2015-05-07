@@ -42,7 +42,7 @@ var dataId = {
 				    loading(LoadingImg);
 				    _doing.getList(data);
 
-				    if(_doing.getQueryString()){
+				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"){
 				    	$(".modelList").hide();
 			            $("#model-detail").fadeIn();
 			            dataId.mId = _doing.getQueryString();
@@ -64,7 +64,7 @@ var dataId = {
 					$(".modelList").hide();
 		            $("#model-detail").fadeIn();
 		            dataId.mId = modelId;
-		            history.pushState("index.html", null, "#"+modelId)
+		            history.pushState("/", null, "#"+modelId)
 		            _doing.getModel(modelId);
 				})
 
@@ -129,4 +129,5 @@ $(".close").click(function(){
     $(".m-page").attr("class","m-page");
     $(".m-page").eq(1).addClass("f-hide");
     car2.refresh();
+    history.pushState("/", null, "#");
 })
