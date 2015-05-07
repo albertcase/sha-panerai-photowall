@@ -80,6 +80,7 @@ function wechatShare(timestamp_val,signature_val){
             // 用户确认分享后执行的回调函数
 
             _hmt.push(['_trackEvent', 'share', 'SharewithMonents', 'ShareTimeLine']);
+            window.location.href="form.html";
             
             //alert('分享成功');
         },
@@ -99,7 +100,8 @@ function wechatShare(timestamp_val,signature_val){
             // 用户确认分享后执行的回调函数
 
             _hmt.push(['_trackEvent', 'share', 'SharewithFriends', 'ShareAppMessage']);
-            
+            window.location.href="form.html";
+
             //alert('分享成功');
         },
         cancel: function () { 

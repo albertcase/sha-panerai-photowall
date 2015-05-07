@@ -85,16 +85,17 @@ var checkForm = {
 		adressVal = $("input[name='adress']").val();
 
 		if(nameVal == ""){
-			$("input[name='name']").addClass("error").val("").attr("placeholder",formError.n);
+			$("input[name='name']").addClass("error").val("").attr("placeholder",formError.n).focus();
+
 			return false;
 		}else if(!this.isPhoneNum(telVal)){
-			$("input[name='tel']").addClass("error").val("").attr("placeholder",formError.t);
+			$("input[name='tel']").addClass("error").val("").attr("placeholder",formError.t).focus();
 			return false;
 		}else if(cityVal == ""){
-			$("input[name='city']").addClass("error").val("").attr("placeholder",formError.c)
+			$("input[name='city']").addClass("error").val("").attr("placeholder",formError.c).focus();
 			return false;
 		}else if(adressVal == ""){
-			$("input[name='adress']").addClass("error").val("").attr("placeholder",formError.a);
+			$("input[name='adress']").addClass("error").val("").attr("placeholder",formError.a).focus();
 			return false;
 		}
 
