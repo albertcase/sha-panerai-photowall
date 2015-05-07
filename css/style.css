@@ -118,10 +118,15 @@ html{
     margin: 0.2% 2%;
     display: inline-block;
     line-height: 0;
-    position: relative;;
+    position: relative;
+    text-align: center;
 }
 
-.modelList li img,.product li img{
+.product li img{
+    width:90%;
+}
+
+.modelList li img{
     width:100%;
 }
 
