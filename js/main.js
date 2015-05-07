@@ -53,19 +53,28 @@ var dataId = {
         	},
         	getList : function(data){
         		this.allListData = $.map(data,function(v){
-        			return '<li data-id="'+v.model_nid+'"><img src="'+v.pic_thumbnail+'"></li>'
+        			return '<li data-id="'+v.model_nid+'" data-name="'+v.name+'"><img src="'+v.pic_thumbnail+'"></li>'
         		}).join("");
         		$(".modelList").html(this.allListData);
 
         		/* li点击事件 */
 				$(".modelList li").click(function(){
 					var modelId = $(this).attr("data-id");
+                    var modelName = $(this).attr("data-name");
+
 					if(modelId==5)return;
 					$(".modelList").hide();
 		            $("#model-detail").fadeIn();
 		            dataId.mId = modelId;
 		            history.pushState("/", null, "#"+modelId)
 		            _doing.getModel(modelId);
+
+                    shareData = {
+                                title: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
+                                desc: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
+                                link: window.location.host,
+                                imgUrl: 'http://' + window.location.host + '/images/share/'+modelId+'.jpg'
+                    };
 				})
 
         	},
