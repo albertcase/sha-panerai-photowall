@@ -197,7 +197,7 @@ html{
 }
 
 .pageArr{
-  width: 15%;
+  width: 18%;
   position: absolute;
   left: 50%;
   bottom: 3.2em;
@@ -233,8 +233,8 @@ html{
 
 
 .close{
-    width:60px;
-    height: 60px;
+    width:67px;
+    height: 67px;
     background: url("../images/close.png") no-repeat center;
     background-size: 56% auto;
     position: absolute;
