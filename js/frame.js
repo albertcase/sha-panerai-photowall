@@ -157,15 +157,15 @@ var car2 = {
 						if ( !this._events[type] ) {
 							return;
 						}
-
-						var i = 0,
-							l = this._events[type].length;
+						var i=0;
+						var l = this._events[type].length;
 
 						if ( !l ) {
 							return;
 						}
 
 						for ( ; i < l; i++ ) {
+							if(this._events[type][i]==null)return;
 							this._events[type][i].apply(this, [].slice.call(arguments, 1));	
 						}
 					},
