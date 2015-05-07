@@ -98,6 +98,10 @@ html{
 .modelList{
     height:100%;
     overflow: auto;
+    -ms-overflow-scrolling: touch; 
+    -moz-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; 
+    -o-overflow-scrolling: touch;  
 }
 
 .modelList li{
