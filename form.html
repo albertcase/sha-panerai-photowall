@@ -111,7 +111,7 @@ var checkForm = {
 		    },
 		    dataType:"json"
 	    }).done(function(data){
-	    	if(data.status == 1){
+	    	if(data.code == 1){
 	    		$(".form_btn").removeClass("disable").html("提 交");
 	    		alert("提交成功！");
 	    	}
