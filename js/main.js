@@ -131,3 +131,30 @@ $(".close").click(function(){
     car2.refresh();
     history.pushState("/", null, "#");
 })
+
+
+
+
+function orientationChange() {
+    switch(window.orientation) {
+    　　case 0:
+            document.getElementById('heng').style.display="none";
+            break;
+    　　case -90:
+            document.getElementById('heng').style.display="block";
+            break;
+    　　case 90:
+            document.getElementById('heng').style.display="block";
+            break;
+    　　case 180:
+        　　document.getElementById('heng').style.display="none";
+        　　break;
+    };
+
+};
+
+
+addEventListener('load', function(){
+    orientationChange();
+    window.onorientationchange = orientationChange;
+});
