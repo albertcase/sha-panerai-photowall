@@ -102,12 +102,12 @@ var checkForm = {
 		$(".form_btn").addClass("disable").html("正在提交...");
 		checkForm.submitData(nameVal,telVal,cityVal,adressVal);
 	},
-	submitData : function(_name,_mobile,_city,_adress){
+	submitData : function(_name,_mobile,_city,_address){
 		$.ajax({
 		    type: "POST",
 		    url: "/Request.php?model=finish",
 		    data: {
-		    	"name": _name, "mobile": _mobile, "city": _city, "adress": _adress
+		    	"name": _name, "mobile": _mobile, "city": _city, "address": _address
 		    },
 		    dataType:"json"
 	    }).done(function(data){
