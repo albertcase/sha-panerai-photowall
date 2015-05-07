@@ -61,6 +61,7 @@ var dataId = {
         		/* li点击事件 */
 				$(".modelList li").click(function(){
 					var modelId = $(this).attr("data-id");
+					if(modelId==5)return;
 					$(".modelList").hide();
 		            $("#model-detail").fadeIn();
 		            dataId.mId = modelId;
@@ -70,26 +71,18 @@ var dataId = {
 
         	},
         	getModel : function(modelId){
-
+      
         		$.map(allDataVal,function(v){
         			if(v.model_nid == modelId){
         				this.modelData = $.map(v.photo,function(bv){
         					return '<div class="swiper-slide" data-id="'+bv.photo_nid+'"><img src="'+bv.pic_thumbnail+'"></div>';
         				});
         				$(".swiper-wrapper").html(this.modelData);
+        				mySwiper.update();
         			}
         		})
 
-        		var swiper = $('.swiper-container').swiper({
-						pagination: '.swiper-pagination',
-				        paginationClickable: true,
-				        nextButton: '.swiper-button-next',
-				        prevButton: '.swiper-button-prev',
-				        loop: false,
-			        	onTouchEnd: function(data) {
-					      	holdPosition = 0;
-					    }
-				});
+        		
         	},
         	getPro : function(modelId,photoId){
         		$.map(allDataVal,function(v){
@@ -115,6 +108,16 @@ var dataId = {
 	})
 })(jQuery);
 
+var mySwiper = $('#swiper').swiper({
+		pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        loop: false,
+    	onTouchEnd: function(data) {
+	      	holdPosition = 0;
+	    }
+});
 
 
 /* 模特详细关闭 */
@@ -123,4 +126,8 @@ $(".close").click(function(){
 	$("#model-detail").hide();
 	$(".swiper-wrapper").html("");
     $(".product").html("");
+    mySwiper.removeAllSlides();
+    $(".m-page").attr("class","m-page");
+    $(".m-page").eq(1).addClass("f-hide");
+    car2.refresh();
 })

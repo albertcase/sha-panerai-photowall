@@ -25,7 +25,7 @@ function loading(allAmg){
 		$(".page").animate({"opacity" : 1});
         console.log("加载完成!");
 	} , function ( p ){
-		$('.loading').html(p+"%");
+		//$('.loading').html(p+"%");
 	});
 
 

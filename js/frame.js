@@ -577,8 +577,14 @@ var car2 = {
 
 	// 对象私有变量刷新
 	refresh	: function(){
-		$(window).height() = $(window).height();
+		//$(window).height() = $(window).height();
 		car2._windowWidth = $(window).width();
+		car2._pageNow = 0;								// 页面当前的index数
+		car2._pageNext = null;									// 页面下一个的index数
+
+		car2._touchStartValY = 0;									// 触摸开始获取的第一个值
+		car2._touchDeltaY = 0;	
+		car2._firstChange = false;								// 滑动的距离
 	},
 
 /**************************************************************************************************************/

@@ -101,9 +101,17 @@ html{
     position: relative;;
 }
 
+.product{
+    margin: 5% 0;
+    display: inline-block;
+    text-align: left;
+    width: 80%;
+    line-height: 0;
+}
+
 .product li{
-    width: 30%;
-    margin: 1% 5%;
+    width: 45%;
+    margin: 0.2% 2%;
     display: inline-block;
     line-height: 0;
     position: relative;;
@@ -155,6 +163,8 @@ html{
     width: 100%;
     background: #333;
     text-align: center;
+    height:100%;
+    overflow: hidden;
 }
 
 .swiper-slide p{
@@ -169,29 +179,35 @@ html{
     font-size: 14px;
 }
 
-.product{
-    margin: 5% 0;
-    display: inline-block;
-}
 
 .product li p{
     width: 100%;
     text-align: center;
-    padding: 1em 0;
+    padding: 0.6em 0;
     color:#bdb7a9;
     font-size: 14px;
 }
 
 .swiper-slide img{
-    width:auto;
-    height:100%;
+    width:100%;
 }
+
+.pageArr{
+  width: 15%;
+  position: absolute;
+  left: 50%;
+  bottom: 3.2em;
+  z-index: 10;
+  margin: 0 0 0 -7.5%;
+}
+
+
 
 .butArea{
     width:80%;
     position: absolute;
     left: 50%;
-    bottom: 2em;
+    bottom: 4em;
     margin: 0 0 0 -40%;
     text-align: center;
 }
@@ -211,22 +227,6 @@ html{
     box-shadow:-1px -1px 1px #837f76 inset; 
 }
 
-
-.loading{
-    width: 100px;
-    height: 100px;
-    background: #f1f1f1;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    margin: -50px 0 0 -50px;
-    z-index: 100;
-    color: #fff;
-    text-align: center;
-    line-height: 100px;
-    font-size: 27px;
-    display: none;
-}
 
 .close{
     width:60px;
@@ -359,5 +359,154 @@ html{
     left: 0;
     display: none;
 }
+
+
+
+
+/* loading  */
+
+.loading{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    background: #fff;
+    z-index: 10;
+    margin: -27% 0 0 -50%;
+}
+
+.car{
+    width:50%;
+}
+
+.spinner > div {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 8px;
+  -webkit-animation: bouncedelay 2s infinite ease-in-out;
+  animation: bouncedelay 2s infinite ease-in-out;
+  -webkit-animation-fill-mode: none;
+  animation-fill-mode: none;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.spinner .bounce3 {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #000; }
+    40% { background-color: #848484;}
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #000;} 
+    40% { background-color: #848484;}
+}
+.loading p{
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding: 6px 0 0 0;
+}
+
+
+
+
+
+
+
+.pageArr { 
+    -webkit-animation: start 1.5s infinite ease-in-out;
+    -moz-animation: start 1.5s infinite ease-in-out;
+    animation: start 1.5s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@-moz-keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+
+
+
+
+
+
+/* ------ 媒体查询 ------- */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+    .swiper-slide img{
+        width:auto;
+        height:100%;
+    }
+
+    .modelList li{
+        width: 32.6%; 
+        height: 32.9%;
+        margin: 0.36% 0.3%;
+        overflow: hidden;
+    }
+
+    .modelList li img{
+        width:auto;
+        height:100%;
+    }
+
+}
+
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    .swiper-slide img{
+        width:auto;
+        height:100%;
+    }
+
+    .modelList li{
+        width: 32.6%; 
+        height: 32.9%;
+        margin: 0.36% 0.3%;
+        overflow: hidden;
+    }
+
+    .modelList li img{
+        width:auto;
+        height:100%;
+    }
+}
+
+
+@media only screen and (min-device-height: 416px) and (max-device-height: 430px) and (orientation: portrait) {
+    .product li{
+        width:40%;
+    }
+}
+
+
+
 
 
