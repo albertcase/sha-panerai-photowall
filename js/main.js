@@ -3,7 +3,6 @@ var allDataVal = "";
 $(".loading").fadeIn();
 
 
-
 var dataId = {
 	"mId" : "",
 	"pId" : ""

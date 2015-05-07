@@ -500,9 +500,12 @@ html{
 }
 
 
-@media only screen and (min-device-height: 416px) and (max-device-height: 430px) and (orientation: portrait) {
+@media handheld and (min-height: 400px), screen and (max-height: 420px) {
     .product li{
-        width:40%;
+        text-align: center;
+    }
+    .product li img{
+        width: 67%;
     }
 }
 
