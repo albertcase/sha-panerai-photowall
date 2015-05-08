@@ -117,4 +117,3 @@ function wechatShare(timestamp_val,signature_val){
 }
 
 
-wechatFun();

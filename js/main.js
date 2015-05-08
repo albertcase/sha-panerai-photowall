@@ -1,6 +1,6 @@
 var shareData = {
-            title: 'coach 星尚人 -------- 890879078078907890',
-            desc: 'coach 星尚人 ------- 67',
+            title: 'coach 星尚人 -------- XX',
+            desc: 'coach 星尚人 ------- XX',
             link: window.location.host,
             imgUrl: 'http://' + window.location.host + '/images/logo.jpg'
 };
@@ -63,6 +63,8 @@ var dataId = {
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+dataId.mId+'.jpg'
                         };
 
+                        wechatFun();
+
 				    }
 
 			    });
@@ -91,6 +93,8 @@ var dataId = {
                                 link: window.location.host,
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+modelId+'.jpg'
                     };
+
+                    wechatFun();
 
 				})
 
