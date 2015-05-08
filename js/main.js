@@ -1,11 +1,11 @@
 var shareData = {
-            title: 'coach 星尚人 -------- XX',
-            desc: 'coach 星尚人 ------- XX',
+            title: '明星大咖来报道，谁是最养眼的COACH星尚人？',
+            desc: '明星大咖来报道，谁是最养眼的COACH星尚人？',
             link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/images/logo.jpg'
+            imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 };
 
-var LoadingImg = ["../images/share/1.jpg","../images/share/2.jpg","../images/share/3.jpg","../images/share/4.jpg","../images/share/6.jpg","../images/share/7.jpg","../images/share/8.jpg","../images/share/9.jpg","../images/share/10.jpg","../images/share/11.jpg","../images/share/12.jpg","../images/share/13.jpg","../images/share/14.jpg","../images/share/15.jpg","../images/share/16.jpg","../images/share/17.jpg","../images/share/18.jpg"],_doing;
+var LoadingImg = ["../images/share.jpg","../images/share/1.jpg","../images/share/2.jpg","../images/share/3.jpg","../images/share/4.jpg","../images/share/6.jpg","../images/share/7.jpg","../images/share/8.jpg","../images/share/9.jpg","../images/share/10.jpg","../images/share/11.jpg","../images/share/12.jpg","../images/share/13.jpg","../images/share/14.jpg","../images/share/15.jpg","../images/share/16.jpg","../images/share/17.jpg","../images/share/18.jpg"],_doing;
 var allDataVal = "";
 $(".loading").fadeIn();
 
@@ -188,3 +188,12 @@ addEventListener('load', function(){
     orientationChange();
     window.onorientationchange = orientationChange;
 });
+
+$(".shareTips").click(function(){
+    $(".wechatTips").show();
+})
+
+$(".wechatTips").click(function(){
+    $(this).hide();
+})
+
