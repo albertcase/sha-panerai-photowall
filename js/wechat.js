@@ -1,9 +1,4 @@
-var shareData = {
-            title: 'coach 星尚人 -------- ',
-            desc: 'coach 星尚人 -------',
-            link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/images/logo.jpg'
-};
+
 
 function wechatFun(){
     $.ajax({
