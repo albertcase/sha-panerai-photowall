@@ -1,6 +1,6 @@
 var shareData = {
-            title: 'coach 星尚人 -------- ',
-            desc: 'coach 星尚人 -------',
+            title: 'coach 星尚人 -------- 890879078078907890',
+            desc: 'coach 星尚人 ------- 67',
             link: window.location.host,
             imgUrl: 'http://' + window.location.host + '/images/logo.jpg'
 };
