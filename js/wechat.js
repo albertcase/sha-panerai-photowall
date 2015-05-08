@@ -99,6 +99,7 @@ function wechatShare(timestamp_val,signature_val){
         success: function () { 
             // 用户确认分享后执行的回调函数
 
+            alert(shareData.title);
             _hmt.push(['_trackEvent', 'share', 'SharewithFriends', 'ShareAppMessage']);
             window.location.href="form.html";
 

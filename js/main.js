@@ -1,4 +1,4 @@
-var LoadingImg = [],_doing;
+var LoadingImg = ["../images/share/1.jpg","../images/share/2.jpg","../images/share/3.jpg","../images/share/4.jpg","../images/share/5.jpg","../images/share/6.jpg","../images/share/7.jpg","../images/share/8.jpg","../images/share/9.jpg","../images/share/10.jpg","../images/share/11.jpg","../images/share/12.jpg","../images/share/13.jpg","../images/share/14.jpg","../images/share/15.jpg","../images/share/16.jpg","../images/share/17.jpg","../images/share/18.jpg"],_doing;
 var allDataVal = "";
 $(".loading").fadeIn();
 
@@ -47,6 +47,15 @@ var dataId = {
 			            $("#model-detail").fadeIn();
 			            dataId.mId = _doing.getQueryString();
 			            _doing.getModel(dataId.mId );
+
+                        var modelName = $(".swiper-slide-active").attr("data-name");
+                        shareData = {
+                                title: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
+                                desc: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
+                                link: window.location.host,
+                                imgUrl: 'http://' + window.location.host + '/images/share/'+dataId.mId+'.jpg'
+                        };
+
 				    }
 
 			    });
@@ -75,6 +84,7 @@ var dataId = {
                                 link: window.location.host,
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+modelId+'.jpg'
                     };
+
 				})
 
         	},
@@ -83,7 +93,7 @@ var dataId = {
         		$.map(allDataVal,function(v){
         			if(v.model_nid == modelId){
         				this.modelData = $.map(v.photo,function(bv){
-        					return '<div class="swiper-slide" data-id="'+bv.photo_nid+'"><img src="'+bv.pic_thumbnail+'"></div>';
+        					return '<div class="swiper-slide" data-id="'+bv.photo_nid+'" data-name="'+v.name+'"><img src="'+bv.pic_thumbnail+'"></div>';
         				});
         				$(".swiper-wrapper").html(this.modelData);
         				mySwiper.update();
