@@ -518,6 +518,10 @@ html{
     .product li img{
         width: 67%;
     }
+
+    #dreambox{
+        height:120%;
+    }
 }
 
 
