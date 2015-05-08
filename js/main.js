@@ -5,7 +5,7 @@ var shareData = {
             imgUrl: 'http://' + window.location.host + '/images/logo.jpg'
 };
 
-var LoadingImg = ["../images/share/1.jpg","../images/share/2.jpg","../images/share/3.jpg","../images/share/4.jpg","../images/share/5.jpg","../images/share/6.jpg","../images/share/7.jpg","../images/share/8.jpg","../images/share/9.jpg","../images/share/10.jpg","../images/share/11.jpg","../images/share/12.jpg","../images/share/13.jpg","../images/share/14.jpg","../images/share/15.jpg","../images/share/16.jpg","../images/share/17.jpg","../images/share/18.jpg"],_doing;
+var LoadingImg = ["../images/share/1.jpg","../images/share/2.jpg","../images/share/3.jpg","../images/share/4.jpg","../images/share/6.jpg","../images/share/7.jpg","../images/share/8.jpg","../images/share/9.jpg","../images/share/10.jpg","../images/share/11.jpg","../images/share/12.jpg","../images/share/13.jpg","../images/share/14.jpg","../images/share/15.jpg","../images/share/16.jpg","../images/share/17.jpg","../images/share/18.jpg"],_doing;
 var allDataVal = "";
 $(".loading").fadeIn();
 

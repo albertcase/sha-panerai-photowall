@@ -216,7 +216,7 @@ html{
     width:80%;
     position: absolute;
     left: 50%;
-    bottom: 4em;
+    bottom: 3.4em;
     margin: 0 0 0 -40%;
     text-align: center;
 }
@@ -228,7 +228,7 @@ html{
     background: #a09a8c;
     color:#fff;
     font-size: 16px;
-    margin: 2% 3%;
+    margin: 2.5% 3%;
     text-align: center;
     border-radius: 6px;
     -moz-box-shadow:-1px -1px 1px #837f76 inset;            
@@ -334,7 +334,7 @@ html{
 
 .footer{
     width: 100%;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 2em;
     text-align: center;
@@ -519,8 +519,12 @@ html{
         width: 67%;
     }
 
-    #dreambox{
-        height:120%;
+    .form_list{
+        margin: 0.8em 0 0 0;
+    }
+
+    .form_list, .form_list li{
+        padding: 2px 0;
     }
 }
 
