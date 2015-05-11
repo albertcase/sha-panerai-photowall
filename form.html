@@ -109,7 +109,9 @@ var checkForm = {
 	    }).done(function(data){
 	    	if(data.code == 1){
 	    		$(".form_btn").removeClass("disable").html("提 交");
-	    		alert("提交成功！");
+	    		/*alert("提交成功！");*/
+	    		location.href="index.html";
+
 	    	}
 	    }).fail(function() {
 	    	$(".form_btn").removeClass("disable").html("提 交");
