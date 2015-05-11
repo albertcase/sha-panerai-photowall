@@ -51,7 +51,7 @@ var dataId = {
 
 				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"){
 				    	$(".modelList").hide();
-			            $("#model-detail").fadeIn();
+			            
 			            dataId.mId = _doing.getQueryString();
 			            _doing.getModel(dataId.mId );
 
@@ -63,6 +63,7 @@ var dataId = {
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+dataId.mId+'.jpg'
                         };
 
+                        $("#model-detail").fadeIn();
                         wechatFun();
 
 				    }
