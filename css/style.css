@@ -346,10 +346,10 @@ html{
 
 .footer{
     width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 2em;
+    display:inline-block;
+    position: relative; 
     text-align: center;
+    margin-top: 2em;
 }
 
 .form_btn{
