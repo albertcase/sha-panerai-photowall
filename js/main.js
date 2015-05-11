@@ -49,7 +49,7 @@ var dataId = {
 				    loading(LoadingImg);
 				    _doing.getList(data);
                     wechatFun();
-                    
+
 				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"){
 				    	$(".modelList").hide();
 			            
@@ -64,6 +64,7 @@ var dataId = {
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+dataId.mId+'.jpg'
                         };
 
+                        _hmt.push(['_trackEvent', 'model', 'enter', modelName]);
                         $("#model-detail").fadeIn();
                         editShare();
 
@@ -79,8 +80,8 @@ var dataId = {
 
         		/* li点击事件 */
 				$(".modelList li").click(function(){
-					var modelId = $(this).attr("data-id");
-                    var modelName = $(this).attr("data-name");
+					var modelId = $(this).attr("data-id"); //明星id
+                    var modelName = $(this).attr("data-name"); //明星名字
 
 					if(modelId==5)return;
 					$(".modelList").hide();
@@ -95,7 +96,8 @@ var dataId = {
                                 link: window.location.host,
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+modelId+'.jpg'
                     };
-
+                    
+                    _hmt.push(['_trackEvent', 'list', 'click', modelName]);
                     $("#model-detail").fadeIn();
                     editShare();
 
