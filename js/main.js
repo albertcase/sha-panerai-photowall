@@ -54,7 +54,8 @@ var dataId = {
 				    	$(".modelList").hide();
 			            
 			            dataId.mId = _doing.getQueryString();
-
+                        $("#model-detail").fadeIn();
+                        _doing.getModel(dataId.mId );
                         var modelName = $(".swiper-slide-active").attr("data-name");
                         shareData = {
                                 title: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
@@ -64,8 +65,7 @@ var dataId = {
                         };
 
                         _hmt.push(['_trackEvent', 'model', 'enter', modelName]);
-                        $("#model-detail").fadeIn();
-                        _doing.getModel(dataId.mId );
+                        
                         editShare();
 
 				    }
