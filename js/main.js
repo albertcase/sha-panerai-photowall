@@ -54,7 +54,6 @@ var dataId = {
 				    	$(".modelList").hide();
 			            
 			            dataId.mId = _doing.getQueryString();
-			            _doing.getModel(dataId.mId );
 
                         var modelName = $(".swiper-slide-active").attr("data-name");
                         shareData = {
@@ -66,6 +65,7 @@ var dataId = {
 
                         _hmt.push(['_trackEvent', 'model', 'enter', modelName]);
                         $("#model-detail").fadeIn();
+                        _doing.getModel(dataId.mId );
                         editShare();
 
 				    }
@@ -87,9 +87,6 @@ var dataId = {
 					$(".modelList").hide();
 		            
 		            dataId.mId = modelId;
-		            history.pushState("/", null, "#"+modelId)
-		            _doing.getModel(modelId);
-
                     shareData = {
                                 title: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
                                 desc: '春夏最养眼的COACH星尚人——'+modelName+'，朋友你怎么看？',
@@ -99,6 +96,9 @@ var dataId = {
                     
                     _hmt.push(['_trackEvent', 'list', 'click', modelName]);
                     $("#model-detail").fadeIn();
+
+                    history.pushState("/", null, "#"+modelId)
+                    _doing.getModel(modelId);
                     editShare();
 
 				})
