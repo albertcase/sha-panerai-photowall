@@ -83,7 +83,7 @@ var dataId = {
 
 					if(modelId==5)return;
 					$(".modelList").hide();
-		            $("#model-detail").fadeIn();
+		            
 		            dataId.mId = modelId;
 		            history.pushState("/", null, "#"+modelId)
 		            _doing.getModel(modelId);
@@ -95,6 +95,7 @@ var dataId = {
                                 imgUrl: 'http://' + window.location.host + '/images/share/'+modelId+'.jpg'
                     };
 
+                    $("#model-detail").fadeIn();
                     wechatFun();
 
 				})
