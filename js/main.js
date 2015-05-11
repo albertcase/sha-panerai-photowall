@@ -48,7 +48,8 @@ var dataId = {
 
 				    loading(LoadingImg);
 				    _doing.getList(data);
-
+                    wechatFun();
+                    
 				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"){
 				    	$(".modelList").hide();
 			            
@@ -64,7 +65,7 @@ var dataId = {
                         };
 
                         $("#model-detail").fadeIn();
-                        wechatFun();
+                        editShare();
 
 				    }
 
@@ -96,7 +97,7 @@ var dataId = {
                     };
 
                     $("#model-detail").fadeIn();
-                    wechatFun();
+                    editShare();
 
 				})
 
