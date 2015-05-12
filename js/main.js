@@ -138,6 +138,10 @@ var dataId = {
 
 		_doing.allData();
 
+        $(".pageArr1").fadeOut(6000);
+
+
+
 
 	})
 })(jQuery);
