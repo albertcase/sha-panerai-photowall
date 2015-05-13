@@ -166,6 +166,7 @@ $(".close").click(function(){
             link: window.location.host,
             imgUrl: 'http://' + window.location.host + '/images/share.jpg'
     };
+    editShare();
     $(".modelList").fadeIn();
 	$("#model-detail").hide();
 	$(".swiper-wrapper").html("");
