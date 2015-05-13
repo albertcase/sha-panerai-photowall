@@ -132,15 +132,17 @@ html{
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-    background: url("../images/arr_r.png") center no-repeat;
-    background-size: auto 100%;
+    background: url("../images/right_btn.png") center no-repeat;
+    background-size: 100%;
+    width:50px;
     height:56px;
     margin-top: -28px;
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-    background: url("../images/arr_l.png") center no-repeat;
-    background-size: auto 100%;
+    background: url("../images/left_btn.png") center no-repeat;
+    background-size: 100%;
+    width:50px;
     height:56px;
     margin-top: -28px;
 }
@@ -215,7 +217,7 @@ html{
 }
 
 .pageArr{
-  width: 18%;
+  width: 60px;  
   position: absolute;
   left: 50%;
   bottom: 3.2em;
@@ -279,8 +281,8 @@ html{
 .close{
     width:67px;
     height: 67px;
-    background: url("../images/close1.png") no-repeat center;
-    background-size: 56% auto;
+    background: url("../images/back.png") no-repeat center;
+    background-size: 62% auto;
     position: absolute;
     right: 0.6em;
     top: 0.6em;
