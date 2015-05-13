@@ -160,7 +160,13 @@ var mySwiper = $('#swiper').swiper({
 
 /* 模特详细关闭 */
 $(".close").click(function(){
-	$(".modelList").fadeIn();
+	shareData = {
+            title: '明星大咖来报道，谁是最养眼的COACH星尚人？',
+            desc: '明星大咖来报道，谁是最养眼的COACH星尚人？',
+            link: window.location.host,
+            imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+    };
+    $(".modelList").fadeIn();
 	$("#model-detail").hide();
 	$(".swiper-wrapper").html("");
     $(".product").html("");
@@ -169,6 +175,7 @@ $(".close").click(function(){
     $(".m-page").eq(1).addClass("f-hide");
     car2.refresh();
     history.pushState("/", null, "#");
+    
 })
 
 
