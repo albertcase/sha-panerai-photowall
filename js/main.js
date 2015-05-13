@@ -50,7 +50,7 @@ var dataId = {
 				    _doing.getList(data);
                     wechatFun();
 
-				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"){
+				    if(_doing.getQueryString()&&_doing.getQueryString()!="#"&&Number(_doing.getQueryString())){
 				    	$(".modelList").hide();
 			            
 			            dataId.mId = _doing.getQueryString();
