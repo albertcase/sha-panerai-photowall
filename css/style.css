@@ -264,7 +264,8 @@ html{
 
 .btn{
     width:42%;
-    padding: 7px 0;
+    height:34px;
+    line-height: 34px;
     display: inline-block;
     background: #a09a8c;
     color:#fff;
