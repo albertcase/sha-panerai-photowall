@@ -568,6 +568,10 @@ html{
         padding: 2px 0;
     }
 }
+#model-detail .close{
+    display: none;
+
+}
 
 
 
