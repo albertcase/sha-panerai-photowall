@@ -19,7 +19,6 @@
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="js/imgsloaded.min.js"></script>
-
 </head>
 <body onload="loaded()">
 
@@ -64,79 +63,45 @@
 
 
 
-<div id="wrapper">
+<div id="wrapper" class="inside">
     <div id="scroller">
 
-        <div class="container">
+        <div class="inside_container">
 
-            <div class="prokv">
-                <img src="../imgs/p1.jpg" />
+            <div class="workInfo_Area">
+                <div class="wa_header">
+                    <span class="heart_icon">
+                        <img src="../imgs/heart_icon.png" width="100%" />
+                    </span> <em>13</em> <span class="wechat_name">Even</span>
+                </div>
+                <dl>
+                    <dt>
+                        <img src="../imgs/bpic.jpg" width="100%" />
+                    </dt>
+                    <dd>
+                        建筑是凝固的时间，它历经风雨洗礼。
+                    </dd>
+                </dl>
             </div>
-
-            <div class="proList">
-                <ul class="grid">
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                </ul>
-            </div>
+            
         </div>
 
     </div>
 
-    <a href="javascript:;" class="arr">
-        <img src="../imgs/arr.png" width="100%" />
+
+</div>
+
+
+<div id="footer">
+    <a href="javascript:;" class="upload_btn">
+         <img src="../imgs/upload_btn.jpg" width="100%" />
     </a>
 </div>
 
 
 
+
 <script type="text/javascript" src="js/public.js"></script>
-
-
-
-<script type="text/javascript">
-
-
-$(function(){
-      var grid = document.querySelector('.grid');
-
-      var msnry = new Masonry( grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true
-      });
-
-      imagesLoaded( grid, function() {
-        // layout Masonry after each image loads
-        msnry.layout();
-      });
-})
-    
-
-
-
-</script>
 
 
 
