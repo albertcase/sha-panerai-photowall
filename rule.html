@@ -17,10 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
-    <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/imgsloaded.min.js"></script>
 </head>
-<body onload="loaded()">
+<body>
 
 
 
@@ -63,8 +61,12 @@
 
 
 
-<div id="wrapper">
-    <div class="rule_pup">
+<div id="wrapp">
+    
+
+    <div id="scroller">
+
+        <div class="rulesection rule_pup">
         <h2>
             活动须知：
         </h2>
@@ -127,18 +129,42 @@
             奖项设置：
         </h2>
 
+        <ul class="rule_con">
+            <li>针对此活动，沛纳海设置以下奖项鼓励消费者参与活动：<br />
+                所有完整参与活动的客人均有机会获得沛纳海提供的意大利机票两张，机票具体规格为上海-佛罗伦萨-上海，商务舱，限获奖者一年内完成该次旅行，否则沛纳海将有权取消该项奖品。
+            </li>
+            <li>
+                意大利机票奖项由沛纳海选出最具代表性和最切合主题的作品，结果 
+     将于12月23日公布。最终结果由沛纳海拥有最终决定权，参加者不得   
+     异议。
+            </li>
+            <li>
+                意大利机票奖项获奖者将由沛纳海专员联络并安排奖品官方寄送事宜
+     具体领奖时间将由沛纳海官方通知。
+            </li>
+            <li>
+                若受货源或者其他不可抗力影响，领奖时间可能会相应推后，沛纳海
+     将会根据实际情况相应通知中奖者。
+            </li>
+        </ul>
+
+        <div class="rulefooter">
+            <a href="javascript:;" class="pupclose">
+                <img src="../imgs/close.png" width="100%" />
+            </a>
+        </div>
+        
     </div>
 
-    <div id="scroller">
 
-        <div class="inside_container rule_Area">
+        <div class="rulesection inside_container rule_Area" style="display:inline-block;">
 
                 <img src="../imgs/rule.png" width="100%" />
                 <img src="../imgs/ship.jpg" class="ship" />
 
                 <div class="provision_link">
                     <label><input type="checkbox" checked> 我同意遵守</label>
-                    <p>《 <a href="javascript:;">相关活动法律条款</a> 》</p>
+                    <p>《 <a href="javascript:;" class="provisionhot">相关活动法律条款</a> 》</p>
                 </div>
                 <a href="javascript:;" class="start_btn">
                      <img src="../imgs/start_btn.png" width="100%" />
@@ -155,7 +181,24 @@
 
 
 <script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    
+    $(".provisionhot").bind("touchstart", function (event) {
+        $(".rulesection").hide();
+        $(".rule_pup").show();
+        myScroll.refresh();
+        event.preventDefault(); 
+    });
 
+    $(".pupclose").bind("touchstart", function (event) {
+        $(".rulesection").hide();
+        $(".rule_Area").show();
+        myScroll.refresh();
+        event.preventDefault(); 
+    });
+    
+
+</script>
 
 
 </body>

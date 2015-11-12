@@ -17,9 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
-    <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/imgsloaded.min.js"></script>
-
 </head>
 <body>
 
@@ -61,84 +58,85 @@
 </div>
 
 
+<!-- 微信分享提示 -->
+<div class="wechatTips">
+    <img src="../imgs/wechat_tips.png" />
+    <a href="javascript:;" class="wechatTips_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+<!-- 二维码提示 -->
+<div class="qrcode">
+    <div class="qrcode_con">
+        <img src="../imgs/qrcode.png" width="100%" />
+    </div>
+
+    <a href="javascript:;" class="qrcode_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
 
 
 
 <div id="wrapp">
     <div id="scroller">
 
-        <div class="container">
+        <div class="inside_container">
 
-            <div class="prokv">
-                <img src="../imgs/p1.jpg" />
+            <div class="workInfo_Area">
+                <div class="wa_header">
+                    <span class="heart_icon">
+                        <img src="../imgs/heart_icon.png" width="100%" />
+                    </span> <em>13</em> <span class="wechat_name">Even</span>
+                </div>
+                <dl>
+                    <dt>
+                        <img src="../imgs/bpic.jpg" width="100%" />
+                    </dt>
+                    <dd>
+                        去年在法国有幸参观一个历史博物馆<br />
+当时拍下来一张最古代的钟表照片<br />
+历史的沉淀时时刻刻都在熏陶着我们
+                    </dd>
+                </dl>
             </div>
+            
 
-            <div class="proList">
-                <ul class="grid">
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                </ul>
+            <div class="infofooter">
+                <a href="javascript:;" class="timeline_btn">
+                     <img src="../imgs/timeline_btn.jpg" width="100%" />
+                </a>
             </div>
+            
+
         </div>
 
     </div>
 
-    <a href="javascript:;" class="arr">
-        <img src="../imgs/arr.png" width="100%" />
-    </a>
+
 </div>
+
 
 
 
 <script type="text/javascript" src="js/public.js"></script>
 
-
-
 <script type="text/javascript">
+    $(".timeline_btn").click(function(){
+        $(".wechatTips").show();
+    })
 
+    $(".wechatTips_close").click(function(){
+        $(".wechatTips").hide();
+    })
 
-$(function(){
-      var grid = document.querySelector('.grid');
-
-      var msnry = new Masonry( grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true
-      });
-
-      imagesLoaded( grid, function() {
-        // layout Masonry after each image loads
-        msnry.layout();
-      });
-})
-    
-
-
+    $(".qrcode_close").click(function(){
+        $(".qrcode").hide();
+    })
 
 </script>
-
-
 
 </body>
 </html>

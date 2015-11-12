@@ -17,9 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
-    <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/imgsloaded.min.js"></script>
-
 </head>
 <body>
 
@@ -67,75 +64,76 @@
 <div id="wrapp">
     <div id="scroller">
 
-        <div class="container">
+        <div class="upload_area">
 
-            <div class="prokv">
-                <img src="../imgs/p1.jpg" />
-            </div>
+            <div class="upload_area_con">
+                <dl>
+                    <dt>
+                        <div class="photoShow">
+                            <div class="upload_loading"></div>
+                            <input type="file" id="uploadPhoto">
+                            <section class="imgBox">
+                                <div class="shell"></div>
+                            </section>
+                        </div>
+                        <img src="../imgs/upload_area.jpg" width="100%" />
+                    </dt>
+                    <dd>
+                        <textarea maxlength="20" placeholder="|  添加20字以内的描述，解读你眼中的沛纳海"></textarea>
+                    </dd>
+                </dl>
 
-            <div class="proList">
-                <ul class="grid">
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item">
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                </ul>
+                <div class="upload_area_con_footer">
+                    <a href="javascript:;" class="upload_submitbtn">
+                         <img src="../imgs/upload_submitbtn.jpg" width="100%" />
+                    </a>
+                </div>
             </div>
+            
+            <img src="../imgs/upload_bg.jpg" width="100%" />
         </div>
+
 
     </div>
 
-    <a href="javascript:;" class="arr">
-        <img src="../imgs/arr.png" width="100%" />
-    </a>
+
 </div>
 
 
 
+<script type="text/javascript" src="js/dist/lrz.bundle.js"></script>
+<script type="text/javascript" src="js/ocanvas.js"></script>
+
 <script type="text/javascript" src="js/public.js"></script>
 
+<script type="text/javascript" src="js/main.js"></script>
 
 
 <script type="text/javascript">
+document.getElementById("uploadPhoto").addEventListener('change', function () {
+    $(".upload_loading").show();
+    var that = this;
+    lrz(that.files[0], {
+        quality: 1
+    })
+        .then(function (rst) {
+            var img        = new Image(),
+                div        = document.getElementById('imgPreview');
+            img.onload = function () {
+                imgCreat(rst.base64); 
+                $(".imgBox").show();
+            };
+
+            img.src = rst.base64;
+
+            return rst;
+        });
+});
 
 
-$(function(){
-      var grid = document.querySelector('.grid');
-
-      var msnry = new Masonry( grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true
-      });
-
-      imagesLoaded( grid, function() {
-        // layout Masonry after each image loads
-        msnry.layout();
-      });
-})
-    
-
-
-
+function toFixed2 (num) {
+    return parseFloat(+num.toFixed(2));
+}
 </script>
 
 
