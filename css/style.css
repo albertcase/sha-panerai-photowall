@@ -197,9 +197,17 @@ body{
 
 
 /* header */
+.head_phone{
+	width: 100%;
+}
+
 .logo{
-	width: 32%;
+	width: 20%;
 	display: inline-block;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin: 0 0 0 -10%;
 }
 
 .camera_icon{
@@ -296,6 +304,15 @@ body{
 .grid-item img {
   display: block;
   max-width: 100%;
+}
+
+.grid-item a{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
 }
 
 .prokv{
@@ -670,6 +687,11 @@ body{
 }
 
 /* swiper */
+/*.swiper-wrapper{
+	width: 100%;
+	display: inline-block;
+}*/
+
 .swiper-container {
     width: 100%;
     text-align: center;
@@ -759,3 +781,181 @@ body{
 	left: 6%;
 	top: 50%;
 }
+
+
+
+
+
+
+
+
+
+.head_ipad,.proinfo{
+	display: none;
+}
+
+
+/* ipad */
+
+@media only screen and (min-device-width: 750px) and (max-device-width: 1023px){
+	#header {
+		height: 18%;
+	}
+
+	#wrapp {
+		top: 18%;
+	}
+
+	.head_phone{
+		display: none;
+	}
+
+	.logo{
+		top: 20%;
+	}
+
+	.head_ipad{
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: inline-block;
+		border-top: 1px #262626 solid;
+		border-bottom: 1px #262626 solid;
+	}
+
+	.head_ipad li{
+		width: 50%;
+		float: left;
+		display: inline-block;
+		color: #fff;
+		height: 50px;
+		line-height: 50px;
+		font-size: 14px;
+		position: relative;
+	}
+
+	.head_ipad li.hover{
+		color: #fff1d3;
+	}
+
+	.head_ipad li.hover:after{
+		content:"";
+		height:0; 
+	    border-left:10px solid transparent;
+	    border-right:10px solid transparent;
+	    border-top:10px solid #1a1a1a;
+	    position: absolute;
+	    left: 50%;
+	    margin: 0 0 0 -10px;
+	    bottom: -10px;
+	}
+
+	.prokv{
+		display: none;
+	}
+
+	.proList li{
+		width: 32%;
+		margin: 0.6%;
+	}
+
+	.arr{
+		width: 9%;
+		margin: 0 0 0 -4.5%;
+	}
+
+	.proinfo{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 9;
+		background: #373530;
+		text-align: center;
+		display: none;
+	}
+
+	.inside_container{
+		margin: 10% 0 0 0;
+		font-size: 14px;
+	}
+
+	.workInfo_Area dt{
+		    margin: 4% 0 6% 0;
+	}
+
+	.heart_icon{
+		width: 4%;
+	}
+
+	.workInfo_Area dd{
+		line-height: 22px;
+	}
+
+	.proinfo_close{
+		width: 7%;
+		position: absolute;
+		right: 5%;
+		top: 3%;
+	}
+
+	.inside_container.products{
+		width: 100%;
+	}
+
+	.proImg img{
+		width: 36%;
+		margin: 0 0 0 4%;
+		display: inline-block;
+	}
+
+	.order_btn{
+		display: none;
+	}
+
+	#imgsSection{
+		display: inline-block;
+	}
+
+	.grid-item a{
+		display: none;
+	}
+}
+
+
+
+/* ipad横屏 */
+@media only screen and (min-device-width: 750px) and (max-device-width: 1023px) and (orientation :landscape) {
+	#header {
+		height: 25%;
+	}
+
+	#wrapp {
+		top: 25%;
+	}
+
+	.logo{
+		width:16%;
+		margin: 0 0 0 -8%;
+	}
+
+	.arr{
+		width: 6%;
+		margin: 0 0 0 -3%;
+	}
+
+	.proinfo_close{
+		width: 6%;
+	}
+}
+
+
+
+
+
+
+
+
+
