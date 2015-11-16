@@ -14,11 +14,13 @@
 	<meta name="Description" content="...">
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="js/imgsloaded.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
 
 </head>
 <body>
@@ -26,19 +28,30 @@
 
 
 <div id="header">
-    <div class="menu">
-        <div class="bit-1"></div>
-        <div class="bit-2"></div>
-        <div class="bit-3"></div>
-    </div>
 
     <a href="javascript:;" class="logo">
         <img src="../imgs/logo.png" width="100%" />
     </a>
 
-    <a href="javascript:;" class="camera_icon">
-        <img src="../imgs/camera_icon.png" />
-    </a>
+    <!-- phone -->
+    <div class="head_phone">
+        <div class="menu">
+            <div class="bit-1"></div>
+            <div class="bit-2"></div>
+            <div class="bit-3"></div>
+        </div>
+
+        <a href="rule.html" class="camera_icon">
+            <img src="../imgs/camera_icon.png" />
+        </a>
+    </div>
+
+    <!-- ipad -->
+    <ul class="head_ipad">
+        <li class="hover">臻品之墙</li>
+        <li>魅力时计</li>
+    </ul>
+    
 </div>
 
 
@@ -57,6 +70,9 @@
         <li>
             <a href="javascript:;" title="我与沛纳海">我与沛纳海</a>
         </li>
+        <li>
+            <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
+        </li>
     </ul>
 </div>
 
@@ -67,6 +83,117 @@
 <div id="wrapp">
     <div id="scroller">
 
+
+        <!-- 普通图片详情 -->
+        <div class="proinfo" id="imgsSection">
+            <a href="javascript:;" class="proinfo_close">
+                <img src="../imgs/ipad_close.png" width="100%" />
+            </a>
+            <div class="inside_container">
+                <div class="workInfo_Area">
+                    <div class="wa_header">
+                        <span class="heart_icon">
+                            <img src="../imgs/heart_icon.png" width="100%" />
+                        </span> <em>13</em> <span class="wechat_name">Even</span>
+                    </div>
+                    <dl>
+                        <dt>
+                            <img src="../imgs/bpic.jpg" width="100%" />
+                        </dt>
+                        <dd>
+                            去年在法国有幸参观一个历史博物馆<br />
+        当时拍下来一张最古代的钟表照片<br />
+        历史的沉淀时时刻刻都在熏陶着我们
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品图片详情 -->
+        <div class="proinfo" id="prosSection">
+            <a href="javascript:;" class="proinfo_close">
+                <img src="../imgs/ipad_close.png" width="100%" />
+            </a>
+            <div class="inside_container products">
+
+
+                    <!-- Swiper -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="proName" data-swiper-parallax="-160">
+                                    <h2>RADIOMIR 1940</h2>
+                                        PAM00575
+                                </div>
+                                <div class="proImg" data-swiper-parallax="-10">
+                                    <img src="../imgs/pro.png" />
+                                </div>
+                                <div class="proDescription" data-swiper-parallax="-120">
+                                    3日动力存储红金腕表-42MM
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="proName" data-swiper-parallax="-160">
+                                    <h2>RADIOMIR 1940</h2>
+                                        PAM00575
+                                </div>
+                                <div class="proImg" data-swiper-parallax="-10">
+                                    <img src="../imgs/pro.png" />
+                                </div>
+                                <div class="proDescription" data-swiper-parallax="-120">
+                                    3日动力存储红金腕表-42MM
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="proName" data-swiper-parallax="-160">
+                                    <h2>RADIOMIR 1940</h2>
+                                        PAM00575
+                                </div>
+                                <div class="proImg" data-swiper-parallax="-10">
+                                    <img src="../imgs/pro.png" />
+                                </div>
+                                <div class="proDescription" data-swiper-parallax="-120">
+                                    3日动力存储红金腕表-42MM
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="proName" data-swiper-parallax="-160">
+                                    <h2>RADIOMIR 1940</h2>
+                                        PAM00575
+                                </div>
+                                <div class="proImg" data-swiper-parallax="-10">
+                                    <img src="../imgs/pro.png" />
+                                </div>
+                                <div class="proDescription" data-swiper-parallax="-120">
+                                    3日动力存储红金腕表-42MM
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white">
+                            <img src="../imgs/right_arr.png" width="100%" />
+                        </div>
+                        <div class="swiper-button-prev swiper-button-white">
+                            <img src="../imgs/left_arr.png" width="100%" />
+                        </div>
+
+                    </div>
+
+
+
+
+                <div class="infofooter">
+                    <a href="javascript:;" class="order_btn">
+                         <img src="../imgs/order_btn.png" width="100%" />
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+
         <div class="container">
 
             <div class="prokv">
@@ -76,27 +203,35 @@
             <div class="proList">
                 <ul class="grid">
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
                     <li class="grid-item">
+                        <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
                 </ul>
@@ -134,6 +269,23 @@ $(function(){
 })
     
 
+var swiper = new Swiper('.swiper-container', {
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+    speed:900,
+    parallax : true,
+    grabCursor : true,
+    effect : 'coverflow',
+    centeredSlides: true,
+    coverflow: {
+        rotate: 30,
+        stretch: 10,
+        depth: 60,
+        modifier: 2,
+        slideShadows : false
+    }
+});
 
 
 </script>

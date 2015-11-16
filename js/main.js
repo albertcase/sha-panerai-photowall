@@ -80,7 +80,8 @@
 			imgCv=$('canvas');
 
 			imgCanvas = oCanvas.create({
-				canvas: imgCv[0]
+				canvas: imgCv[0],
+				background: "#1a1a1a"
 			});
 			imgPic = imgCanvas.display.image({
 				x:imgCv.width()/2,
@@ -88,6 +89,7 @@
 				origin: { x: "center", y: "center" },
 				image: this,
 			});
+
 			imgCanvas.addChild(imgPic);
 			imgStep=1;
 			imgRotation=0;
@@ -112,7 +114,7 @@
 	
 	//-------单指双指触控
 	function imgShell_touchstart(e){
-		e.preventDefault();
+		
 		if(event.touches.length==1){
 			mutiTouch=false;
 			posLast1=[event.touches[0].clientX,event.touches[0].clientY];
@@ -124,10 +126,10 @@
 			disLast=getDis(posLast1,posLast2);
 			degSt=degLast=getDeg(posLast1,posLast2);
 		}//end if
-		
+		e.preventDefault();
 	}//end func
 	function imgShell_touchmove(e){
-		e.preventDefault();
+		
 		if(!mutiTouch && event.touches.length==1){
 			var pos=[event.touches[0].clientX,event.touches[0].clientY];
 			e.data.obj.move(pos[0]-posLast1[0], pos[1]-posLast1[1]);
@@ -152,24 +154,29 @@
 			disLast=dis;
 			degLast=deg;
 		}//end if
+
+		e.preventDefault();
 	}//end func
 
 	function imgShell_touchend(e){
 		if(event.touches.length>=1) mutiTouch=true;
 		else mutiTouch=false;
+		e.preventDefault();
 	}//end func
 	
 	
 	//图片缩放
 	function imgScale_touchstart(e){
-		e.preventDefault();
+		
 		clearInterval(imgScaleTimer);
 		imgScaleTimer=setInterval(imgScaleFunc,33,e.data.obj,e.data.offset);
+		e.preventDefault();
 	}//end func
 	
 	function imgScale_touchend(e){
-		e.preventDefault();
+		
 		clearInterval(imgScaleTimer);
+		e.preventDefault();
 	}//end func
 	
 	function imgScaleFunc(obj,offset,speed){

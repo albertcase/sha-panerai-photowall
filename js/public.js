@@ -51,3 +51,31 @@ $("#wrapp").bind("click", function (event) {
     
 });
 
+
+
+function orientationChange() {
+    //alert(window.orientation);
+    myScroll.refresh();  
+};
+
+addEventListener('load', function(){
+    orientationChange();
+    window.onorientationchange = orientationChange;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

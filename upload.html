@@ -33,9 +33,9 @@
         <img src="../imgs/logo.png" width="100%" />
     </a>
 
-    <a href="javascript:;" class="camera_icon">
+    <!-- <a href="javascript:;" class="camera_icon">
         <img src="../imgs/camera_icon.png" />
-    </a>
+    </a> -->
 </div>
 
 
@@ -54,6 +54,9 @@
         <li>
             <a href="javascript:;" title="我与沛纳海">我与沛纳海</a>
         </li>
+        <li>
+            <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
+        </li>
     </ul>
 </div>
 
@@ -63,7 +66,6 @@
 
 <div id="wrapp">
     <div id="scroller">
-
         <div class="upload_area">
 
             <div class="upload_area_con">
@@ -79,7 +81,7 @@
                         <img src="../imgs/upload_area.jpg" width="100%" />
                     </dt>
                     <dd>
-                        <textarea maxlength="20" placeholder="|  添加20字以内的描述，解读你眼中的沛纳海"></textarea>
+                        <textarea maxlength="20" id="uploadContent" placeholder="|  添加20字以内的描述，解读你眼中的沛纳海"></textarea>
                     </dd>
                 </dl>
 
@@ -134,6 +136,32 @@ document.getElementById("uploadPhoto").addEventListener('change', function () {
 function toFixed2 (num) {
     return parseFloat(+num.toFixed(2));
 }
+
+var uploadData = {
+    "imgBase64": "",
+    "imgInfo": ""
+}
+
+$(".upload_submitbtn").click(function(){
+    var photoCanvas = $("#photoCanvas")[0], imgcontent = $("#uploadContent").val();
+        if(!photoCanvas)return false;
+        uploadData["imgBase64"] = photoCanvas.toDataURL({
+            format: 'png',
+            quality: 1
+        }).replace("data:image/png;base64,","");
+
+        uploadData["imgInfo"] = imgcontent;
+        
+        if(uploadData["imgBase64"] == ""){
+            alert("请先上传你认为最具特色的图片");
+        }else if(uploadData["imgInfo"] == ""){
+            alert("请输入20字以内的描述，解读你眼中的沛纳海");
+        }else{
+            console.log(uploadData);
+            window.location.href = "preview.html";
+        }
+
+})
 </script>
 
 
