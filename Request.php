@@ -6,7 +6,18 @@
 	$db = Pdb::getDb();
 	$tag = false;
 	if (isset($_POST['model'])) {
+
 		switch ($_POST['model']) {
+
+			case 'islogin':
+				if (!isset($_SESSION["user_id"])) {
+					print json_encode(array("code" => 0, "msg" => "未登录"));
+					exit;
+				}
+				print json_encode(array("code" => 1, "msg" => "已登录"));
+				exit;
+				break;
+
 			case 'oauth':
 				$url = isset($_POST['url']) ? $_POST['url']: $tag = true;
 				if($tag){
@@ -104,7 +115,7 @@
 				ImagePng($im, $fileName);
 				
 				//存储
-				$sql = "INSERT INTO photo SET type = 'user', uid = ". $_SESSION["user_id"]. ", url = ". $db->quote($fileName). ",created = ". time();
+				$sql = "INSERT INTO photo SET type = 'user', uid = ". $_SESSION["user_id"]. ", url = ". $db->quote($fileName). ",content = ". $db->quote($content). "created = ". time();
 				$db->execute($sql);
 				print json_encode(array("code"=>1,"msg"=>"提交成功"));
 				exit;
