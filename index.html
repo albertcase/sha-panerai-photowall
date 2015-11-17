@@ -201,7 +201,7 @@
             </div>
 
             <div class="proList">
-                <ul class="grid">
+                <ul class="grid" id="pl_list">
                     <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
@@ -238,6 +238,11 @@
             </div>
         </div>
 
+
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+
     </div>
 
     <a href="javascript:;" class="arr">
@@ -246,78 +251,9 @@
 </div>
 
 
-
-<script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript" src="js/interface.js"></script>
 
-
-<script type="text/javascript">
-
-
-$(function(){
-      var grid = document.querySelector('.grid');
-
-      var msnry = new Masonry( grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true
-      });
-
-      imagesLoaded( grid, function() {
-        // layout Masonry after each image loads
-        msnry.layout();
-      });
-})
-    
-
-var swiper = new Swiper('.swiper-container', {
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-    speed:900,
-    parallax : true,
-    grabCursor : true,
-    effect : 'coverflow',
-    centeredSlides: true,
-    coverflow: {
-        rotate: 30,
-        stretch: 10,
-        depth: 60,
-        modifier: 2,
-        slideShadows : false
-    }
-});
-
-
-
-
-$(".proList li").click(function(){
-    var curType = $(this).attr("data-type");
-    if($(this).find("a").is(":hidden")){
-        if(curType == "image"){
-            $(".proinfo").hide();
-            $("#imgsSection").show();
-        }else if(curType == "pro"){
-            $(".proinfo").hide();
-            $("#prosSection").show();
-            swiper.update();
-        }else{
-            alert("video")
-        }
-    }
-})
-
-
-$(".proinfo_close").click(function(){
-    $(".proinfo").hide();
-    //swiper.removeAllSlides();
-})
-
-
-
-
-</script>
-
-
+<script type="text/javascript" src="js/index.js"></script>
 
 </body>
 </html>

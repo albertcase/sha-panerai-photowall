@@ -105,13 +105,14 @@
 
 <script type="text/javascript" src="js/dist/lrz.bundle.js"></script>
 <script type="text/javascript" src="js/ocanvas.js"></script>
+<script type="text/javascript" src="js/interface.js"></script>
 
 <script type="text/javascript" src="js/public.js"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
 
-
 <script type="text/javascript">
+
 document.getElementById("uploadPhoto").addEventListener('change', function () {
     $(".upload_loading").show();
     var that = this;
@@ -137,31 +138,44 @@ function toFixed2 (num) {
     return parseFloat(+num.toFixed(2));
 }
 
-var uploadData = {
-    "imgBase64": "",
-    "imgInfo": ""
+
+// 保存图片
+var saveimgPushData = {
+    "image": "",
+    "content": ""
 }
 
 $(".upload_submitbtn").click(function(){
-    var photoCanvas = $("#photoCanvas")[0], imgcontent = $("#uploadContent").val();
-        if(!photoCanvas)return false;
-        uploadData["imgBase64"] = photoCanvas.toDataURL({
-            format: 'png',
-            quality: 1
-        }).replace("data:image/png;base64,","");
+    var photoCanvas = $("#photoCanvas")[0], imgcontent = $("#uploadContent").val(); 
 
-        uploadData["imgInfo"] = imgcontent;
-        
-        if(uploadData["imgBase64"] == ""){
-            alert("请先上传你认为最具特色的图片");
-        }else if(uploadData["imgInfo"] == ""){
+        if(!photoCanvas){
+            alert("请先上传你认为最具特色的图片");  
+        }else if(imgcontent == ""){
             alert("请输入20字以内的描述，解读你眼中的沛纳海");
         }else{
-            console.log(uploadData);
-            window.location.href = "preview.html";
+            saveimgPushData["image"] = photoCanvas.toDataURL({
+                format: 'png',
+                quality: 1
+            }).replace("data:image/png;base64,","");
+
+            saveimgPushData["content"] = imgcontent;
+
+            
+            ajaxfun("POST", "/Request.php?model=saveimg", saveimgPushData, "json", saveimgCallback);
+
         }
 
 })
+
+function saveimgCallback(data){
+    if(data.code == 1){
+        window.location.href = "preview.html";
+    }else{
+        alert(data.msg);
+    }
+} 
+
+
 </script>
 
 

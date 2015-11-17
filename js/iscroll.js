@@ -507,6 +507,8 @@ IScroll.prototype = {
 			this._execEvent('scrollStart');
 		}
 
+		this._execEvent('scrollMove');
+
 		this.moved = true;
 
 		this._translate(newX, newY);
@@ -1745,6 +1747,8 @@ Indicator.prototype = {
 		if ( !this.moved ) {
 			this.scroller._execEvent('scrollStart');
 		}
+
+		this._execEvent('scrollMove');
 
 		this.moved = true;
 

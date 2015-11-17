@@ -9,6 +9,11 @@
 
 		switch ($_POST['model']) {
 
+			case 'login':
+				$_SESSION["user_id"] = 1;
+				exit;
+				break;
+
 			case 'islogin':
 				if (!isset($_SESSION["user_id"])) {
 					print json_encode(array("code" => 0, "msg" => "未登录"));
@@ -83,7 +88,7 @@
 				fclose($handle);
 				$img = $folder. $filename;
 
-				$im = ImageCreateFromJpeg($img);
+				$im = ImageCreateFromPng($img);
 				imagefilter($im, IMG_FILTER_GRAYSCALE);
 				//imagefilter($im, IMG_FILTER_BRIGHTNESS, 70);
 				//imagefilter($im, IMG_FILTER_CONTRAST, 30);
@@ -115,7 +120,7 @@
 				ImagePng($im, $fileName);
 				
 				//存储
-				$sql = "INSERT INTO photo SET type = 'user', uid = ". $_SESSION["user_id"]. ", url = ". $db->quote($fileName). ",content = ". $db->quote($content). "created = ". time();
+				$sql = "INSERT INTO photo SET type = 'user', uid = ". $_SESSION["user_id"]. ", url = ". $db->quote($fileName). ",content = ". $db->quote($content). ", created = ". time();
 				$db->execute($sql);
 				print json_encode(array("code"=>1,"msg"=>"提交成功"));
 				exit;

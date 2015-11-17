@@ -1,3 +1,17 @@
+function iScrollClick(){
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+    if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+    if (/Silk/i.test(navigator.userAgent)) return false;
+    if (/Android/i.test(navigator.userAgent)) {
+       var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+       return parseFloat(s[0]+s[3]) < 44 ? false : true
+    }
+}
+
+
+
+
+
 
 function ajaxfun(ajaxType, ajaxUrl, ajaxData, ajaxDataType, ajaxCallback){
 	$.ajax({
@@ -17,24 +31,9 @@ var oauthPushData = {
 	"url": "index.html"
 };
 
-ajaxfun("GET", "/Request.php?model=oauth", oauthPushData, "json", "");
+//ajaxfun("GET", "/Request.php?model=oauth", oauthPushData, "json", "");
 
 
-// 保存图片
-var saveimgPushData = {
-	"image": "",
-	"content": ""
-};
-
-ajaxfun("POST", "/Request.php?model=oauth", saveimgPushData, "json", saveimgCallback);
-
-function saveimgCallback(data){
-	if(data.code == 1){
-		
-	}else{
-		console.log(data.msg);
-	}
-} 
 
 
 
