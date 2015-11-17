@@ -122,7 +122,7 @@
 				//存储
 				$sql = "INSERT INTO photo SET type = 'user', uid = ". $_SESSION["user_id"]. ", url = ". $db->quote($fileName). ",content = ". $db->quote($content). ", created = ". time();
 				$db->execute($sql);
-				print json_encode(array("code"=>1,"msg"=>"提交成功"));
+				print json_encode(array("code"=>1,"msg"=>$db->lastInsertId));
 				exit;
 				break;
 
