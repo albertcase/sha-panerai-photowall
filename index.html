@@ -21,7 +21,14 @@
     <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="js/imgsloaded.min.js"></script>
     <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript">
+        // 授权登录
+        var oauthPushData = {
+            "url": window.location.href
+        };
 
+        ajaxfun("GET", "/Request.php?model=oauth", oauthPushData, "json", "");
+    </script>
 </head>
 <body>
 
@@ -251,7 +258,7 @@
 </div>
 
 
-<script type="text/javascript" src="js/interface.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
 
 <script type="text/javascript" src="js/index.js"></script>
 

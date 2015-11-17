@@ -159,5 +159,30 @@ window.onload = loaded;
 
 
 
+// 图片列表
+var photolistPushData = {
+    "type": "",
+    "page": "",
+    "row": ""
+};
+
+ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
+
+function photolistCallback(data){
+    if(data.code == 1){
+        
+    }else{
+        console.log(data.msg);
+    }
+} 
+
+
+
+
+
+
+
+
+
 
 
