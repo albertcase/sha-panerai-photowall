@@ -915,9 +915,9 @@ body{
 		display: none;
 	}
 
-	#imgsSection{
+	/*#imgsSection{
 		display: inline-block;
-	}
+	}*/
 
 	.grid-item a{
 		display: none;

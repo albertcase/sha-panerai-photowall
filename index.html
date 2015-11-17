@@ -202,35 +202,35 @@
 
             <div class="proList">
                 <ul class="grid">
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="pro">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p3.jpg" />
                     </li>
-                    <li class="grid-item">
+                    <li class="grid-item" data-type="image">
                         <a href="workinfo.html"></a>
                         <img src="../imgs/p2.jpg" />
                     </li>
@@ -248,7 +248,7 @@
 
 
 <script type="text/javascript" src="js/public.js"></script>
-
+<script type="text/javascript" src="js/interface.js"></script>
 
 
 <script type="text/javascript">
@@ -286,6 +286,33 @@ var swiper = new Swiper('.swiper-container', {
         slideShadows : false
     }
 });
+
+
+
+
+$(".proList li").click(function(){
+    var curType = $(this).attr("data-type");
+    if($(this).find("a").is(":hidden")){
+        if(curType == "image"){
+            $(".proinfo").hide();
+            $("#imgsSection").show();
+        }else if(curType == "pro"){
+            $(".proinfo").hide();
+            $("#prosSection").show();
+            swiper.update();
+        }else{
+            alert("video")
+        }
+    }
+})
+
+
+$(".proinfo_close").click(function(){
+    $(".proinfo").hide();
+    //swiper.removeAllSlides();
+})
+
+
 
 
 </script>
