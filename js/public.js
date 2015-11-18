@@ -23,9 +23,6 @@ function ajaxfun(ajaxType, ajaxUrl, ajaxData, ajaxDataType, ajaxCallback){
 
 
 var myScroll;
-
-function loaded () {
-    
     myScroll = new IScroll('#wrapp', { 
         preventDefault:false,
         click:iScrollClick(), //调用判断函数
@@ -34,11 +31,10 @@ function loaded () {
         fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
     });
 
-}
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-window.onload = loaded;
+//window.onload = loaded;
 
 
 /* menu */
@@ -69,10 +65,8 @@ $("#wrapp").bind("click", function (event) {
 });
 
 
-
 function orientationChange() {
-    //alert(window.orientation);
-    myScroll.refresh();  
+    myScroll.refresh();
 };
 
 addEventListener('load', function(){
@@ -171,11 +165,6 @@ function wechatShare(timestamp_val,signature_val){
         success: function () {
             // 用户确认分享后执行的回调函数
 
-            _hmt.push(['_trackEvent', 'share', 'SharewithMonents', 'ShareTimeLine']);
-            if(_doing.getQueryString()!=""){
-                    window.location.href="form.html";
-            }
-            
             //alert('分享成功');
         },
         cancel: function () { 
@@ -193,10 +182,6 @@ function wechatShare(timestamp_val,signature_val){
         success: function () { 
             // 用户确认分享后执行的回调函数
 
-            _hmt.push(['_trackEvent', 'share', 'SharewithFriends', 'ShareAppMessage']);
-            if(_doing.getQueryString()!=""){
-               window.location.href="form.html";
-            }
 
             //alert('分享成功');
         },
@@ -224,10 +209,6 @@ function editShare(){   ///demon
             success: function () {
                 // 用户确认分享后执行的回调函数
 
-                _hmt.push(['_trackEvent', 'share', 'SharewithMonents', 'ShareTimeLine']);
-                if(_doing.getQueryString()!=""){
-                    window.location.href="form.html";
-                }
                 
                 //alert('分享成功');
             },
@@ -245,11 +226,6 @@ function editShare(){   ///demon
             desc: shareData.desc,
             success: function () { 
                 // 用户确认分享后执行的回调函数
-
-                _hmt.push(['_trackEvent', 'share', 'SharewithFriends', 'ShareAppMessage']);
-                if(_doing.getQueryString()!=""){
-                    window.location.href="form.html";
-                }
 
                 //alert('分享成功');
             },

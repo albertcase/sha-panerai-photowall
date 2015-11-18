@@ -61,14 +61,14 @@ $(".proinfo_close").click(function(){
 
 
 
-var myScroll,
-    pullUpEl, pullUpOffset;
+var myScroll, pullUpEl, pullUpOffset;
 
 
-function getItemElement(num) {
+function getItemElement(imgtype, imgid, imgurl) {
       var elem = document.createElement('li');
       elem.className = 'grid-item';
-      elem.innerHTML = '<a href="workinfo.html"></a><img src="../imgs/p'+num+'.jpg" />';
+      elem.setAttribute("data-type", imgtype);
+      elem.innerHTML = '<a href="workinfo.html?wid='+imgid+'"></a><img src="'+imgurl+'" />';
       return elem;
 }
 
@@ -100,7 +100,7 @@ function pullUpAction () {
 
 
 
-function loaded () {
+
     
     myScroll = new IScroll('#wrapp', { 
         preventDefault:false,
@@ -149,10 +149,10 @@ function loaded () {
     
 
 
-}
+
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-window.onload = loaded;
+
 
 
 
@@ -161,22 +161,44 @@ window.onload = loaded;
 
 // 图片列表
 var photolistPushData = {
-    "type": "",
-    "page": "",
-    "row": ""
+    "type": "all",  //all   user   home
+    "page": "1",  // 页数
+    "row": "10"    // 个数，默认10
 };
 
 ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
 
+
 function photolistCallback(data){
+    //console.log(data);
+    var elems = [];
+    var fragment = document.createDocumentFragment();
+
     if(data.code == 1){
+
+        $.map(data.msg, function(v, k){
+            var elem = getItemElement(v.type, v.id, v.url);
+                fragment.appendChild( elem );
+                elems.push( elem );
+            //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
+        })//.join("");
+
+
+        // append elements to container
+        grid.appendChild(fragment);
+        // add and lay out newly appended elements
+        msnry.appended(elems);
+        imagesLoaded( grid, function() {
+            // layout Masonry after each image loads
+            msnry.layout();
+            myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+        });
         
+
     }else{
         console.log(data.msg);
     }
 } 
-
-
 
 
 

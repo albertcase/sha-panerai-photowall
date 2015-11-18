@@ -27,7 +27,14 @@
             "url": window.location.href
         };
 
-        ajaxfun("GET", "/Request.php?model=oauth", oauthPushData, "json", "");
+        $.ajax({
+            type: "GET",
+            url: "/Request.php?model=oauth",
+            data: oauthPushData,
+            dataType: "json"
+        }).done(function(data){
+        })
+
     </script>
 </head>
 <body>
@@ -209,38 +216,7 @@
 
             <div class="proList">
                 <ul class="grid" id="pl_list">
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p2.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="pro">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p3.jpg" />
-                    </li>
-                    <li class="grid-item" data-type="image">
-                        <a href="workinfo.html"></a>
-                        <img src="../imgs/p2.jpg" />
-                    </li>
+                    <p>暂无内容</p>
                 </ul>
             </div>
         </div>
