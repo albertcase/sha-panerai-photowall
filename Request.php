@@ -72,7 +72,7 @@
 					print json_encode(array('code' => 3, 'msg' => '请上传图片'));
 					exit;
 				}
-				$filename = date('His') . rand(100,999) . '.png';
+				$filename = date('His') . rand(100,999) . '.jpg';
 
 				$folder = 'upload/base/'. date("Ymd"). '/';
 				if (!is_dir($folder)) {        	
@@ -88,7 +88,7 @@
 				fclose($handle);
 				$img = $folder. $filename;
 
-				$im = ImageCreateFromPng($img);
+				$im = ImageCreateFromJpeg($img);
 				imagefilter($im, IMG_FILTER_GRAYSCALE);
 				//imagefilter($im, IMG_FILTER_BRIGHTNESS, 70);
 				//imagefilter($im, IMG_FILTER_CONTRAST, 30);
