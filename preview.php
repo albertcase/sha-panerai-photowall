@@ -1,6 +1,7 @@
 <?php
     include_once('./config/database.php');
     include_once('./config/Pdb.php');
+    include_once('./config/emoji.php');
     $_POST = $_REQUEST;
     $db = Pdb::getDb();
     $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
@@ -10,10 +11,12 @@
     }
     $sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
     $result = $db->getRow($sql, true);
-    // if (!$result) {
-    //     Header("Location:/");
-    //     exit;
-    // }
+    if (!$result) {
+        Header("Location:/");
+        exit;
+    }
+    $name = json_decode($result['nickname'], true);
+    $result['nickname'] = emoji_unified_to_html($name['name']);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -32,6 +35,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/emoji.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
