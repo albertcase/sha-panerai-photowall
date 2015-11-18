@@ -99,14 +99,14 @@
 				$tpl = "imgs/mask.png";
 				$bgtpl = ImageCreateFromPng($tpl);
 				//imagefilter($bgtpl, IMG_FILTER_COLORIZE, 199, 186, 162);
-				//imagefilter($bgtpl, IMG_FILTER_BRIGHTNESS, 30);
-				//imagefilter($bgtpl, IMG_FILTER_CONTRAST, 0);
+				//imagefilter($bgtpl, IMG_FILTER_BRIGHTNESS, -50);
+				//imagefilter($bgtpl, IMG_FILTER_CONTRAST, 50);
 				list($widthtpl, $heighttpl) = getimagesize($tpl);
 
 				//相框合成到背景
 				imagecopyresized($im, $bgtpl, 0, 0, 0, 0, $widthbg, $heightbg, $widthtpl, $heighttpl); 
-				imagefilter($im, IMG_FILTER_GRAYSCALE);
-
+				//imagefilter($im, IMG_FILTER_COLORIZE, 0, 0, 0);
+				//imagefilter($im, IMG_FILTER_GRAYSCALE);
 				//生成图片
 				$folder = 'upload/gray/'.date("Ymd").'/';
 				if(!is_dir($folder)){        	
@@ -145,7 +145,7 @@
 				$totalSql = "select count(*) from photo where $where";
 				$total = $db->getOne($totalSql);
 				$totalpage = ceil($total/$row);
-				$sql = "select * from photo,user where photo.uid = user.id and $where order by id desc limit $pageIndex,$row";
+				$sql = "select * from photo,user where photo.uid = user.id and $where order by photo.id desc limit $pageIndex,$row";
 				$result = $db->getAll($sql, true);
 				include_once('./config/emoji.php');
 				for ($i = 0; $i < count($result); $i++) {

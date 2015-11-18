@@ -104,7 +104,41 @@
 
 <script type="text/javascript" src="js/public.js"></script>
 
+<script type="text/javascript">
 
+    // 获取作品
+    var photolistbyidPushData = {
+        "id": ""
+    };
+
+    ajaxfun("GET", "/Request.php?model=photolistbyid", photolistbyidPushData, "json", photolistbyidCallback);
+
+    function photolistbyidCallback(data){
+        if(data.code == 1){
+            
+        }else{
+            console.log(data.msg);
+        }
+    } 
+
+    // 投票
+    var ballotdPushData = {
+        "id": ""
+    };
+
+    //ajaxfun("POST", "/Request.php?model=ballotd", ballotdPushData, "json", ballotdCallback);
+
+    function ballotdCallback(data){
+        if(data.code == 1){
+            
+        }else{
+            console.log(data.msg);
+        }
+    } 
+
+
+    
+</script>
 
 </body>
 </html>
