@@ -106,28 +106,7 @@
 
 <script type="text/javascript">
     
-    function GetQueryString(name){
-    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if(r!=null)return unescape(r[2]); return null;
-    }
-
-    // 获取作品
-    var photolistbyidPushData = {
-        "id": GetQueryString("wid")
-    };
-
-    ajaxfun("GET", "/Request.php?model=photolistbyid", photolistbyidPushData, "json", photolistbyidCallback);
-
-    function photolistbyidCallback(data){
-        console.log(data);
-        if(data.code == 1){
-            
-        }else{
-            console.log(data.msg);
-        }
-    } 
-
+    
     // 投票
     var ballotdPushData = {
         "id": ""

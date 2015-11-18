@@ -172,7 +172,7 @@ $(".upload_submitbtn").click(function(){
 
 function saveimgCallback(data){
     if(data.code == 1){
-        //window.location.href = "preview.php";
+        window.location.href = "preview.php?id="+data.msg;
     }else{
         alert(data.msg);
     }
