@@ -145,7 +145,7 @@
 				$totalSql = "select count(*) from photo where $where";
 				$total = $db->getOne($totalSql);
 				$totalpage = ceil($total/$row);
-				$sql = "select * from photo,user where photo.uid = user.id and $where order by photo.id desc limit $pageIndex,$row";
+				$sql = "select a.*,b.nickname,b.headimgurl from photo,user where photo.uid = user.id and $where order by photo.id desc limit $pageIndex,$row";
 				$result = $db->getAll($sql, true);
 				include_once('./config/emoji.php');
 				for ($i = 0; $i < count($result); $i++) {
@@ -162,7 +162,7 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
-				$sql = "select * from photo,user where photo.uid = user.id and photo.id = ".$id;
+				$sql = "select a.*,b.nickname,b.headimgurl from photo,user where photo.uid = user.id and photo.id = ".$id;
 				$result = $db->getRow($sql, true);
 				print json_encode(array("code" => 1, "msg" => $result));
 				exit;
