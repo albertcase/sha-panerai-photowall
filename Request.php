@@ -164,6 +164,9 @@
 				}
 				$sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
 				$result = $db->getRow($sql, true);
+				include_once('./config/emoji.php');
+				$name = json_decode($result['nickname'], true);
+				$result['nickname'] = emoji_unified_to_html($name['name']);
 				print json_encode(array("code" => 1, "msg" => $result));
 				exit;
 				break;
