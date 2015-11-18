@@ -970,14 +970,13 @@ body{
  *
  */
 #pullDown, #pullUp {
-	background:#fff;
 	height:40px;
 	line-height:40px;
 	padding:5px 10px;
-	border-bottom:1px solid #ccc;
 	font-weight:bold;
 	font-size:14px;
 	color:#888;
+	display: none;
 }
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
 	display:block; float:left;

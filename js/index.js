@@ -1,3 +1,8 @@
+var workInfoData = {
+    "_totalpage":""
+}
+
+
 
 var grid = document.querySelector('.grid');
 
@@ -75,8 +80,12 @@ function getItemElement(imgtype, imgid, imgurl) {
 
 var curpageindex = 1;
 function pullUpAction () {
- 
+        
         curpageindex ++;
+
+        if(curpageindex >= workInfoData["_totalpage"]){
+            $("#pullUp").hide();
+        }
 
         // 图片列表
         var pull_photolistPushData = {
@@ -90,6 +99,7 @@ function pullUpAction () {
 
 
         function pull_photolistCallback(data){
+            workInfoData["_totalpage"] = data.totalpage;
             //console.log(data);
             var elems = [];
             var fragment = document.createDocumentFragment();
@@ -115,6 +125,7 @@ function pullUpAction () {
                     // layout Masonry after each image loads
                     msnry.layout();
                     myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+
                 });
                 
 
@@ -151,6 +162,8 @@ function pullUpAction () {
         pullUpOffset = pullUpEl.offsetHeight;
 
         myScroll.on('refresh', function () {
+            if(curpageindex >= workInfoData["_totalpage"]) return false;
+
             if (pullUpEl.className.match('loading')) {
                 pullUpEl.className = '';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
@@ -158,6 +171,8 @@ function pullUpAction () {
         });
 
         myScroll.on('scrollMove', function () {
+            if(curpageindex >= workInfoData["_totalpage"]) return false;
+
             if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
                 pullUpEl.className = 'flip';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
@@ -170,6 +185,7 @@ function pullUpAction () {
         });
 
         myScroll.on('scrollEnd', function () {
+
             if (pullUpEl.className.match('flip')) {
                 pullUpEl.className = 'loading';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
@@ -204,11 +220,17 @@ ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photo
 
 
 function photolistCallback(data){
+    workInfoData["_totalpage"] = data.totalpage;
+
     //console.log(data);
     var elems = [];
     var fragment = document.createDocumentFragment();
 
     if(data.code == 1){
+
+        if(data.totalpage >1){
+            $("#pullUp").show();
+        }
 
         $.map(data.msg, function(v, k){
             var elem = getItemElement(v.type, v.id, v.url);

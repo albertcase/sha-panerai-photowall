@@ -81,7 +81,7 @@
 
 			imgCanvas = oCanvas.create({
 				canvas: imgCv[0],
-				background: "#1a1a1a"
+				//background: "#1a1a1a"
 			});
 			imgPic = imgCanvas.display.image({
 				x:imgCv.width()/2,

@@ -113,6 +113,12 @@
 
 <script type="text/javascript">
 
+// 保存图片
+var saveimgPushData = {
+    "image": "",
+    "content": ""
+}
+
 document.getElementById("uploadPhoto").addEventListener('change', function () {
     $(".upload_loading").show();
     var that = this;
@@ -125,6 +131,8 @@ document.getElementById("uploadPhoto").addEventListener('change', function () {
             img.onload = function () {
                 imgCreat(rst.base64); 
                 $(".imgBox").show();
+                var uimgURL = rst.base64;
+                saveimgPushData["image"] = uimgURL.replace("data:image/jpeg;base64,","");
             };
 
             img.src = rst.base64;
@@ -139,27 +147,22 @@ function toFixed2 (num) {
 }
 
 
-// 保存图片
-var saveimgPushData = {
-    "image": "",
-    "content": ""
-}
-
 $(".upload_submitbtn").click(function(){
-    var photoCanvas = $("#photoCanvas")[0], imgcontent = $("#uploadContent").val(); 
+    var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
 
-        if(!photoCanvas){
+        if(saveimgPushData["image"] == ""){
             alert("请先上传你认为最具特色的图片");  
         }else if(imgcontent == ""){
             alert("请输入20字以内的描述，解读你眼中的沛纳海");
         }else{
-            saveimgPushData["image"] = photoCanvas.toDataURL({
-                format: 'png',
-                quality: 1
-            }).replace("data:image/png;base64,","");
+            // saveimgPushData["image"] = photoCanvas.toDataURL({
+            //     format: 'png',
+            //     quality: 1
+            // }).replace("data:image/png;base64,","");
 
             saveimgPushData["content"] = imgcontent;
 
+            console.log(saveimgPushData);
             
             ajaxfun("POST", "/Request.php?model=saveimg", saveimgPushData, "json", saveimgCallback);
 
