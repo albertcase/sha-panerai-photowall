@@ -73,7 +73,8 @@ function getItemElement(imgtype, imgid, imgurl) {
       var elem = document.createElement('li');
       elem.className = 'grid-item';
       elem.setAttribute("data-type", imgtype);
-      elem.innerHTML = '<a href="workinfo.html?wid='+imgid+'"></a><img src="'+imgurl+'" />';
+      elem.setAttribute("data-id", imgid);
+      elem.innerHTML = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       return elem;
 }
 
@@ -216,6 +217,8 @@ var photolistPushData = {
     "row": "10"    // 个数，默认10
 };
 
+
+$(".loading").show();
 ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
 
 
@@ -248,6 +251,7 @@ function photolistCallback(data){
             // layout Masonry after each image loads
             msnry.layout();
             myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+            $(".loading").hide();
         });
         
 

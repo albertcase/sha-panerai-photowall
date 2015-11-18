@@ -147,7 +147,6 @@ function toFixed2 (num) {
 
 
 $(".upload_submitbtn").click(function(){
-    $(".loading").show();
     var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
 
         if(saveimgPushData["image"] == ""){
@@ -159,11 +158,8 @@ $(".upload_submitbtn").click(function(){
             //     format: 'png',
             //     quality: 1
             // }).replace("data:image/png;base64,","");
-
-            saveimgPushData["content"] = imgcontent;
-
-            console.log(saveimgPushData);
-            
+            $(".loading").show();
+            saveimgPushData["content"] = imgcontent;            
             ajaxfun("POST", "/Request.php?model=saveimg", saveimgPushData, "json", saveimgCallback);
 
         }

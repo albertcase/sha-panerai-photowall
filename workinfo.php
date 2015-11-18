@@ -133,11 +133,20 @@
         "id": "<?php echo $id;?>"
     };
 
-    //ajaxfun("POST", "/Request.php?model=ballotd", ballotdPushData, "json", ballotdCallback);
+    $(".heart_icon").click(function(){
+        
+        if($(this).hasClass("hover")) return false;
+
+        $(this).addClass("hover");
+        
+        ajaxfun("POST", "/Request.php?model=ballot", ballotdPushData, "json", ballotdCallback);
+    })
 
     function ballotdCallback(data){
+        var curPraise = $(".heart_icon").siblings("em").html();
         if(data.code == 1){
-            
+            $(".heart_icon").siblings("em").html(parseInt(curPraise)+1);
+            alert("点赞成功！");
         }else{
             console.log(data.msg);
         }

@@ -185,6 +185,7 @@ body{
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	width: 100%;
+	min-height: 100%;
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
 	-ms-transform: translateZ(0);
@@ -305,6 +306,10 @@ body{
 	display: inline-block;
 }
 
+.grid{
+	padding: 0 0 10px 0;
+	display: inline-block;
+}
 /* clear fix */
 .grid:after {
   content: '';
@@ -393,6 +398,11 @@ body{
 .wechat_name{
 	display: inline-block;
 	margin: 0 0 0 9px;
+}
+
+.wechat_name span{
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .infofooter{
