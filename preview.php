@@ -1,3 +1,20 @@
+<?php
+    include_once('./config/database.php');
+    include_once('./config/Pdb.php');
+    $_POST = $_REQUEST;
+    $db = Pdb::getDb();
+    $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    if (!$id) {
+        Header("Location:/");
+        exit;
+    }
+    $sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
+    $result = $db->getRow($sql, true);
+    // if (!$result) {
+    //     Header("Location:/");
+    //     exit;
+    // }
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -92,16 +109,14 @@
                 <div class="wa_header">
                     <span class="heart_icon">
                         <img src="../imgs/heart_icon.png" width="100%" />
-                    </span> <em>13</em> <span class="wechat_name">Even</span>
+                    </span> <em><?php echo $result['ballot']?></em> <span class="wechat_name"><?php echo $result['nickname']?></span>
                 </div>
                 <dl>
                     <dt>
-                        <img src="../imgs/bpic.jpg" width="100%" />
+                        <img src="<?php echo $result['url']?>" width="100%" />
                     </dt>
                     <dd>
-                        去年在法国有幸参观一个历史博物馆<br />
-当时拍下来一张最古代的钟表照片<br />
-历史的沉淀时时刻刻都在熏陶着我们
+                        <?php echo $result['content']?>
                     </dd>
                 </dl>
             </div>
