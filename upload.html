@@ -20,8 +20,6 @@
 </head>
 <body>
 
-
-
 <div id="header">
     <div class="menu">
         <div class="bit-1"></div>
@@ -65,6 +63,8 @@
 
 
 <div id="wrapp">
+    <div class="loading"></div>
+
     <div id="scroller">
         <div class="upload_area">
 
@@ -147,6 +147,7 @@ function toFixed2 (num) {
 
 
 $(".upload_submitbtn").click(function(){
+    $(".loading").show();
     var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
 
         if(saveimgPushData["image"] == ""){
@@ -175,6 +176,9 @@ function saveimgCallback(data){
     }else{
         alert(data.msg);
     }
+
+    $(".loading").hide();
+
 } 
 
 
