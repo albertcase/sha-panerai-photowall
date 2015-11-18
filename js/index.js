@@ -73,23 +73,57 @@ function getItemElement(imgtype, imgid, imgurl) {
 }
 
 
+var curpageindex = 1;
 function pullUpAction () {
+ 
+        curpageindex ++;
 
-       // create new item elements
-        var elems = [];
-        var fragment = document.createDocumentFragment();
-        for ( var i = 0; i < 3; i++ ) {
-          var elem = getItemElement(i);
-          fragment.appendChild( elem );
-          elems.push( elem );
-        }
+        // 图片列表
+        var pull_photolistPushData = {
+            "type": "all",  //all   user   home
+            "page": curpageindex,  // 页数
+            "row": "10"    // 个数，默认10
+        };
 
-        // append elements to container
-        grid.appendChild( fragment );
-        // add and lay out newly appended elements
-        msnry.appended( elems );
+        ajaxfun("POST", "/Request.php?model=photolist", pull_photolistPushData, "json", pull_photolistCallback);
 
-        myScroll.refresh();     // 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (
+
+
+        function pull_photolistCallback(data){
+            //console.log(data);
+            var elems = [];
+            var fragment = document.createDocumentFragment();
+
+            if(data.code == 1){
+                if(data.msg == ""){
+                    console.log("没有更多的作品了哦，马上去上传自己的作品");
+                    //return false;
+                };
+                $.map(data.msg, function(v, k){
+                    var elem = getItemElement(v.type, v.id, v.url);
+                        fragment.appendChild( elem );
+                        elems.push( elem );
+                    //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
+                })//.join("");
+
+
+                // append elements to container
+                grid.appendChild(fragment);
+                // add and lay out newly appended elements
+                msnry.appended(elems);
+                imagesLoaded( grid, function() {
+                    // layout Masonry after each image loads
+                    msnry.layout();
+                    myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                });
+                
+
+            }else{
+                console.log(data.msg);
+            }
+        } 
+
+
 }
 
 
