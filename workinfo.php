@@ -18,12 +18,7 @@
     }
     $name = json_decode($result['nickname'], true);
     $result['nickname'] = emoji_unified_to_html($name['name']);
-    if (!isset($_SESSION['ad'])) {
-        $_SESSION['ad'] = 1;
-        $ad = 1;
-    } else {
-        $ad = 0;  
-    }
+    
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -94,7 +89,11 @@
 
 <div id="wrapp">
     <div id="scroller">
-        <div class="activeTips">
+        <?php
+        if (!isset($_SESSION['ad'])) {
+            $_SESSION['ad'] = 1;
+        ?>
+         <div class="activeTips">
             <img src="../imgs/ruleTips.png" class="ruleTipsContent" />
 
             <div class="rulefooter">
@@ -103,6 +102,10 @@
                 </a>
             </div>
         </div>
+        <?php
+        }
+        ?>
+       
 
         <div class="inside_container">
 
