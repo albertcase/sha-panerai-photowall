@@ -90,6 +90,7 @@
 <div id="wrapp">
     <div id="scroller">
         <?php
+        //unset($_SESSION['ad']);
         if (!isset($_SESSION['ad'])) {
             $_SESSION['ad'] = 1;
         ?>
