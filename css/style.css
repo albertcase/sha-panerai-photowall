@@ -10,7 +10,7 @@ body{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0,0.8) url("../imgs/loading.gif") no-repeat center;
+	background: rgba(0,0,0,1) url("../imgs/loading.gif") no-repeat center;
 	z-index: 100;
 	display: none;
 }
@@ -889,23 +889,41 @@ body{
 
 	.proinfo{
 		width: 100%;
-		height: 100%;
+		height: 82%;
 		position: absolute;
 		left: 0;
-		top: 0;
+		top: 19%;
 		z-index: 9;
 		background: #373530;
 		text-align: center;
 		display: none;
 	}
 
+	.proPup_con{
+		width: 100%;
+		height: 90%;
+		margin: 5% 0;
+		overflow: auto;
+	}
+
 	.inside_container{
-		margin: 10% 0 0 0;
+		margin: 0 0 0 0;
+		height: 100%;
 		font-size: 14px;
 	}
 
+	.workInfo_Area{
+		height: 100%;
+	}
+
+	.workInfo_Area dl{
+		height: 96%;
+	}
+
 	.workInfo_Area dt{
-		    margin: 4% 0 6% 0;
+		margin: 4% 0 4% 0;
+		max-height: 86%;
+		overflow: auto;
 	}
 
 	.heart_icon{
@@ -914,13 +932,14 @@ body{
 
 	.workInfo_Area dd{
 		line-height: 22px;
+		font-size: 16px;
 	}
 
 	.proinfo_close{
 		width: 7%;
 		position: absolute;
 		right: 5%;
-		top: 3%;
+		top: 2%;
 	}
 
 	.inside_container.products{
@@ -971,6 +990,32 @@ body{
 	.proinfo_close{
 		width: 6%;
 	}
+
+	.proinfo{
+		width: 100%;
+		height: 75%;
+		position: absolute;
+		left: 0;
+		top: 27%;
+		z-index: 9;
+		background: #373530;
+		text-align: center;
+		display: none;
+	}
+
+	.proPup_con{
+		width: 100%;
+		height: 90%;
+		margin: 5% 0;
+	}
+
+	.workInfo_Area dl{
+		height: 80%;
+	}
+
+	.workInfo_Area dt{
+		margin: 3% 0 3% 0;
+	}
 }
 
 
@@ -991,7 +1036,7 @@ body{
  * 下拉样式 Pull down styles
  *
  */
-#pullDown, #pullUp {
+#pullUp {
 	height:40px;
 	line-height:40px;
 	padding:5px 10px;
@@ -1000,22 +1045,19 @@ body{
 	color:#888;
 	display: none;
 }
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-	display:block; float:left;
-	width:40px; height:40px;
+#pullUp .pullUpIcon  {
+	display: inline-block; 
+	width:40px; 
+	height:40px;
 	background:url("../imgs/pull-icon.png") 0 0 no-repeat;
-	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-background-size:40px 80px; 
+	background-size:40px 80px;
 	-webkit-transition-property:-webkit-transform;
 	-webkit-transition-duration:250ms;	
-}
-#pullDown .pullDownIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
-}
-#pullUp .pullUpIcon  {
-	-webkit-transform:rotate(-180deg) translateZ(0);
+	vertical-align: middle;
 }
 
-#pullDown.flip .pullDownIcon {
+#pullUp .pullUpIcon  {
 	-webkit-transform:rotate(-180deg) translateZ(0);
 }
 
@@ -1023,7 +1065,7 @@ body{
 	-webkit-transform:rotate(0deg) translateZ(0);
 }
 
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+#pullUp.loading .pullUpIcon {
 	background-position:0 100%;
 	-webkit-transform:rotate(0deg) translateZ(0);
 	-webkit-transition-duration:0ms;

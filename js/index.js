@@ -2,6 +2,8 @@ var workInfoData = {
     "_totalpage":""
 }
 
+var ismoveDisable = false;
+
 
 
 var grid = document.querySelector('.grid');
@@ -38,35 +40,7 @@ var swiper = new Swiper('.swiper-container', {
 
 
 
-
-$(".proList li").click(function(){
-    var curType = $(this).attr("data-type");
-    if($(this).find("a").is(":hidden")){
-        if(curType == "image"){
-            $(".proinfo").hide();
-            $("#imgsSection").show();
-        }else if(curType == "pro"){
-            $(".proinfo").hide();
-            $("#prosSection").show();
-            swiper.update();
-        }else{
-            alert("video")
-        }
-    }
-})
-
-
-$(".proinfo_close").click(function(){
-    $(".proinfo").hide();
-    //swiper.removeAllSlides();
-})
-
-
-
-
-
-
-var myScroll, pullUpEl, pullUpOffset;
+var pullUpEl, pullUpOffset;
 
 
 function getItemElement(imgtype, imgid, imgurl) {
@@ -148,13 +122,13 @@ function pullUpAction () {
 
 
     
-    myScroll = new IScroll('#wrapp', { 
-        preventDefault:false,
-        click:iScrollClick(), //调用判断函数
-        scrollbars: false,//有滚动条
-        mouseWheel: true,//允许滑轮滚动
-        fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
-    });
+    // myScroll = new IScroll('#wrapp', { 
+    //     preventDefault:false,
+    //     click:iScrollClick(), //调用判断函数
+    //     scrollbars: false,//有滚动条
+    //     mouseWheel: true,//允许滑轮滚动
+    //     fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
+    // });
 
     
     if(document.getElementById('pullUp')){
@@ -163,7 +137,7 @@ function pullUpAction () {
         pullUpOffset = pullUpEl.offsetHeight;
 
         myScroll.on('refresh', function () {
-            if(curpageindex >= workInfoData["_totalpage"]) return false;
+            if(curpageindex >= workInfoData["_totalpage"] || ismoveDisable) return false;
 
             if (pullUpEl.className.match('loading')) {
                 pullUpEl.className = '';
@@ -172,7 +146,7 @@ function pullUpAction () {
         });
 
         myScroll.on('scrollMove', function () {
-            if(curpageindex >= workInfoData["_totalpage"]) return false;
+            if(curpageindex >= workInfoData["_totalpage"] || ismoveDisable) return false;
 
             if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
                 pullUpEl.className = 'flip';
@@ -197,12 +171,6 @@ function pullUpAction () {
     } 
     
 
-    
-
-
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
 
 
 
@@ -226,7 +194,7 @@ function photolistCallback(data){
     workInfoData["_totalpage"] = data.totalpage;
 
     //console.log(data);
-    var elems = [];
+    var elems = [],allImgLoading = [];
     var fragment = document.createDocumentFragment();
 
     if(data.code == 1){
@@ -238,6 +206,7 @@ function photolistCallback(data){
         $.map(data.msg, function(v, k){
             var elem = getItemElement(v.type, v.id, v.url);
                 fragment.appendChild( elem );
+                //allImgLoading.push();
                 elems.push( elem );
             //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
         })//.join("");

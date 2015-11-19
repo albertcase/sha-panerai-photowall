@@ -160,22 +160,6 @@
 
 
 
-
-    // 投票
-    var ballotdPushData = {
-        "id": ""
-    };
-
-    //ajaxfun("POST", "/Request.php?model=ballotd", ballotdPushData, "json", ballotdCallback);
-
-    function ballotdCallback(data){
-        if(data.code == 1){
-            
-        }else{
-            console.log(data.msg);
-        }
-    } 
-
 </script>
 
 </body>
