@@ -94,6 +94,15 @@
 
 <div id="wrapp">
     <div id="scroller">
+        <div class="activeTips">
+            <img src="../imgs/ruleTips.png" class="ruleTipsContent" />
+
+            <div class="rulefooter">
+                <a href="javascript:;" class="pupclose">
+                    <img src="../imgs/close.png" width="100%" />
+                </a>
+            </div>
+        </div>
 
         <div class="inside_container">
 
@@ -159,6 +168,10 @@
         }
     } 
 
+    $(".pupclose").click(function(){
+        $(".activeTips").hide();
+    })
+    
 
     
 </script>

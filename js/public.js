@@ -31,8 +31,8 @@ var myScroll;
         fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
     });
 
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 //window.onload = loaded;
 
