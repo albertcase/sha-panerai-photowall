@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once('./config/database.php');
     include_once('./config/Pdb.php');
     include_once('./config/emoji.php');
@@ -17,6 +18,12 @@
     }
     $name = json_decode($result['nickname'], true);
     $result['nickname'] = emoji_unified_to_html($name['name']);
+    if (!isset($_SESSION['ad'])) {
+        $_SESSION['ad'] = 1;
+        $ad = 1;
+    } else {
+        $ad = 0;  
+    }
 ?>
 <!DOCTYPE HTML>
 <html>
