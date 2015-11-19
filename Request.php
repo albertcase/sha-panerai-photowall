@@ -14,6 +14,16 @@
 				exit;
 				break;
 
+			case 'ad':
+				if (!isset($_SESSION['ad'])) {
+					$_SESSION['ad'] = 1;
+					print json_encode(array("code" => 1, "msg" => "弹出广告"));
+					exit;
+				}
+				print json_encode(array("code" => 0, "msg" => "隐藏广告"));
+				exit;
+				break;
+
 			case 'islogin':
 				if (!isset($_SESSION["user_id"])) {
 					print json_encode(array("code" => 0, "msg" => "未登录"));
