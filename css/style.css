@@ -356,6 +356,24 @@ body{
 
 
 /* workinfo */
+
+.activeTips{
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9;
+	background: rgba(0,0,0,0.9);
+	display: none;
+}
+
+.ruleTipsContent{
+	width: 76%;
+	display: inline-block;
+	margin: 12% 0 6% 0;
+}
+
 .upload_btn, .timeline_btn,.order_btn{
 	width: 52%;
 	display: inline-block;
