@@ -106,7 +106,7 @@ function pullUpAction () {
                     });
                        
                 } , function (p){
-                    console.log(p+"%");
+                    //console.log(p+"%");
                 });
 
 
@@ -231,7 +231,7 @@ function photolistCallback(data){
             });
                
         } , function (p){
-            console.log(p+"%");
+            //console.log(p+"%");
         });
 
 
