@@ -45,20 +45,23 @@ $(".menu").click(function(){
         $(this).removeClass("open");
         $(".menuArea").stop().animate({"left": "-76%"});
         $("#wrapp").stop().animate({"left": "0"});
+        $(".disable").hide();
     }else{
         $(this).addClass("open");
         $(".menuArea").stop().animate({"left": "0%"});
         $("#wrapp").stop().animate({"left": "76%"});
+        $(".disable").show();
     }
 
 })
 
 
-$("#wrapp").bind("click", function (event) {
+$(".disable").bind("touchstart", function (event) {
     if($(".menu").hasClass("open")){
         $(".menu").removeClass("open");
         $(".menuArea").stop().animate({"left": "-76%"});
         $("#wrapp").stop().animate({"left": "0"});
+        $(".disable").hide();
         event.preventDefault(); 
     }
     
