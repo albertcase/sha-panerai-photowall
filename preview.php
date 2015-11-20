@@ -65,7 +65,7 @@
     <!-- ipad -->
     <ul class="head_ipad">
         <li class="hover"><a href="index.html?type=all">臻品之墙</a></li>
-        <li href="index.html?type=pic">魅力时计</li>
+        <li href="index.html?type=home">魅力时计</li>
     </ul>
     
 </div>
@@ -81,7 +81,7 @@
             <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
         </li>
         <li>
-            <a href="index.html?type=pic" title="魅力时计">魅力时计</a>
+            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
         </li>
         <li>
             <a href="index.html?type=user" title="我与沛纳海">我与沛纳海</a>
