@@ -1,6 +1,8 @@
 body{
 	background: #373530;
 	font-size: 12px;
+	width: 100%;
+	overflow: hidden;
 }
 
 
@@ -881,7 +883,7 @@ body{
 		position: relative;
 	}
 
-	.head_ipad li.hover{
+	.head_ipad li.hover, .head_ipad li.hover a{
 		color: #fff1d3;
 	}
 
