@@ -884,7 +884,11 @@ body{
 		position: relative;
 	}
 
-	.head_ipad li.hover, .head_ipad li a, .head_ipad li.hover a{
+	.head_ipad li a{
+		color: #fff;
+	}
+
+	.head_ipad li.hover, .head_ipad li.hover a{
 		color: #fff1d3;
 	}
 
