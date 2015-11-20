@@ -43,12 +43,12 @@ $(".menu").click(function(){
 
     if($(this).hasClass("open")){
         $(this).removeClass("open");
-        $(".menuArea").animate({"left": "-76%"});
-        $("#wrapp").animate({"left": "0"});
+        $(".menuArea").stop().animate({"left": "-76%"});
+        $("#wrapp").stop().animate({"left": "0"});
     }else{
         $(this).addClass("open");
-        $(".menuArea").animate({"left": "0%"});
-        $("#wrapp").animate({"left": "76%"});
+        $(".menuArea").stop().animate({"left": "0%"});
+        $("#wrapp").stop().animate({"left": "76%"});
     }
 
 })
@@ -57,8 +57,8 @@ $(".menu").click(function(){
 $("#wrapp").bind("click", function (event) {
     if($(".menu").hasClass("open")){
         $(".menu").removeClass("open");
-        $(".menuArea").animate({"left": "-76%"});
-        $("#wrapp").animate({"left": "0"});
+        $(".menuArea").stop().animate({"left": "-76%"});
+        $("#wrapp").stop().animate({"left": "0"});
         event.preventDefault(); 
     }
     
@@ -235,6 +235,48 @@ function editShare(){   ///demon
             }
         });
 }
+
+
+
+
+
+
+
+
+/* 图片加载 */
+function LoadFn ( arr , fn , fn2){
+        var loader = new PxLoader();
+        for( var i = 0 ; i < arr.length; i ++)
+        {
+            loader.addImage(arr[i]);
+        };
+        
+        loader.addProgressListener(function(e) {
+                var percent = Math.round( e.completedCount / e.totalCount * 100 );
+                if(fn2) fn2(percent)
+        }); 
+        
+        
+        loader.addCompletionListener( function(){
+            if(fn) fn();    
+        });
+        loader.start(); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

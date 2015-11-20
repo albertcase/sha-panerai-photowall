@@ -140,6 +140,59 @@ body{
 
 
 
+
+
+
+/* menu 76% */
+.menuArea{
+	width: 76%;
+	height: 100%;
+	position: absolute;
+	left: -76%;
+	top: 0;
+	background: #000;
+	z-index: 3;
+	overflow: hidden;
+	box-shadow: 0px 0px 3px #000;
+}
+
+.menuArea ul{
+	width: 100%;
+	display: inline-block;
+	margin: 60px 0 0 0;
+}
+
+.menuArea li{
+	background: #1a1a1a;
+	padding: 16px 0; 
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	border-top: 1px #343434 solid;
+	border-bototm: 1px #3f3f3f solid;
+	font-size: 14px;
+}
+
+.menuArea li a{
+	width: 80%;
+	display: inline-block;
+	text-align: left;
+}
+
+.menuArea li.hover{
+	background: #000;
+}
+
+.menuArea li a{
+	color: #c4c4c4;
+}
+
+.menuArea li.hover a{
+	color: #fff1d3;
+}
+
+
+
 /* iscroll */
 #header {
 	position: absolute;
@@ -215,12 +268,12 @@ body{
 }
 
 .logo{
-	width: 20%;
+	width: 30%;
 	display: inline-block;
 	position: absolute;
 	left: 50%;
 	top: 0;
-	margin: 0 0 0 -10%;
+	margin: 0 0 0 -15%;
 }
 
 .camera_icon{
@@ -237,53 +290,6 @@ body{
 }
 
 
-/* menu 76% */
-.menuArea{
-	width: 76%;
-	height: 100%;
-	position: fixed;
-	left: -76%;
-	top: 0;
-	background: #000;
-	z-index: 3;
-	overflow: hidden;
-	box-shadow: 0px 0px 3px #000;
-}
-
-.menuArea ul{
-	width: 100%;
-	display: inline-block;
-	margin: 60px 0 0 0;
-}
-
-.menuArea li{
-	background: #1a1a1a;
-	padding: 16px 0; 
-	width: 100%;
-	display: inline-block;
-	text-align: center;
-	border-top: 1px #343434 solid;
-	border-bototm: 1px #3f3f3f solid;
-	font-size: 14px;
-}
-
-.menuArea li a{
-	width: 80%;
-	display: inline-block;
-	text-align: left;
-}
-
-.menuArea li.hover{
-	background: #000;
-}
-
-.menuArea li a{
-	color: #c4c4c4;
-}
-
-.menuArea li.hover a{
-	color: #fff1d3;
-}
 
 
 
@@ -718,11 +724,11 @@ body{
 	width: 100%;
 	display: inline-block;
 	float: left;
-	padding: 27px 0 32px 0;
+	padding: 18px 0 18px 0;
 }
 
 .proImg img{
-	width: 50%;
+	width: 49%;
 	margin: 0 0 0 12px;
 }
 
