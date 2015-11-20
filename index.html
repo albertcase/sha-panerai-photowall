@@ -30,13 +30,13 @@
             "url": window.location.href
         };
 
-        // $.ajax({
-        //     type: "GET",
-        //     url: "/Request.php?model=oauth",
-        //     data: oauthPushData,
-        //     dataType: "json"
-        // }).done(function(data){
-        // })
+        $.ajax({
+            type: "GET",
+            url: "/Request.php?model=oauth",
+            data: oauthPushData,
+            dataType: "json"
+        }).done(function(data){
+        })
 
     </script>
 </head>
