@@ -32,7 +32,7 @@ var pullUpEl, pullUpOffset;
 function getItemElement(imgtype, imgid, imgurl) {
       var elem = document.createElement('li');
       var writeInfoHtml = "";
-      if(imgtype == "home"){
+      if(imgtype == "pic"){
         writeInfoHtml = '<a href="products.html"></a><img src="'+imgurl+'" />'
       }else if(imgtype == "user"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
