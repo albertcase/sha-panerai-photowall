@@ -65,7 +65,7 @@ if(isIpad()){
 		}else{
 			$(".proinfo").hide();
 			$("#prosSection").show();
-			mySwiper.update();
+			swiper.update();
 		}
 		
 	});
