@@ -142,9 +142,9 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
-				if ($type == 'user') {
-					$where = "type = 'user'";
-				} else if ($type == 'my') {
+				if ($type == 'home') {
+					$where = "type = 'pic' or type = 'video'";
+				} else if ($type == 'user') {
 					$where = "uid = '". $_SESSION["user_id"]. "'";
 				} else {
 					$where = "1";
@@ -155,7 +155,7 @@
 				$totalSql = "select count(*) from photo where $where";
 				$total = $db->getOne($totalSql);
 				$totalpage = ceil($total/$row);
-				$sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and $where order by a.id desc limit $pageIndex,$row";
+				$sql = "select a.*,b.nickname,b.headimgurl from photo a left join user b on a.uid = b.id and $where order by rand() limit $pageIndex,$row";
 				$result = $db->getAll($sql, true);
 				include_once('./config/emoji.php');
 				for ($i = 0; $i < count($result); $i++) {
