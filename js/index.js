@@ -10,7 +10,7 @@ var swiper = new Swiper('.swiper-container', {
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     spaceBetween: 30,
-    speed:900,
+    speed:600,
     parallax : true,
     grabCursor : true,
     effect : 'coverflow',
