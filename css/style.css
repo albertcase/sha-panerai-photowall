@@ -860,8 +860,9 @@ body{
 	}
 
 	.logo{
-		width: 30%;
+		width: 26%;
 		top: 20%;
+		margin: 0 0 0 -13%;
 	}
 
 	.head_ipad{
