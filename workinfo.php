@@ -42,7 +42,7 @@
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
 <body>
-
+<div class="disable"></div>
 
 
 <div id="header">
