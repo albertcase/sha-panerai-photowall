@@ -1026,8 +1026,9 @@ video{
 	}
 
 	.proImg img{
-		width: 50%;
+		width: 46%;
 		/*margin: 0 0 0 4%;*/
+		margin: 2% 0;
 		display: inline-block;
 	}
 
