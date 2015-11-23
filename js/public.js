@@ -126,9 +126,12 @@ var jssdkPushData = {
 ajaxfun("POST", "/Request.php?model=jssdk", jssdkPushData, "json", jssdkCallback);
 
 function jssdkCallback(data){
-    alert(data.result)
     if(data.result == "success"){
-        alert(data.jsonResponse.timestamp)
+        alert(data.jsonResponse.timestamp);
+        alert(data.jsonResponse.appid);
+        alert(data.jsonResponse.noncestr);
+        alert(data.jsonResponse.signature);
+
         wechatShare(data.appid,data.timestamp,data.noncestr,data.signature);
     }else{
         //console.log(data.msg);
