@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/PxLoader.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/swiper.min.js"></script>
 </head>
@@ -97,14 +98,14 @@
 
 <div id="wrapp">
     <div id="scroller">
-
+        <div class="loading"></div>
         <div class="inside_container products">
 
 
                 <!-- Swiper -->
                 <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                    <div class="swiper-wrapper" id="productContent">
+                        <!-- <div class="swiper-slide">
                             <div class="proName" data-swiper-parallax="-160">
                                 <h2>RADIOMIR 1940</h2>
                                     PAM00575
@@ -115,43 +116,7 @@
                             <div class="proDescription" data-swiper-parallax="-120">
                                 3日动力存储红金腕表-42MM
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="proName" data-swiper-parallax="-160">
-                                <h2>RADIOMIR 1940</h2>
-                                    PAM00575
-                            </div>
-                            <div class="proImg" data-swiper-parallax="-10">
-                                <img src="../imgs/pro.png" />
-                            </div>
-                            <div class="proDescription" data-swiper-parallax="-120">
-                                3日动力存储红金腕表-42MM
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="proName" data-swiper-parallax="-160">
-                                <h2>RADIOMIR 1940</h2>
-                                    PAM00575
-                            </div>
-                            <div class="proImg" data-swiper-parallax="-10">
-                                <img src="../imgs/pro.png" />
-                            </div>
-                            <div class="proDescription" data-swiper-parallax="-120">
-                                3日动力存储红金腕表-42MM
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="proName" data-swiper-parallax="-160">
-                                <h2>RADIOMIR 1940</h2>
-                                    PAM00575
-                            </div>
-                            <div class="proImg" data-swiper-parallax="-10">
-                                <img src="../imgs/pro.png" />
-                            </div>
-                            <div class="proDescription" data-swiper-parallax="-120">
-                                3日动力存储红金腕表-42MM
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <!-- Add Arrows -->
@@ -213,8 +178,33 @@
         $(".orderpup").show();
     })
 
+    $(".loading").show();
 
-    //ajaxfun("GET", "/Request.php?model=product", "json", saveimgCallback);
+    ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+
+
+    function productCallback(data){
+        //console.log(data);
+        var _proImgArr = [];
+        var productHtml = $.map(data.msg, function(v, k){
+            _proImgArr.push(v.bigpic);
+            return ' <div class="swiper-slide"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
+        }).join("");
+        
+
+        LoadFn(_proImgArr , function (){
+
+            $(".loading").hide();
+            $("#productContent").html(productHtml);
+            swiper.update();
+            myScroll.refresh();
+               
+        } , function (p){
+            console.log(p+"%");
+        });
+        
+    }
+
 
 </script>
 
