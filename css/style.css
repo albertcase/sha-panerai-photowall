@@ -770,7 +770,7 @@ video{
 
 .proImg img{
 	width: 67%;
-	margin: 0 0 0 12px;
+	/*margin: 0 0 0 12px;*/
 }
 
 /* swiper */
@@ -1026,7 +1026,7 @@ video{
 
 	.proImg img{
 		width: 56%;
-		margin: 0 0 0 4%;
+		/*margin: 0 0 0 4%;*/
 		display: inline-block;
 	}
 
