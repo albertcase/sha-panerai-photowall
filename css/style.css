@@ -918,6 +918,7 @@ video{
 		display: inline-block;
 		border-top: 1px #262626 solid;
 		border-bottom: 1px #262626 solid;
+		font-size: 14px;
 	}
 
 	.head_ipad li{
@@ -1022,7 +1023,7 @@ video{
 
 	.inside_container.products{
 		width: 100%;
-		margin: 6% 0 0 0;
+		margin: 3% 0 0 0;
 	}
 
 	.proImg img{
