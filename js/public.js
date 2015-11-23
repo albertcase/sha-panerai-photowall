@@ -3,16 +3,6 @@ var oauthPushData = {
     "url": window.location.href
 };
 
-function oauthfunc(){
-    $.ajax({
-        type: "POST",
-        url: "/Request.php?model=oauth",
-        data: oauthPushData,
-        dataType: "json"
-    }).done(function(data){
-    })
-}
-
 
 $.ajax({
     type: "GET",
@@ -20,7 +10,7 @@ $.ajax({
     dataType: "json"
 }).done(function(data){
     if(data.code == 0){
-        oauthfunc();
+        window.location = "/Request.php?model=oauth&url="+oauthPushData.url
     }
 })
 
