@@ -169,7 +169,8 @@
         }
     });
 
-
+    var curcpid = GetQueryString("cpid");
+    var curswiperindex;
 
     $(".order_close").click(function(){
         $(".orderpup").hide();
@@ -188,7 +189,12 @@
         var _proImgArr = [];
         var productHtml = $.map(data.msg, function(v, k){
             _proImgArr.push(v.bigpic);
-            return ' <div class="swiper-slide"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
+
+            if(curcpid == v.id){
+                curswiperindex = k;
+            }
+            
+            return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
 
@@ -198,6 +204,8 @@
             $("#productContent").html(productHtml);
             swiper.update();
             myScroll.refresh();
+
+            swiper.slideTo(curswiperindex, 0, true);
                
         } , function (p){
             console.log(p+"%");
