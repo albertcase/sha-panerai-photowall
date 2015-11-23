@@ -810,7 +810,7 @@ video{
 }
 
 .swiper-button-prev img,.swiper-button-next img{
-	width: 56%;
+	width: 67%;
 }
 
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
@@ -818,11 +818,11 @@ video{
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-	right: 1em;
+	right: 0.6em;
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-	left: 1em;
+	left: 0.6em;
 }
 
 .swiper-button-next, .swiper-button-prev{
