@@ -166,6 +166,13 @@
 				exit;
 				break;
 
+			case 'product':
+				$sql = "select * from photo where type='pic'";
+				$product = $db->getAll($sql, true);
+				echo json_encode(array('code' => 1, 'msg' => $product));
+				exit;
+				break;
+
 			case 'photolistbyid':
 				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
 				if ($tag) {
