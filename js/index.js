@@ -270,7 +270,7 @@ function myVideo(_this){
         video.setAttribute("id", "video");
         video.setAttribute("width", "100%");
         video.setAttribute("height", "100%");
-        video.setAttribute("controls", "controls");
+        //video.setAttribute("controls", "controls");
         video.setAttribute("autoplay", "autoplay");
         video.setAttribute("autoplay", "autoplay");
         video.setAttribute("src", vurl);
