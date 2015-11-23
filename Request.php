@@ -143,7 +143,7 @@
 					exit;
 				}
 				if ($type == 'home') {
-					$where = "type = 'pic' or type = 'video'";
+					$where = "type = 'pic'";
 				} else if ($type == 'user') {
 					$where = "uid = '". $_SESSION["user_id"]. "'";
 				} else {
