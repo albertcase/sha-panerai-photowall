@@ -111,11 +111,20 @@ function jssdkCallback(data){
     if(data.code == 1){
         wechatShare(data.appid,data.timestamp,data.noncestr,data.sign);
     }else{
-        console.log(data.msg);
+        //console.log(data.msg);
     }
 } 
 
 
+
+
+
+var shareData = {
+            title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+            desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+            link: window.location.host,
+            imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+};
 
 function wechatShare(timestamp_val,signature_val){
 
