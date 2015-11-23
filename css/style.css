@@ -6,6 +6,16 @@ html, body{
 	position: relative;
 }
 
+video{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	background: #000;
+}
+
 .disable{
 	width: 100%;
 	height: 100%;

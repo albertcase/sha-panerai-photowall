@@ -214,7 +214,11 @@
     })
 
 
-    //ajaxfun("GET", "/Request.php?model=product", "json", saveimgCallback);
+    ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+
+    function productCallback(data){
+        console.log(data);
+    }
 
 </script>
 

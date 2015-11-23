@@ -29,7 +29,7 @@ var swiper = new Swiper('.swiper-container', {
 var pullUpEl, pullUpOffset;
 
 // 滚动执行输出内容函数
-function getItemElement(imgtype, imgid, imgurl) {
+function getItemElement(imgtype, imgid, imgurl, _content) {
       var elem = document.createElement('li');
       var writeInfoHtml = "";
       if(imgtype == "pic"){
@@ -37,7 +37,7 @@ function getItemElement(imgtype, imgid, imgurl) {
       }else if(imgtype == "user"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
-        writeInfoHtml = '<a href="javascript:;"></a><img src="'+imgurl+'" />';
+        writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
       }
 
       elem.className = 'grid-item ' + imgtype;
@@ -83,7 +83,7 @@ function pullUpAction () {
                 };
                 $.map(data.msg, function(v, k){
                     loadingImgArr.push(v.url);
-                    var elem = getItemElement(v.type, v.id, v.url);
+                    var elem = getItemElement(v.type, v.id, v.url, v.content);
                         fragment.appendChild( elem );
                         elems.push( elem );
                     //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
@@ -208,7 +208,7 @@ function photolistCallback(data){
 
         $.map(data.msg, function(v, k){
             loadingImgArr.push(v.url);
-            var elem = getItemElement(v.type, v.id, v.url);
+            var elem = getItemElement(v.type, v.id, v.url, v.content);
                 fragment.appendChild( elem );
                 //allImgLoading.push();
                 elems.push( elem );
@@ -255,8 +255,19 @@ imagesLoaded( grid, function() {
 
 
 
+function myVideo(_this){
 
-
+    var vurl = _this.attr("data-videourl")
+    console.log(vurl);
+    var video = document.createElement("VIDEO");
+    video.setAttribute("width", "100%");
+    video.setAttribute("height", "100%");
+    video.setAttribute("controls", "controls");
+    video.setAttribute("src", vurl);
+    document.body.appendChild(video);
+    video.play();
+    //document.getElementById("demo").innerHTML = "<b>注释：</b>IE 和 Safari 不支持 .ogg 文件格式。这只是一个例子。如需使其在所有浏览器中运行，您应该在 video 元素中使用 source 元素。";
+}
 
 
 
