@@ -918,7 +918,6 @@ video{
 		display: inline-block;
 		border-top: 1px #262626 solid;
 		border-bottom: 1px #262626 solid;
-		font-size: 14px;
 	}
 
 	.head_ipad li{
@@ -928,7 +927,7 @@ video{
 		color: #fff;
 		height: 50px;
 		line-height: 50px;
-		font-size: 14px;
+		font-size: 16px;
 		position: relative;
 	}
 
