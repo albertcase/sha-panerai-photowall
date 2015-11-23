@@ -743,14 +743,14 @@ video{
 .proName{
 	width: 100%;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 14px;
 	color: #fff;
 	float: left;
 }
 
 .proName h2{
-	font-size: 18px;
-	padding: 0 0 2px 0;
+	font-size: 20px;
+	padding: 0 0 6px 0;
 }
 
 .proDescription{
