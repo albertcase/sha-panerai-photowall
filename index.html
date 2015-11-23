@@ -19,8 +19,10 @@
     <link rel="stylesheet" type="text/css" href="css/emoji.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
-    <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/PxLoader.js"></script>
     <script type="text/javascript" src="js/imgsloaded.min.js"></script>
+    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+
     <script type="text/javascript" src="js/swiper.min.js"></script>
     <script type="text/javascript">
         // 授权登录
@@ -28,17 +30,18 @@
             "url": window.location.href
         };
 
-        // $.ajax({
-        //     type: "GET",
-        //     url: "/Request.php?model=oauth",
-        //     data: oauthPushData,
-        //     dataType: "json"
-        // }).done(function(data){
-        // })
+        $.ajax({
+            type: "GET",
+            url: "/Request.php?model=oauth",
+            data: oauthPushData,
+            dataType: "json"
+        }).done(function(data){
+        })
 
     </script>
 </head>
 <body>
+<div class="disable"></div>
 
 
 <div id="header">
@@ -62,8 +65,12 @@
 
     <!-- ipad -->
     <ul class="head_ipad">
-        <li class="hover">臻品之墙</li>
-        <li>魅力时计</li>
+        <li class="li_all">
+            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
+        </li>
+        <li class="li_home">
+            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+        </li>
     </ul>
     
 </div>
@@ -72,17 +79,17 @@
 <!-- menu -->
 <div class="menuArea">
     <ul>
-        <li class="hover">
-            <a href="javascript:;" title="开启探索之旅">开启探索之旅</a>
-        </li>
         <li>
-            <a href="javascript:;" title="臻品之墙">臻品之墙</a>
+            <a href="rule.html" title="开启探索之旅">开启探索之旅</a>
         </li>
-        <li>
-            <a href="javascript:;" title="魅力时计">魅力时计</a>
+        <li class="li_all">
+            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
         </li>
-        <li>
-            <a href="javascript:;" title="我与沛纳海">我与沛纳海</a>
+        <li class="li_home">
+            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+        </li>
+        <li class="li_user">
+            <a href="index.html?type=user" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>
             <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 

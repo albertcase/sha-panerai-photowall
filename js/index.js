@@ -6,25 +6,11 @@ var ismoveDisable = false;
 
 
 
-var grid = document.querySelector('.grid');
-
-var msnry = new Masonry( grid, {
-    itemSelector: '.grid-item',
-    percentPosition: true
-});
-
-imagesLoaded( grid, function() {
-    // layout Masonry after each image loads
-    msnry.layout();
-});
-
-    
-
 var swiper = new Swiper('.swiper-container', {
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     spaceBetween: 30,
-    speed:900,
+    speed:600,
     parallax : true,
     grabCursor : true,
     effect : 'coverflow',
@@ -42,20 +28,31 @@ var swiper = new Swiper('.swiper-container', {
 
 var pullUpEl, pullUpOffset;
 
-
+// 滚动执行输出内容函数
 function getItemElement(imgtype, imgid, imgurl) {
       var elem = document.createElement('li');
-      elem.className = 'grid-item';
+      var writeInfoHtml = "";
+      if(imgtype == "pic"){
+        writeInfoHtml = '<a href="products.html"></a><img src="'+imgurl+'" />'
+      }else if(imgtype == "user"){
+        writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
+      }else{
+        writeInfoHtml = '<a href="javascript:;"></a><img src="'+imgurl+'" />';
+      }
+
+      elem.className = 'grid-item ' + imgtype;
       elem.setAttribute("data-type", imgtype);
       elem.setAttribute("data-id", imgid);
-      elem.innerHTML = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
+      elem.innerHTML = writeInfoHtml;
       return elem;
 }
 
 
+
+// 滚动执行函数
+
 var curpageindex = 1;
 function pullUpAction () {
-        
         curpageindex ++;
 
         if(curpageindex >= workInfoData["_totalpage"]){
@@ -76,7 +73,7 @@ function pullUpAction () {
         function pull_photolistCallback(data){
             workInfoData["_totalpage"] = data.totalpage;
             //console.log(data);
-            var elems = [];
+            var elems = [], loadingImgArr = [];
             var fragment = document.createDocumentFragment();
 
             if(data.code == 1){
@@ -85,24 +82,33 @@ function pullUpAction () {
                     //return false;
                 };
                 $.map(data.msg, function(v, k){
+                    loadingImgArr.push(v.url);
                     var elem = getItemElement(v.type, v.id, v.url);
                         fragment.appendChild( elem );
                         elems.push( elem );
                     //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
                 })//.join("");
 
+                //console.log(loadingImgArr);
 
-                // append elements to container
-                grid.appendChild(fragment);
-                // add and lay out newly appended elements
-                msnry.appended(elems);
-                imagesLoaded( grid, function() {
-                    // layout Masonry after each image loads
-                    msnry.layout();
-                    myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                // 当图片加载完成之后在添加进入页面            
+                LoadFn(loadingImgArr , function (){
 
+                    // append elements to container
+                    grid.appendChild(fragment);
+                    // add and lay out newly appended elements
+                    isotope.appended(elems);
+                    imagesLoaded( grid, function() {
+                        // layout Masonry after each image loads
+                        //isotope.layout();
+                        myScroll.refresh();
+
+                    });
+                       
+                } , function (p){
+                    //console.log(p+"%");
                 });
-                
+
 
             }else{
                 console.log(data.msg);
@@ -114,22 +120,7 @@ function pullUpAction () {
 
 
 
-
-
-
-
-
-
-
-    
-    // myScroll = new IScroll('#wrapp', { 
-    //     preventDefault:false,
-    //     click:iScrollClick(), //调用判断函数
-    //     scrollbars: false,//有滚动条
-    //     mouseWheel: true,//允许滑轮滚动
-    //     fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
-    // });
-
+    // 滚动状态执行
     
     if(document.getElementById('pullUp')){
 
@@ -175,18 +166,28 @@ function pullUpAction () {
 
 
 
+function GetQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return unescape(r[2]); return null;
+}
 
+var entertype = GetQueryString("type");
+if(!entertype){
+    entertype = "all"
+}
 
 
 // 图片列表
 var photolistPushData = {
-    "type": "all",  //all   user   home
+    "type": entertype,  //all   user   home
     "page": "1",  // 页数
     "row": "10"    // 个数，默认10
 };
 
 
 $(".loading").show();
+
 ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
 
 
@@ -194,16 +195,19 @@ function photolistCallback(data){
     workInfoData["_totalpage"] = data.totalpage;
 
     //console.log(data);
-    var elems = [],allImgLoading = [];
+    var elems = [], loadingImgArr = [];
     var fragment = document.createDocumentFragment();
 
     if(data.code == 1){
+
+        $(".li_" + photolistPushData["type"]).addClass("hover");
 
         if(data.totalpage >1){
             $("#pullUp").show();
         }
 
         $.map(data.msg, function(v, k){
+            loadingImgArr.push(v.url);
             var elem = getItemElement(v.type, v.id, v.url);
                 fragment.appendChild( elem );
                 //allImgLoading.push();
@@ -212,22 +216,45 @@ function photolistCallback(data){
         })//.join("");
 
 
-        // append elements to container
-        grid.appendChild(fragment);
-        // add and lay out newly appended elements
-        msnry.appended(elems);
-        imagesLoaded( grid, function() {
-            // layout Masonry after each image loads
-            msnry.layout();
-            myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
-            $(".loading").hide();
+        // 当图片加载完成之后在添加进入页面            
+        LoadFn(loadingImgArr , function (){
+
+            // append elements to container
+            grid.appendChild(fragment);
+            // add and lay out newly appended elements
+            isotope.appended(elems);
+            imagesLoaded( grid, function() {
+                // layout Masonry after each image loads
+                isotope.layout();
+                myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                $(".loading").hide();
+            });
+               
+        } , function (p){
+            //console.log(p+"%");
         });
-        
+
 
     }else{
         console.log(data.msg);
     }
 } 
+
+
+
+var grid = document.querySelector('.grid');
+var isotope = new Isotope( grid, {
+    itemSelector: '.grid-item',
+    percentPosition: true
+});
+
+imagesLoaded( grid, function() {
+    isotope.layout();
+});
+
+
+
+
 
 
 

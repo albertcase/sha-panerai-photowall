@@ -155,7 +155,7 @@
 				$totalSql = "select count(*) from photo where $where";
 				$total = $db->getOne($totalSql);
 				$totalpage = ceil($total/$row);
-				$sql = "select a.*,b.nickname,b.headimgurl from photo a left join user b on a.uid = b.id and $where order by rand() limit $pageIndex,$row";
+				$sql = "select a.*,b.nickname,b.headimgurl from (select * from photo where $where) a left join user b on a.uid = b.id order by rand() limit $pageIndex,$row";
 				$result = $db->getAll($sql, true);
 				include_once('./config/emoji.php');
 				for ($i = 0; $i < count($result); $i++) {
