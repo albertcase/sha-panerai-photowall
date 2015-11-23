@@ -13,15 +13,8 @@ var swiper = new Swiper('.swiper-container', {
     speed:600,
     parallax : true,
     grabCursor : true,
-    effect : 'coverflow',
-    centeredSlides: true,
-    coverflow: {
-        rotate: 30,
-        stretch: 10,
-        depth: 60,
-        modifier: 2,
-        slideShadows : false
-    }
+    effect : 'fade',
+    centeredSlides: true
 });
 
 
