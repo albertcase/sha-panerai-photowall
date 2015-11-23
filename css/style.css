@@ -16,6 +16,40 @@ video{
 	background: #000;
 }
 
+:-webkit-full-screen {
+ 
+}
+ 
+:-moz-full-screen {
+ 
+}
+ 
+:-ms-fullscreen {
+   
+}
+ 
+:-o-fullscreen {
+   
+}
+ 
+:full-screen { 
+  
+}
+ 
+:fullscreen {
+  
+}
+ 
+:-webkit-full-screen video {
+  width: 100%;
+  height: 100%;
+}
+:-moz-full-screen video{
+    width: 100%;
+    height: 100%;
+}
+
+
 .disable{
 	width: 100%;
 	height: 100%;
