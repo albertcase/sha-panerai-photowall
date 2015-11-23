@@ -44,7 +44,7 @@ video{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0,1) url("../imgs/loading.gif") no-repeat center;
+	background: #383430 url("../imgs/loading.gif") no-repeat center;
 	z-index: 100;
 	display: none;
 }
