@@ -1,3 +1,32 @@
+// 授权登录
+var oauthPushData = {
+    "url": window.location.href
+};
+
+function oauthfunc(){
+    $.ajax({
+        type: "GET",
+        url: "/Request.php?model=oauth",
+        data: oauthPushData,
+        dataType: "json"
+    }).done(function(data){
+    })
+}
+
+
+$.ajax({
+    type: "GET",
+    url: "/Request.php?model=islogin",
+    data: oauthPushData,
+    dataType: "json"
+}).done(function(data){
+    if(data.code == 0){
+        oauthfunc();
+    }
+})
+
+
+
 function GetQueryString(name){
     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
