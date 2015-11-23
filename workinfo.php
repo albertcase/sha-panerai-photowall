@@ -39,6 +39,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/emoji.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jweixin.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
 <body>
