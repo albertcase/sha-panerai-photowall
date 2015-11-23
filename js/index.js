@@ -276,7 +276,7 @@ function myVideo(_this){
         document.body.appendChild(video);
            
     } , function (p){
-        console.log(p+"%");
+        //console.log(p+"%");
     });
 
 

@@ -65,9 +65,8 @@ if(isIpad()){
 			$(".proinfo").hide();
 			$("#imgsSection").show();
 		}else{
-			$(".proinfo").hide();
-			$("#prosSection").show();
-			swiper.update();
+			$(".loading").hide();
+			ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
 		}
 		
 	});
@@ -96,6 +95,28 @@ if(isIpad()){
 
 
 
+    function productCallback(data){
+        //console.log(data);
+        var _proImgArr = [];
+        var productHtml = $.map(data.msg, function(v, k){
+        	_proImgArr.push(v.bigpic);
+        	return ' <div class="swiper-slide"><div class="proName" data-swiper-parallax="-160"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg" data-swiper-parallax="-10"><img src="'+v.bigpic+'" /></div><div class="proDescription" data-swiper-parallax="-120">'+v.content+'</div></div>';
+        }).join("");
+        
+
+        LoadFn(_proImgArr , function (){
+
+	        $(".loading").hide();
+	        $(".proinfo").hide();
+			$("#prosSection").show();
+	        $("#productContent").html(productHtml);
+        	swiper.update();
+	           
+	    } , function (p){
+	        //console.log(p+"%");
+	    });
+        
+    }
 
 
 
