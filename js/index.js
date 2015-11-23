@@ -266,24 +266,28 @@ function myVideo(_this){
     LoadFn(vurl , function (){
 
         $(".loading").hide();
+        // var videoframe = document.createElement("div");
+        // videoframe.setAttribute("id", "video");
         var video = document.createElement("VIDEO");
         video.setAttribute("id", "video");
         video.setAttribute("width", "100%");
         video.setAttribute("height", "100%");
-        video.setAttribute("controls", "controls");
-        video.setAttribute("autoplay", "autoplay");
+        //video.setAttribute("controls", "controls");
         video.setAttribute("autoplay", "autoplay");
         video.setAttribute("src", vurl);
+    
+        //videoframe.appendChild(video);
         document.body.appendChild(video);
 
-        launchFullscreen(document.getElementById('video')); 
-        window.setTimeout(function exit(){
-    //檢查瀏覽器是否處於全屏
-            if(invokeFieldOrMethod(document,'FullScreen') || invokeFieldOrMethod(document,'IsFullScreen') || document.IsFullScreen)
-            {
-            exitFullscreen();
-            }
-       },5*1000);
+        eventTester = function(e){
+            video.addEventListener(e,function(){
+                //alert(e);
+                $("video").hide().remove();
+            })
+        }
+
+        //eventTester("ended");
+        eventTester("pause");
 
            
     } , function (p){
