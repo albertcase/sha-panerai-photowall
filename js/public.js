@@ -5,7 +5,7 @@ var oauthPushData = {
 
 function oauthfunc(){
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/Request.php?model=oauth",
         data: oauthPushData,
         dataType: "json"
@@ -17,7 +17,6 @@ function oauthfunc(){
 $.ajax({
     type: "GET",
     url: "/Request.php?model=islogin",
-    data: oauthPushData,
     dataType: "json"
 }).done(function(data){
     if(data.code == 0){
