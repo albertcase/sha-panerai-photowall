@@ -37,6 +37,8 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       }else if(imgtype == "user"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
+        elem.setAttribute("onclick", "myVideo($(this))");
+        elem.setAttribute("data-videourl", _content);
         writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
       }
 
@@ -256,9 +258,8 @@ imagesLoaded( grid, function() {
 
 
 function myVideo(_this){
+    var vurl = _this.attr("data-videourl");
 
-    var vurl = _this.attr("data-videourl")
-    console.log(vurl);
     var video = document.createElement("VIDEO");
     video.setAttribute("width", "100%");
     video.setAttribute("height", "100%");
@@ -266,6 +267,8 @@ function myVideo(_this){
     video.setAttribute("src", vurl);
     document.body.appendChild(video);
     video.play();
+
+    return false;
     //document.getElementById("demo").innerHTML = "<b>注释：</b>IE 和 Safari 不支持 .ogg 文件格式。这只是一个例子。如需使其在所有浏览器中运行，您应该在 video 元素中使用 source 元素。";
 }
 

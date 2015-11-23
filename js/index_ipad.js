@@ -49,8 +49,10 @@ if(isIpad()){
 
 
 	$(".grid").delegate("li","click",function(){
-		ismoveDisable = true;
+		
 		var itemType = $(this).attr("data-type");
+		if(itemType == "video") return false;
+		ismoveDisable = true;
 		var photolistbyidPushData = {
 		    "id": $(this).attr("data-id")
 		};
