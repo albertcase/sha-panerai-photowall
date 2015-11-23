@@ -258,15 +258,28 @@ imagesLoaded( grid, function() {
 
 
 function myVideo(_this){
+
+    $(".loading").show();
+
     var vurl = _this.attr("data-videourl");
 
-    var video = document.createElement("VIDEO");
-    video.setAttribute("width", "100%");
-    video.setAttribute("height", "100%");
-    video.setAttribute("controls", "controls");
-    video.setAttribute("src", vurl);
-    document.body.appendChild(video);
-    video.play();
+    LoadFn(vurl , function (){
+
+        $(".loading").hide();
+        var video = document.createElement("VIDEO");
+        video.setAttribute("width", "100%");
+        video.setAttribute("height", "100%");
+        video.setAttribute("controls", "controls");
+        video.setAttribute("autoplay", "autoplay");
+        video.setAttribute("autoplay", "autoplay");
+        video.setAttribute("src", vurl);
+        document.body.appendChild(video);
+           
+    } , function (p){
+        console.log(p+"%");
+    });
+
+
 
     return false;
     //document.getElementById("demo").innerHTML = "<b>注释：</b>IE 和 Safari 不支持 .ogg 文件格式。这只是一个例子。如需使其在所有浏览器中运行，您应该在 video 元素中使用 source 元素。";
