@@ -104,7 +104,7 @@ if(isIpad()){
         	if(curcpid == v.id){
                 curswiperindex = k;
             }
-        	return ' <div class="swiper-slide"><div class="proName" data-swiper-parallax="-160"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg" data-swiper-parallax="-10"><img src="'+v.bigpic+'" /></div><div class="proDescription" data-swiper-parallax="-120">'+v.content+'</div></div>';
+        	return ' <div class="swiper-slide"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
 
