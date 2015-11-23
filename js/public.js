@@ -300,7 +300,7 @@ function LoadFn ( arr , fn , fn2){
 }
 
 
-
+editShare();
 
 
 
