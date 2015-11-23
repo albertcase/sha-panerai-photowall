@@ -68,6 +68,7 @@ function pullUpAction () {
             "row": "10"    // 个数，默认10
         };
 
+        $(".loading").show();
         ajaxfun("POST", "/Request.php?model=photolist", pull_photolistPushData, "json", pull_photolistCallback);
 
 
@@ -111,9 +112,10 @@ function pullUpAction () {
                     //console.log(p+"%");
                 });
 
-
+                $(".loading").hide();
             }else{
                 console.log(data.msg);
+                $(".loading").hide();
             }
         } 
 
@@ -281,7 +283,7 @@ function myVideo(_this){
 
 
     return false;
-    //document.getElementById("demo").innerHTML = "<b>注释：</b>IE 和 Safari 不支持 .ogg 文件格式。这只是一个例子。如需使其在所有浏览器中运行，您应该在 video 元素中使用 source 元素。";
+
 }
 
 
