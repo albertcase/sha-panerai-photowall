@@ -122,10 +122,10 @@ function jssdkCallback(data){
 
 
 var shareData = {
-            title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
-            desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
-            link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+        title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+        desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+        link: window.location.host,
+        imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
 };
 
 function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
@@ -178,7 +178,6 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
   });
 
   wx.ready(function(){
-
 
     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
     wx.onMenuShareTimeline({
