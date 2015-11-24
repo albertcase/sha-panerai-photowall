@@ -1144,18 +1144,18 @@ video{
 	-webkit-transform:rotate(0deg) translateZ(0);
 }
 
-#pullUp.loading .pullUpIcon {
+#pullUp.loadingp .pullUpIcon {
 	background-position:0 100%;
 	-webkit-transform:rotate(0deg) translateZ(0);
 	-webkit-transition-duration:0ms;
 
-	-webkit-animation-name:loading;
+	-webkit-animation-name:loadingp;
 	-webkit-animation-duration:2s;
 	-webkit-animation-iteration-count:infinite;
 	-webkit-animation-timing-function:linear;
 }
 
-@-webkit-keyframes loading {
+@-webkit-keyframes loadingp {
 	from { -webkit-transform:rotate(0deg) translateZ(0); }
 	to { -webkit-transform:rotate(360deg) translateZ(0); }
 }

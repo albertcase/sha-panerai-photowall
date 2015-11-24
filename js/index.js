@@ -50,7 +50,7 @@ var curpageindex = 1;
 function pullUpAction () {
         //$(".loading").show();
         curpageindex ++;
-
+        console.log(curpageindex + ": " + workInfoData["_totalpage"]);
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
         }else{
@@ -130,7 +130,7 @@ function pullUpAction () {
         myScroll.on('refresh', function () {
             if(curpageindex >= workInfoData["_totalpage"] || ismoveDisable) return false;
 
-            if (pullUpEl.className.match('loading')) {
+            if (pullUpEl.className.match('loadingp')) {
                 pullUpEl.className = '';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
             }
@@ -153,7 +153,7 @@ function pullUpAction () {
         myScroll.on('scrollEnd', function () {
 
             if (pullUpEl.className.match('flip')) {
-                pullUpEl.className = 'loading';
+                pullUpEl.className = 'loadingp';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
                 pullUpAction(); // Execute custom function (ajax call?)
             }
