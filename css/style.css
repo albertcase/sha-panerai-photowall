@@ -690,7 +690,7 @@ video{
 }
 
 .wechatTips_close,.order_close{
-	width: 14%;
+	width: 10%;
 	position: absolute;
 	left: 50%;
 	bottom: 15%;
