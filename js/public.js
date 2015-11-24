@@ -41,7 +41,7 @@ var myScroll;
 
 document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
+document.querySelector('.loading').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 //window.onload = loaded;
 
 
