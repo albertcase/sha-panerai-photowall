@@ -81,9 +81,9 @@
 
 
 <div id="wrapp">
-    <!-- <div class="loading"></div> -->
 
     <div id="scroller">
+        <div class="loading"></div>
         <div class="upload_area">
 
             <div class="upload_area_con">
@@ -165,21 +165,23 @@ function toFixed2 (num) {
 
 
 $(".upload_submitbtn").click(function(){
-    var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
+        var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
 
         if(saveimgPushData["image"] == ""){
             alert("请先上传你认为最具特色的图片");  
         }else if(imgcontent == ""){
             alert("请输入20字以内的描述，解读你眼中的沛纳海");
         }else{
-            // saveimgPushData["image"] = photoCanvas.toDataURL({
-            //     format: 'png',
-            //     quality: 1
-            // }).replace("data:image/png;base64,","");
+
             $(".loading").show();
             saveimgPushData["content"] = imgcontent;            
             ajaxfun("POST", "/Request.php?model=saveimg", saveimgPushData, "json", saveimgCallback);
             ga('send', 'event', '按钮', '点击', 'confirm');
+
+            // saveimgPushData["image"] = photoCanvas.toDataURL({
+            //     format: 'png',
+            //     quality: 1
+            // }).replace("data:image/png;base64,","");
         }
 
 })

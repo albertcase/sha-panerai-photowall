@@ -10,7 +10,7 @@
         Header("Location:/");
         exit;
     }
-    $sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
+    $sql = "select  a.*,b.nickname,b.headimgurl from (select * from photo  where id =".$id.") a left join user b on a.uid = b.id";
     $result = $db->getRow($sql, true);
     if (!$result) {
         Header("Location:/");
@@ -99,6 +99,40 @@
 </div>
 
 
+<?php
+if ($_SESSION['user_id'] == $result['uid']) {    
+?>
+    <!-- 自己的 -->
+    <!-- 微信分享提示 -->
+    <div class="wechatTips" style="display:none;">
+        <img src="../imgs/wechat_tips.png" />
+        <a href="javascript:;" class="wechatTips_close">
+            <img src="../imgs/close.png" width="80%" />
+        </a>
+    </div>
+
+<?php
+} else {
+?>
+    
+<?php
+}
+?>
+
+
+
+<!-- 二维码提示 -->
+<div class="qrcode">
+    <div class="qrcode_con">
+        <img src="../imgs/qrcode.png" width="100%" />
+    </div>
+
+    <a href="javascript:;" class="qrcode_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+
 
 
 
@@ -143,9 +177,12 @@
 
             <div class="infofooter">
                 <?php
-                if ($_SESSION['user_id'] == $result['uid']) {
-                    //自己的
+                if ($_SESSION['user_id'] == $result['uid']) {    
                 ?>
+                    <!-- 自己的 -->
+                    <a href="javascript:;" class="timeline_btn">
+                         <img src="../imgs/timeline_btn.jpg" width="100%" />
+                    </a>
 
                 <?php
                 } else {
@@ -155,7 +192,7 @@
                     </a>
                 <?php
                 }
-                
+                ?>
 
             </div>
             
@@ -204,8 +241,46 @@
     })
     
 
+
+    $(".timeline_btn").click(function(){
+        $(".wechatTips").show();
+        ga('send', 'event', '按钮', '点击', 'share');
+    })
+
+    $(".wechatTips_close").click(function(){
+        $(".wechatTips").hide();
+    })
+
+    $(".qrcode_close").click(function(){
+        $(".qrcode").hide();
+    })
+
     
 </script>
+
+
+<?php
+if ($_SESSION['user_id'] == $result['uid']) {    
+?>
+    <script type="text/javascript">
+        $(function(){
+            shareData = {
+                title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+                desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+                link: window.location.href,
+                imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+            };
+            editShare();
+        })
+    </script>
+
+<?php
+} else {
+?>
+    
+<?php
+}
+?>
 
 
 <script>

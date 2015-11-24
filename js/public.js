@@ -34,15 +34,12 @@ var myScroll;
     myScroll = new IScroll('#wrapp', { 
         preventDefault:false,
         click:iScrollClick(), //调用判断函数
-        scrollbars: false,//有滚动条
-        mouseWheel: true,//允许滑轮滚动
-        fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
+        scrollbars: false //有滚动条
     });
 
 document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-//window.onload = loaded;
 
 
 /* menu */
@@ -131,7 +128,7 @@ var shareData = {
 function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
 
   wx.config({
-      debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: appid_val, // 必填，公众号的唯一标识
       timestamp: timestamp_val, // 必填，生成签名的时间戳
       nonceStr: nonceStr_val, // 必填，生成签名的随机串
@@ -220,40 +217,40 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
 
 }
 
-// function editShare(){   ///demon
-//      wx.onMenuShareTimeline({
-//             title: shareData.title, // 分享标题
-//             link: shareData.link, // 分享链接
-//             imgUrl: shareData.imgUrl, // 分享图标
-//             success: function () {
-//                 // 用户确认分享后执行的回调函数
+function editShare(){   ///demon
+     wx.onMenuShareTimeline({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
 
                 
-//                 //alert('分享成功');
-//             },
-//             cancel: function () { 
-//                 // 用户取消分享后执行的回调函数
-//                 // alert("分享失败")
-//             }
-//         });
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+                // alert("分享失败")
+            }
+        });
         
         
-//         wx.onMenuShareAppMessage({
-//             title: shareData.title, // 分享标题
-//             link: shareData.link, // 分享链接
-//             imgUrl: shareData.imgUrl, // 分享图标
-//             desc: shareData.desc,
-//             success: function () { 
-//                 // 用户确认分享后执行的回调函数
+        wx.onMenuShareAppMessage({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            desc: shareData.desc,
+            success: function () { 
+                // 用户确认分享后执行的回调函数
 
-//                 //alert('分享成功');
-//             },
-//             cancel: function () { 
-//                 // 用户取消分享后执行的回调函数
-//                // alert("分享失败")
-//             }
-//         });
-// }
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+               // alert("分享失败")
+            }
+        });
+}
 
 
 

@@ -292,11 +292,7 @@ video{
 
 	text-align: center;
 
-
-	-ms-overflow-scrolling: touch; 
-    -moz-overflow-scrolling: touch; 
-    -webkit-overflow-scrolling: touch; 
-    -o-overflow-scrolling: touch;  
+    -webkit-transform:translate3d(0,0,0);
 }
 
 
@@ -690,11 +686,11 @@ video{
 }
 
 .wechatTips_close,.order_close{
-	width: 14%;
+	width: 10%;
 	position: absolute;
 	left: 50%;
 	bottom: 15%;
-	margin: 0 0 0 -7%;
+	margin: 0 0 0 -5%;
 	text-align: center;
 }
 

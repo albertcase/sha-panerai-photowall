@@ -27,7 +27,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       var writeInfoHtml = "";
       if(imgtype == "pic"){
         writeInfoHtml = '<a href="products.html?cpid='+imgid+'"></a><img src="'+imgurl+'" />'
-      }else if(imgtype == "user"){
+      }else if(imgtype == "user"|| imgtype == "home"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
         elem.setAttribute("onclick", "myVideo($(this))");

@@ -61,10 +61,10 @@ if(isIpad()){
 
 		$("#pl_list").css({"opacity": 0});
 
-		if(itemType == "user"){
+		if(itemType == "user"||itemType == "home"){
 			$(".proinfo").hide();
 			$("#imgsSection").show();
-		}else{
+		}else if(itemType == "pic"){
 			$(".loading").hide();
 			ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
 			curcpid = $(this).attr("data-id");
