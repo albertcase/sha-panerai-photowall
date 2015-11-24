@@ -18,7 +18,11 @@
     }
     $name = json_decode($result['nickname'], true);
     $result['nickname'] = emoji_unified_to_html($name['name']);
-    
+    if ($_SESSION['user_id'] == $result['uid']) {
+        $ismy = 1;
+    } else {
+        $ismy = 0;
+    }
 ?>
 <!DOCTYPE HTML>
 <html>
