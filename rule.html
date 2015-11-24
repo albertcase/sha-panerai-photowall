@@ -182,10 +182,10 @@
                 <img src="../imgs/ship.jpg" class="ship" />
 
                 <div class="provision_link">
-                    <label><input type="checkbox" checked> 我同意遵守</label>
+                    <label><input type="checkbox" class="provision_checkbox" checked> 我同意遵守</label>
                     <p>《 <a href="javascript:;" onclick="ga('send', 'event', 'link', '点击', 'tandc')" class="provisionhot">相关活动法律条款</a> 》</p>
                 </div>
-                <a href="upload.html" onclick="ga('send', 'event', '按钮', '点击', 'start')" class="start_btn">
+                <a href="javascript:;" class="start_btn">
                      <img src="../imgs/start_btn.png" width="100%" />
                 </a>
         </div>
@@ -215,6 +215,17 @@
         myScroll.refresh();
         event.preventDefault(); 
     });
+
+    $(".start_btn").click(function(){
+        var pcb = $(".provision_checkbox").is(':checked');
+        if(pcb){
+            window.location.href = "upload.html";
+            ga('send', 'event', '按钮', '点击', 'start');
+        }else{
+            alert("请阅读并同意遵守相关活动法律条款");
+        }
+        
+    })
     
 
 </script>
