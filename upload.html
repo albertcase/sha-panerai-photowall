@@ -172,14 +172,16 @@ $(".upload_submitbtn").click(function(){
         }else if(imgcontent == ""){
             alert("请输入20字以内的描述，解读你眼中的沛纳海");
         }else{
-            // saveimgPushData["image"] = photoCanvas.toDataURL({
-            //     format: 'png',
-            //     quality: 1
-            // }).replace("data:image/png;base64,","");
+
             $(".loading").show();
             saveimgPushData["content"] = imgcontent;            
             ajaxfun("POST", "/Request.php?model=saveimg", saveimgPushData, "json", saveimgCallback);
             ga('send', 'event', '按钮', '点击', 'confirm');
+
+            // saveimgPushData["image"] = photoCanvas.toDataURL({
+            //     format: 'png',
+            //     quality: 1
+            // }).replace("data:image/png;base64,","");
         }
 
 })
