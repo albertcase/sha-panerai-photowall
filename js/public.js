@@ -34,8 +34,7 @@ var myScroll;
     myScroll = new IScroll('#wrapp', { 
         preventDefault:false,
         click:iScrollClick(), //调用判断函数
-        scrollbars: true,//有滚动条
-        fadeScrollbars: true//滚动时显示滚动条，默认影藏，并且是淡出淡入效果
+        scrollbars: false //有滚动条
     });
 
 document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
