@@ -48,7 +48,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
 
 var curpageindex = 1;
 function pullUpAction () {
-        $(".loading").show();
+        //$(".loading").show();
         curpageindex ++;
 
         if(curpageindex >= workInfoData["_totalpage"]){
@@ -101,7 +101,7 @@ function pullUpAction () {
                         // layout Masonry after each image loads
                         //isotope.layout();
                         myScroll.refresh();
-                        $(".loading").hide();
+                        //$(".loading").hide();
                     });
                        
                 } , function (p){
@@ -111,7 +111,7 @@ function pullUpAction () {
                 
             }else{
                 console.log(data.msg);
-                $(".loading").hide();
+                //$(".loading").hide();
             }
         } 
 
