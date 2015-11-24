@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jweixin.js"></script>
     <script type="text/javascript" src="js/PxLoader.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/swiper.min.js"></script>
@@ -40,7 +41,7 @@
             <div class="bit-3"></div>
         </div>
 
-        <a href="rule.html" class="camera_icon">
+        <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'camera')" class="camera_icon">
             <img src="../imgs/camera_icon.png" />
         </a>
     </div>
@@ -48,10 +49,10 @@
     <!-- ipad -->
     <ul class="head_ipad">
         <li>
-            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall_ipad')" title="臻品之墙">臻品之墙</a>
         </li>
         <li>
-            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection_ipad')" title="魅力时计">魅力时计</a>
         </li>
     </ul>
     
@@ -63,16 +64,16 @@
 <div class="menuArea">
     <ul>
         <li>
-            <a href="rule.html" title="开启探索之旅">开启探索之旅</a>
+            <a href="rule.html" onclick="ga('send', 'event', 'link', '点击', 'menu_start')" title="开启探索之旅">开启探索之旅</a>
         </li>
         <li>
-            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall')" title="臻品之墙">臻品之墙</a>
         </li>
         <li>
-            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection')" title="魅力时计">魅力时计</a>
         </li>
         <li>
-            <a href="index.html?type=user" title="我与沛纳海">我与沛纳海</a>
+            <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>
             <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
@@ -158,24 +159,19 @@
         speed:900,
         parallax : true,
         grabCursor : true,
-        effect : 'coverflow',
-        centeredSlides: true,
-        coverflow: {
-            rotate: 30,
-            stretch: 10,
-            depth: 60,
-            modifier: 2,
-            slideShadows : false
-        }
+        // effect : 'fade',
+        centeredSlides: true
     });
 
-
+    var curcpid = GetQueryString("cpid");
+    var curswiperindex;
 
     $(".order_close").click(function(){
         $(".orderpup").hide();
     })
     $(".order_btn").click(function(){
         $(".orderpup").show();
+        ga('send', 'event', '按钮', '点击', 'reserve');
     })
 
     $(".loading").show();
@@ -188,7 +184,12 @@
         var _proImgArr = [];
         var productHtml = $.map(data.msg, function(v, k){
             _proImgArr.push(v.bigpic);
-            return ' <div class="swiper-slide"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
+
+            if(curcpid == v.id){
+                curswiperindex = k;
+            }
+            
+            return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
 
@@ -198,9 +199,11 @@
             $("#productContent").html(productHtml);
             swiper.update();
             myScroll.refresh();
+
+            swiper.slideTo(curswiperindex, 0, true);
                
         } , function (p){
-            console.log(p+"%");
+            //console.log(p+"%");
         });
         
     }
@@ -208,6 +211,15 @@
 
 </script>
 
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67689322-3', 'auto');
+      ga('send', 'pageview');
+</script>
 
 </body>
 </html>

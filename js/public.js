@@ -1,3 +1,11 @@
+
+
+function GetQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return unescape(r[2]); return null;
+}
+
 function iScrollClick(){
     if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
     if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
@@ -102,22 +110,34 @@ var jssdkPushData = {
 ajaxfun("POST", "/Request.php?model=jssdk", jssdkPushData, "json", jssdkCallback);
 
 function jssdkCallback(data){
-    if(data.code == 1){
-        wechatShare(data.appid,data.timestamp,data.noncestr,data.sign);
+    if(data.result == "success"){
+        wechatShare("wx65b873631531ec54", data.jsonResponse.timestamp, data.jsonResponse.nonceStr, data.jsonResponse.signature);
     }else{
-        console.log(data.msg);
+        //console.log(data.msg);
     }
 } 
 
 
 
-function wechatShare(timestamp_val,signature_val){
 
+
+var shareData = {
+            title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+            desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+            link: window.location.host,
+            imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+};
+
+function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
+  alert(appid_val);
+  alert(timestamp_val);
+  alert(nonceStr_val);
+  alert(signature_val);
   wx.config({
-      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-      appId: 'wx737a6d5fe4d19c89', // 必填，公众号的唯一标识
+      debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      appId: appid_val, // 必填，公众号的唯一标识
       timestamp: timestamp_val, // 必填，生成签名的时间戳
-      nonceStr: 'asdkhaedhqwui', // 必填，生成签名的随机串
+      nonceStr: nonceStr_val, // 必填，生成签名的随机串
       signature: signature_val,// 必填，签名，见附录1
       jsApiList: [
         'checkJsApi',
@@ -267,7 +287,7 @@ function LoadFn ( arr , fn , fn2){
 }
 
 
-
+editShare();
 
 
 

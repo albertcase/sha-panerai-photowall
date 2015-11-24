@@ -47,7 +47,7 @@ if(isIpad()){
 	} 
 
 
-
+	var curcpid;
 	$(".grid").delegate("li","click",function(){
 		
 		var itemType = $(this).attr("data-type");
@@ -67,6 +67,7 @@ if(isIpad()){
 		}else{
 			$(".loading").hide();
 			ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+			curcpid = $(this).attr("data-id");
 		}
 		
 	});
@@ -97,10 +98,13 @@ if(isIpad()){
 
     function productCallback(data){
         //console.log(data);
-        var _proImgArr = [];
+        var _proImgArr = [], curswiperindex;
         var productHtml = $.map(data.msg, function(v, k){
         	_proImgArr.push(v.bigpic);
-        	return ' <div class="swiper-slide"><div class="proName" data-swiper-parallax="-160"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg" data-swiper-parallax="-10"><img src="'+v.bigpic+'" /></div><div class="proDescription" data-swiper-parallax="-120">'+v.content+'</div></div>';
+        	if(curcpid == v.id){
+                curswiperindex = k;
+            }
+        	return ' <div class="swiper-slide"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
 
@@ -111,6 +115,8 @@ if(isIpad()){
 			$("#prosSection").show();
 	        $("#productContent").html(productHtml);
         	swiper.update();
+
+        	swiper.slideTo(curswiperindex, 0, true);
 	           
 	    } , function (p){
 	        //console.log(p+"%");

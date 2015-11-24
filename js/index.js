@@ -13,15 +13,8 @@ var swiper = new Swiper('.swiper-container', {
     speed:600,
     parallax : true,
     grabCursor : true,
-    effect : 'coverflow',
-    centeredSlides: true,
-    coverflow: {
-        rotate: 30,
-        stretch: 10,
-        depth: 60,
-        modifier: 2,
-        slideShadows : false
-    }
+    //effect : 'fade',
+    centeredSlides: true
 });
 
 
@@ -33,7 +26,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       var elem = document.createElement('li');
       var writeInfoHtml = "";
       if(imgtype == "pic"){
-        writeInfoHtml = '<a href="products.html"></a><img src="'+imgurl+'" />'
+        writeInfoHtml = '<a href="products.html?cpid='+imgid+'"></a><img src="'+imgurl+'" />'
       }else if(imgtype == "user"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
@@ -68,6 +61,7 @@ function pullUpAction () {
             "row": "10"    // 个数，默认10
         };
 
+        $(".loading").show();
         ajaxfun("POST", "/Request.php?model=photolist", pull_photolistPushData, "json", pull_photolistCallback);
 
 
@@ -111,9 +105,10 @@ function pullUpAction () {
                     //console.log(p+"%");
                 });
 
-
+                $(".loading").hide();
             }else{
                 console.log(data.msg);
+                $(".loading").hide();
             }
         } 
 
@@ -163,16 +158,6 @@ function pullUpAction () {
 
     } 
     
-
-
-
-
-
-function GetQueryString(name){
-    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if(r!=null)return unescape(r[2]); return null;
-}
 
 var entertype = GetQueryString("type");
 if(!entertype){
@@ -262,31 +247,25 @@ function myVideo(_this){
     $(".loading").show();
 
     var vurl = _this.attr("data-videourl");
-
-    LoadFn(vurl , function (){
+    var liArr = [];
+    liArr.push(vurl);
+    LoadFn(liArr, function (){
 
         $(".loading").hide();
-        // var videoframe = document.createElement("div");
-        // videoframe.setAttribute("id", "video");
         var video = document.createElement("VIDEO");
         video.setAttribute("id", "video");
         video.setAttribute("width", "100%");
         video.setAttribute("height", "100%");
-        //video.setAttribute("controls", "controls");
         video.setAttribute("autoplay", "autoplay");
         video.setAttribute("src", vurl);
-    
-        //videoframe.appendChild(video);
         document.body.appendChild(video);
 
         eventTester = function(e){
             video.addEventListener(e,function(){
-                //alert(e);
                 $("video").hide().remove();
             })
         }
 
-        //eventTester("ended");
         eventTester("pause");
 
            
@@ -297,7 +276,7 @@ function myVideo(_this){
 
 
     return false;
-    //document.getElementById("demo").innerHTML = "<b>注释：</b>IE 和 Safari 不支持 .ogg 文件格式。这只是一个例子。如需使其在所有浏览器中运行，您应该在 video 元素中使用 source 元素。";
+
 }
 
 
@@ -320,83 +299,6 @@ function myVideo(_this){
 
 
 
-
-
-//反射調用
-var invokeFieldOrMethod = function(element, method) 
-{
-   var usablePrefixMethod;
-   ["webkit", "moz", "ms", "o", ""].forEach(function(prefix) {
-       if (usablePrefixMethod) return;
-       if (prefix === "") {
-           // 无前缀，方法首字母小写
-           method = method.slice(0,1).toLowerCase() + method.slice(1);   
-       }
-       var typePrefixMethod = typeof element[prefix + method];
-       if (typePrefixMethod + "" !== "undefined") {
-           if (typePrefixMethod === "function") {
-               usablePrefixMethod = element[prefix + method]();
-           } else {
-               usablePrefixMethod = element[prefix + method];
-           }
-       }
-   });
-    
-       return usablePrefixMethod;
-};
-    
-//進入全屏
- function launchFullscreen(element) 
-   {
-    //此方法不可以在異步任務中執行，否則火狐無法全屏
-     if(element.requestFullscreen) {
-       element.requestFullscreen();
-     } else if(element.mozRequestFullScreen) {
-       element.mozRequestFullScreen();
-     } else if(element.msRequestFullscreen){ 
-       element.msRequestFullscreen();  
-     } else if(element.oRequestFullscreen){
-        element.oRequestFullscreen();
-    }
-    else if(element.webkitRequestFullscreen)
-     {
-       element.webkitRequestFullScreen();
-     }else{
-      
-        var docHtml  = document.documentElement;
-        var docBody  = document.body;
-        var videobox  = document.getElementById('videobox');
-        var  cssText = 'width:100%;height:100%;overflow:hidden;';
-        docHtml.style.cssText = cssText;
-        docBody.style.cssText = cssText;
-        videobox.style.cssText = cssText+';'+'margin:0px;padding:0px;';
-        document.IsFullScreen = true;
- 
-      }
-   }
-//退出全屏
-   function exitFullscreen()
-   {
-       if (document.exitFullscreen) {
-         document.exitFullscreen();
-       } else if (document.msExitFullscreen) {
-         document.msExitFullscreen();
-       } else if (document.mozCancelFullScreen) {
-         document.mozCancelFullScreen();
-       } else if(document.oRequestFullscreen){
-            document.oCancelFullScreen();
-        }else if (document.webkitExitFullscreen){
-         document.webkitExitFullscreen();
-       }else{
-        var docHtml  = document.documentElement;
-        var docBody  = document.body;
-        var videobox  = document.getElementById('videobox');
-        docHtml.style.cssText = "";
-        docBody.style.cssText = "";
-        videobox.style.cssText = "";
-        document.IsFullScreen = false;
-    }
-  }
 
 
 

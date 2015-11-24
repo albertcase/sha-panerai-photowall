@@ -39,6 +39,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/emoji.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jweixin.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
 <body>
@@ -59,7 +60,7 @@
             <div class="bit-3"></div>
         </div>
 
-        <a href="rule.html" class="camera_icon">
+        <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'camera')" class="camera_icon">
             <img src="../imgs/camera_icon.png" />
         </a>
     </div>
@@ -67,10 +68,10 @@
     <!-- ipad -->
     <ul class="head_ipad">
         <li>
-            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall_ipad')" title="臻品之墙">臻品之墙</a>
         </li>
         <li>
-            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection_ipad')" title="魅力时计">魅力时计</a>
         </li>
     </ul>
     
@@ -81,16 +82,16 @@
 <div class="menuArea">
     <ul>
         <li>
-            <a href="rule.html" title="开启探索之旅">开启探索之旅</a>
+            <a href="rule.html" onclick="ga('send', 'event', 'link', '点击', 'menu_start')" title="开启探索之旅">开启探索之旅</a>
         </li>
         <li>
-            <a href="index.html?type=all" title="臻品之墙">臻品之墙</a>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall')" title="臻品之墙">臻品之墙</a>
         </li>
         <li>
-            <a href="index.html?type=home" title="魅力时计">魅力时计</a>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection')" title="魅力时计">魅力时计</a>
         </li>
         <li>
-            <a href="index.html?type=user" title="我与沛纳海">我与沛纳海</a>
+            <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>
             <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
@@ -142,7 +143,7 @@
             </div>
 
             <div class="infofooter">
-                <a href="rule.html" class="upload_btn">
+                <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'upload');" class="upload_btn">
                      <img src="../imgs/upload_btn.jpg" width="100%" />
                 </a>
             </div>
@@ -194,6 +195,19 @@
 
     
 </script>
+
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67689322-3', 'auto');
+      ga('send', 'pageview');
+</script>
+
+
 
 </body>
 </html>

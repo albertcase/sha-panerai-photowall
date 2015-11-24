@@ -44,7 +44,8 @@ video{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0,1) url("../imgs/loading.gif") no-repeat center;
+	background: #383630 url("../imgs/loading.gif") no-repeat center;
+	background-size: 67% auto; 
 	z-index: 100;
 	display: none;
 }
@@ -290,6 +291,12 @@ video{
 	text-size-adjust: none;
 
 	text-align: center;
+
+
+	-ms-overflow-scrolling: touch; 
+    -moz-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; 
+    -o-overflow-scrolling: touch;  
 }
 
 
@@ -656,7 +663,8 @@ video{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url("../imgs/loading.gif") no-repeat center;
+	background:#383630 url("../imgs/loading.gif") no-repeat center;
+	background-size: 38% auto;
 	display: none;
 }
 
@@ -671,14 +679,14 @@ video{
 	top: 0;
 	z-index: 10;
 	background: rgba(0,0,0,0.9);
-	display: none;
+	/*display: none;*/
 }
 
 .wechatTips img{
 	width: 70%;
 	display: inline-block;
 	float: right;
-	margin: 1em 2em 0 0;
+	margin: 2em 2em 0 0;
 }
 
 .wechatTips_close,.order_close{
@@ -736,14 +744,14 @@ video{
 .proName{
 	width: 100%;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 14px;
 	color: #fff;
 	float: left;
 }
 
 .proName h2{
 	font-size: 16px;
-	padding: 0 0 2px 0;
+	padding: 0 0 6px 0;
 }
 
 .proDescription{
@@ -763,7 +771,7 @@ video{
 
 .proImg img{
 	width: 67%;
-	margin: 0 0 0 12px;
+	/*margin: 0 0 0 12px;*/
 }
 
 /* swiper */
@@ -803,7 +811,7 @@ video{
 }
 
 .swiper-button-prev img,.swiper-button-next img{
-	width: 72%;
+	width: 67%;
 }
 
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
@@ -811,11 +819,13 @@ video{
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-	right: 1em;
+	margin-top: -1.2em;
+	right: 0.6em;
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-	left: 1em;
+	margin-top: -1.2em;
+	left: 0.6em;
 }
 
 .swiper-button-next, .swiper-button-prev{
@@ -920,7 +930,7 @@ video{
 		color: #fff;
 		height: 50px;
 		line-height: 50px;
-		font-size: 14px;
+		font-size: 16px;
 		position: relative;
 	}
 
@@ -1007,7 +1017,7 @@ video{
 	}
 
 	.proinfo_close{
-		width: 7%;
+		width: 8%;
 		position: absolute;
 		right: 5%;
 		top: 2%;
@@ -1015,11 +1025,13 @@ video{
 
 	.inside_container.products{
 		width: 100%;
+		margin: 3% 0 0 0;
 	}
 
 	.proImg img{
-		width: 56%;
-		margin: 0 0 0 4%;
+		width: 46%;
+		/*margin: 0 0 0 4%;*/
+		margin: 6% 0;
 		display: inline-block;
 	}
 
@@ -1059,7 +1071,7 @@ video{
 	}
 
 	.proinfo_close{
-		width: 6%;
+		width: 8%;
 	}
 
 	.proinfo{
