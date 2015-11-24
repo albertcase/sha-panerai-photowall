@@ -10,7 +10,7 @@
         Header("Location:/");
         exit;
     }
-    $sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
+    $sql = "select a.*,b.nickname,b.headimgurl from photo a left join user b on a.uid = b.id and a.id = ".$id;
     $result = $db->getRow($sql, true);
     if (!$result) {
         Header("Location:/");
