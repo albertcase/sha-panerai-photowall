@@ -52,6 +52,8 @@ function pullUpAction () {
 
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
+        }else{
+            $("#pullUp").show();
         }
 
         // 图片列表
