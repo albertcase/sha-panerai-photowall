@@ -100,6 +100,27 @@
 
 
 
+<!-- 微信分享提示 -->
+<div class="wechatTips">
+    <img src="../imgs/wechat_tips.png" />
+    <a href="javascript:;" class="wechatTips_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+<!-- 二维码提示 -->
+<div class="qrcode">
+    <div class="qrcode_con">
+        <img src="../imgs/qrcode.png" width="100%" />
+    </div>
+
+    <a href="javascript:;" class="qrcode_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+
+
 
 
 <div id="wrapp">
@@ -143,9 +164,12 @@
 
             <div class="infofooter">
                 <?php
-                if ($_SESSION['user_id'] == $result['uid']) {
-                    //自己的
+                if ($_SESSION['user_id'] == $result['uid']) {    
                 ?>
+                    <!-- 自己的 -->
+                    <a href="javascript:;" class="timeline_btn">
+                         <img src="../imgs/timeline_btn.jpg" width="100%" />
+                    </a>
 
                 <?php
                 } else {
@@ -155,7 +179,7 @@
                     </a>
                 <?php
                 }
-                
+                ?>
 
             </div>
             
@@ -203,6 +227,20 @@
         $(".activeTips").hide();
     })
     
+
+
+    $(".timeline_btn").click(function(){
+        $(".wechatTips").show();
+        ga('send', 'event', '按钮', '点击', 'share');
+    })
+
+    $(".wechatTips_close").click(function(){
+        $(".wechatTips").hide();
+    })
+
+    $(".qrcode_close").click(function(){
+        $(".qrcode").hide();
+    })
 
     
 </script>
