@@ -201,7 +201,8 @@
 				$sql = "select id from uid = '".$_SESSION['user_id']."' and pid= '".$id."'";
 				$rs = $db->getOne($sql);
 				if ($rs) {
-
+					print json_encode(array("code" => 3, "msg" => "您已经为该作品投过票了"));
+					exit;
 				}
 				$sql = "update photo set ballot = ballot + 1 where id = ".$id;
 				$db->execute($sql);
