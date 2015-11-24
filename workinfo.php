@@ -99,14 +99,27 @@
 </div>
 
 
+<?php
+if ($_SESSION['user_id'] == $result['uid']) {    
+?>
+    <!-- 自己的 -->
+    <!-- 微信分享提示 -->
+    <div class="wechatTips">
+        <img src="../imgs/wechat_tips.png" />
+        <a href="javascript:;" class="wechatTips_close">
+            <img src="../imgs/close.png" width="80%" />
+        </a>
+    </div>
 
-<!-- 微信分享提示 -->
-<div class="wechatTips">
-    <img src="../imgs/wechat_tips.png" />
-    <a href="javascript:;" class="wechatTips_close">
-        <img src="../imgs/close.png" width="80%" />
-    </a>
-</div>
+<?php
+} else {
+?>
+    
+<?php
+}
+?>
+
+
 
 <!-- 二维码提示 -->
 <div class="qrcode">

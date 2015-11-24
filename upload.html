@@ -81,9 +81,9 @@
 
 
 <div id="wrapp">
-    <!-- <div class="loading"></div> -->
 
     <div id="scroller">
+        <div class="loading"></div>
         <div class="upload_area">
 
             <div class="upload_area_con">
@@ -165,7 +165,7 @@ function toFixed2 (num) {
 
 
 $(".upload_submitbtn").click(function(){
-    var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
+        var imgcontent = $("#uploadContent").val(); //photoCanvas = $("#photoCanvas")[0], ; 
 
         if(saveimgPushData["image"] == ""){
             alert("请先上传你认为最具特色的图片");  
