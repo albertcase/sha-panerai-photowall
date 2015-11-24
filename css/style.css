@@ -819,12 +819,12 @@ video{
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-	top: -0.6em;
+	margin-top: -0.1em;
 	right: 0.6em;
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-	top: -0.6em;
+	margin-top: -0.1em;
 	left: 0.6em;
 }
 
