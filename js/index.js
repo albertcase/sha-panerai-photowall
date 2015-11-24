@@ -48,6 +48,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
 
 var curpageindex = 1;
 function pullUpAction () {
+        $(".loading").show();
         curpageindex ++;
 
         if(curpageindex >= workInfoData["_totalpage"]){
@@ -63,7 +64,7 @@ function pullUpAction () {
             "row": "10"    // 个数，默认10
         };
 
-        $(".loading").show();
+        
         ajaxfun("POST", "/Request.php?model=photolist", pull_photolistPushData, "json", pull_photolistCallback);
 
 
@@ -100,14 +101,14 @@ function pullUpAction () {
                         // layout Masonry after each image loads
                         //isotope.layout();
                         myScroll.refresh();
-
+                        $(".loading").hide();
                     });
                        
                 } , function (p){
                     //console.log(p+"%");
                 });
 
-                $(".loading").hide();
+                
             }else{
                 console.log(data.msg);
                 $(".loading").hide();
