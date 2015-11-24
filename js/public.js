@@ -107,7 +107,7 @@ var jssdkPushData = {
     "url": wechatUrl
 };
 
-ajaxfun("POST", "/Request.php?model=jssdk", jssdkPushData, "json", jssdkCallback);
+ajaxfun("GET", "/Request.php?model=jssdk", jssdkPushData, "json", jssdkCallback);
 
 function jssdkCallback(data){
     if(data.result == "success"){
