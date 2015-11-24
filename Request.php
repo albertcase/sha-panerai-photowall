@@ -189,12 +189,18 @@
 				break;
 
 			case 'ballot':
+				if (!isset($_SESSION["user_id"])) {
+					print json_encode(array("code" => 0, "msg" => "未登录"));
+					exit;
+				}
 				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
 				$sql = "update photo set ballot = ballot + 1 where id = ".$id;
+				$db->execute($sql);
+				$sql = "insert into ballot set uid='".$_SESSION['user_id']."', pid= ".$id;
 				$db->execute($sql);
 				print json_encode(array("code" => 1, "msg" => "投票成功"));
 				exit;
@@ -206,7 +212,7 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
-				$request = "http://paneraiwx.eweixin.biz/weixinjs/SignWeiXinService.ashx?url=". $url;
+				$request = "http://paneraiwx.eweixin.biz/weixinjs/SignWeiXinService.ashx?url=". urlencode($url);
 				echo $result = file_get_contents($request);
 				exit;
 			default:
