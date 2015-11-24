@@ -179,7 +179,7 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
-				$sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
+				$sql = "select  a.*,b.nickname,b.headimgurl from (select * from photo  where id =".$id.") a left join user b on a.uid = b.id";
 				$result = $db->getRow($sql, true);
 				include_once('./config/emoji.php');
 				$name = json_decode($result['nickname'], true);
@@ -198,9 +198,14 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
+				$sql = "select id from uid = '".$_SESSION['user_id']."' and pid= '".$id."'";
+				$rs = $db->getOne($sql);
+				if ($rs) {
+
+				}
 				$sql = "update photo set ballot = ballot + 1 where id = ".$id;
 				$db->execute($sql);
-				$sql = "insert into ballot set uid='".$_SESSION['user_id']."', pid= ".$id;
+				$sql = "insert into ballot set uid='".$_SESSION['user_id']."', pid= '".$id."'";
 				$db->execute($sql);
 				print json_encode(array("code" => 1, "msg" => "投票成功"));
 				exit;
