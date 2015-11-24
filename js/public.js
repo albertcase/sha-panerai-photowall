@@ -1,19 +1,3 @@
-// 授权登录
-var oauthPushData = {
-    "url": window.location.href
-};
-
-
-$.ajax({
-    type: "GET",
-    url: "/Request.php?model=islogin",
-    dataType: "json"
-}).done(function(data){
-    if(data.code == 0){
-        window.location = "/Request.php?model=oauth&url="+oauthPushData.url
-    }
-})
-
 
 
 function GetQueryString(name){

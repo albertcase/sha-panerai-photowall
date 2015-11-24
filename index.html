@@ -25,7 +25,24 @@
     <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
 
     <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript">
+        // 授权登录
+        var oauthPushData = {
+            "url": window.location.href
+        };
 
+
+        $.ajax({
+            type: "GET",
+            url: "/Request.php?model=islogin",
+            dataType: "json"
+        }).done(function(data){
+            if(data.code == 0){
+                window.location = "/Request.php?model=oauth&url="+oauthPushData.url
+            }
+        })
+
+    </script>
 
 </head>
 <body>
