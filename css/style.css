@@ -678,7 +678,7 @@ video{
 	top: 0;
 	z-index: 10;
 	background: rgba(0,0,0,0.9);
-	display: none;
+	/*display: none;*/
 }
 
 .wechatTips img{
