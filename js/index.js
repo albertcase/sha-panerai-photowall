@@ -30,9 +30,9 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       }else if(imgtype == "user"|| imgtype == "home"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
-        elem.setAttribute("onclick", "myVideo($(this))");
-        elem.setAttribute("data-videourl", _content);
-        writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
+        // elem.setAttribute("onclick", "myVideo($(this))");
+        // elem.setAttribute("data-videourl", _content);
+        // writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
       }
 
       elem.className = 'grid-item ' + imgtype;
@@ -286,7 +286,27 @@ function myVideo(_this){
 
 
 
+var videoFun = function(n){
+    var video = new tvp.VideoInfo(); 
+    video.setVid(n);
+    player = new tvp.Player(); 
+    player.create({
+        width: videoWidth + 'px',
+        height: videoHeight + 'px',
+        video: video,
+        //pic: vPic[n],
+        modId:"mod_player", //mod_player是刚刚在页面添加的div容器 autoplay:true
+        onallended: function(){
 
+        },
+        onpause: function(){
+
+        },
+        onplaying: function(){
+
+        }
+    });
+}
 
 
 
