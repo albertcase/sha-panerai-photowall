@@ -663,8 +663,8 @@ video{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url("../imgs/loading.gif") no-repeat center;
-	background-size: 30% auto;
+	background:#383630 url("../imgs/loading.gif") no-repeat center;
+	background-size: 38% auto;
 	display: none;
 }
 
