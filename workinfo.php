@@ -18,11 +18,6 @@
     }
     $name = json_decode($result['nickname'], true);
     $result['nickname'] = emoji_unified_to_html($name['name']);
-    if ($_SESSION['user_id'] == $result['uid']) {
-        $ismy = 1;
-    } else {
-        $ismy = 0;
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -147,9 +142,21 @@
             </div>
 
             <div class="infofooter">
-                <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'upload');" class="upload_btn">
-                     <img src="../imgs/upload_btn.jpg" width="100%" />
-                </a>
+                <?php
+                if ($_SESSION['user_id'] == $result['uid']) {
+                    //自己的
+                ?>
+
+                <?php
+                } else {
+                ?>
+                    <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'upload');" class="upload_btn">
+                        <img src="../imgs/upload_btn.jpg" width="100%" />
+                    </a>
+                <?php
+                }
+                
+
             </div>
             
         </div>
