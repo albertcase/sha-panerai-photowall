@@ -184,7 +184,7 @@
             $(".heart_icon").siblings("em").html(parseInt(curPraise)+1);
             alert("点赞成功！");
         }else{
-            console.log(data.msg);
+            //console.log(data.msg);
         }
     } 
 
