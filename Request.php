@@ -207,7 +207,7 @@
 				break;
 
 			case 'jssdk':
-				$url = isset($_POST['url']) ? $_POST['url'] : $tag = true;
+				$url = isset($_POST['url']) ? urldecode($_POST['url']) : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
