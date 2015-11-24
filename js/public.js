@@ -122,17 +122,14 @@ function jssdkCallback(data){
 
 
 var shareData = {
-            title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
-            desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
-            link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+        title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+        desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+        link: window.location.host,
+        imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
 };
 
 function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
-  alert(appid_val);
-  alert(timestamp_val);
-  alert(nonceStr_val);
-  alert(signature_val);
+
   wx.config({
       debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: appid_val, // 必填，公众号的唯一标识
@@ -179,7 +176,6 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
 
   wx.ready(function(){
 
-
     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
     wx.onMenuShareTimeline({
         title: shareData.title, // 分享标题
@@ -224,40 +220,40 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
 
 }
 
-function editShare(){   ///demon
-     wx.onMenuShareTimeline({
-            title: shareData.title, // 分享标题
-            link: shareData.link, // 分享链接
-            imgUrl: shareData.imgUrl, // 分享图标
-            success: function () {
-                // 用户确认分享后执行的回调函数
+// function editShare(){   ///demon
+//      wx.onMenuShareTimeline({
+//             title: shareData.title, // 分享标题
+//             link: shareData.link, // 分享链接
+//             imgUrl: shareData.imgUrl, // 分享图标
+//             success: function () {
+//                 // 用户确认分享后执行的回调函数
 
                 
-                //alert('分享成功');
-            },
-            cancel: function () { 
-                // 用户取消分享后执行的回调函数
-                // alert("分享失败")
-            }
-        });
+//                 //alert('分享成功');
+//             },
+//             cancel: function () { 
+//                 // 用户取消分享后执行的回调函数
+//                 // alert("分享失败")
+//             }
+//         });
         
         
-        wx.onMenuShareAppMessage({
-            title: shareData.title, // 分享标题
-            link: shareData.link, // 分享链接
-            imgUrl: shareData.imgUrl, // 分享图标
-            desc: shareData.desc,
-            success: function () { 
-                // 用户确认分享后执行的回调函数
+//         wx.onMenuShareAppMessage({
+//             title: shareData.title, // 分享标题
+//             link: shareData.link, // 分享链接
+//             imgUrl: shareData.imgUrl, // 分享图标
+//             desc: shareData.desc,
+//             success: function () { 
+//                 // 用户确认分享后执行的回调函数
 
-                //alert('分享成功');
-            },
-            cancel: function () { 
-                // 用户取消分享后执行的回调函数
-               // alert("分享失败")
-            }
-        });
-}
+//                 //alert('分享成功');
+//             },
+//             cancel: function () { 
+//                 // 用户取消分享后执行的回调函数
+//                // alert("分享失败")
+//             }
+//         });
+// }
 
 
 
@@ -287,7 +283,7 @@ function LoadFn ( arr , fn , fn2){
 }
 
 
-editShare();
+// editShare();
 
 
 
