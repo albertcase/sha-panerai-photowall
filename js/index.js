@@ -187,7 +187,9 @@ var photolistPushData = {
 $(".loading").show();
 
 if(entertype == "all" || !entertype){
-    $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+    if(isIpad()){
+        $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+    }
 }
 
 
@@ -212,32 +214,54 @@ function photolistCallback(data){
         }
 
         if(data.msg == ""){
-            $("#pl_list").html('<p>暂无作品哦</p>');
+            $(".loading").hide();
+            $("#pl_list").html('<p>您尚未上传任何作品，诚邀您登临“臻品之墙”</p>');
         }else{
 
-            $.map(data.msg, function(v, k){
-                loadingImgArr.push(v.url);
-                var elem = getItemElement(v.type, v.id, v.url, v.content);
-                    fragment.appendChild( elem );
+            var elem;
+            if(data.total == 1){
+                loadingImgArr.push(data.msg[0].url);
+                elem = getItemElement(data.msg[0].type, data.msg[0].id, data.msg[0].url, data.msg[0].content);
+                fragment.appendChild( elem );
                     //allImgLoading.push();
+                elems.push( elem );
+            }else{
+                $.map(data.msg, function(v, k){
+                    loadingImgArr.push(v.url);
+                    elem = getItemElement(v.type, v.id, v.url, v.content);
+                    fragment.appendChild( elem );
+                        //allImgLoading.push();
                     elems.push( elem );
-                //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
-            })//.join("");
+                    //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
+                })//.join("");
+            }
+            
 
 
             // 当图片加载完成之后在添加进入页面            
             LoadFn(loadingImgArr , function (){
 
-                // append elements to container
-                grid.appendChild(fragment);
-                // add and lay out newly appended elements
-                isotope.appended(elems);
-                imagesLoaded( grid, function() {
-                    // layout Masonry after each image loads
-                    isotope.layout();
+                if(data.total == 1){
+
+                    grid.appendChild(fragment);
+                    $(".grid-item").css("padding-bottom", "20px");
+                    $(".loading,#pullUp").hide();
+
                     myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
-                    $(".loading").hide();
-                });
+
+                }else{
+                    // append elements to container
+                    grid.appendChild(fragment);
+                    // add and lay out newly appended elements
+                    isotope.appended(elems);
+                    imagesLoaded( grid, function() {
+                        // layout Masonry after each image loads
+                        isotope.layout();
+                        myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                        $(".loading").hide();
+                    });
+                }
+                
                    
             } , function (p){
                 //console.log(p+"%");
