@@ -147,7 +147,7 @@
 				} else if ($type == 'user') {
 					$where = "uid = '". $_SESSION["user_id"]. "'";
 				} else {
-					$where = "1";
+					$where = "status=1";
 				}
 				$page = isset($_POST['page']) ? intval($_POST['page']) : 1;
 				$row = isset($_POST['row']) ? intval($_POST['row']) : 10;
