@@ -221,6 +221,18 @@
 				$request = "http://paneraiwx.eweixin.biz/weixinjs/SignWeiXinService.ashx?url=". urlencode($url);
 				echo $result = file_get_contents($request);
 				exit;
+
+			case 'status':
+				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
+				if ($tag) {
+					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
+					exit;
+				}
+				$status = $db->getOne("select status from photo where id=".$id);
+				$newstatus = abs($status-1);
+				$db->getOne("update photo set status=".$newstatus." where id=".$id);
+				print json_encode(array("code" => 1, "msg" => $newstatus ));
+				exit;
 			default:
 				# code...
 				print json_encode(array("code"=>9999,"msg"=>"No Model"));

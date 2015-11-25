@@ -1,0 +1,262 @@
+@font-face{
+	font-family: myFirstFont;
+	src: url("../font/songti.ttf");
+
+}
+
+
+body{
+	background: #000 url(../images/bg-1.jpg) no-repeat ;
+	background-size: 100%;
+    
+}
+.info{
+	
+	position: relative;
+	margin:25% auto 0 auto;
+	width: 307px;
+	height: 384px;
+	background:url(../images/bg-2.png) no-repeat;
+	background-size: 100%;
+	text-align: center;
+
+}
+.info .num{
+	display: inline-block;
+	width:300px;
+	font-family: myFirstFont;
+	color:#fff;
+	font-size: 18px;
+	margin-top:125px;
+	position: relative;
+	
+}
+.hello{
+	font-family: myFirstFont;
+	color:#fff;
+	font-size: 18px;
+	text-align: center;
+	height:20px;
+	margin-bottom: 16px;
+
+}
+#file{
+	font-family: myFirstFont;
+	background:rgba(0,0,0,0.5);
+	width:220px;
+	height:34px;
+	border:none;
+	display: inline-block;
+	position: relative;
+	margin:5% 0% 5% 0%;
+	text-align: center;
+	font-size: 18px;
+	color:#fff;
+	padding: 2px;
+
+}
+.submit_btn{
+	width:55%;
+	display: inline-block;
+	position: relative;
+	margin:0 0 10px 0;
+}
+.check_btn{
+	width:55%;
+	display: inline-block;
+	position: relative;
+	
+}
+/*.view_btn{
+	width:100px;
+	display: inline-block;
+	position: relative;
+	margin:0 0 0 50px;
+	background-color: rgb(129,216,208);
+	border-width:100px; 
+	border-radius: 5px;
+	border:1px solid rgb(129,216,208);
+	padding:4px;
+	color:#999;
+	font-size: 14px;
+
+}*/
+::-webkit-input-placeholder { 
+    color:    #999;
+}
+:-moz-placeholder { 
+    color:    #999;
+}
+::-moz-placeholder { 
+    color:    #999;
+}
+:-ms-input-placeholder { 
+    color:    #999;
+}
+.error::-webkit-input-placeholder { 
+    color:    #f00;
+}
+.error:-moz-placeholder { 
+    color:    #f00;
+}
+.error::-moz-placeholder { 
+    color:    #f00;
+}
+.error:-ms-input-placeholder { 
+    color:    #f00;
+}
+
+.search{
+	text-align: right;
+	margin: -20px 0 20px 0;
+}
+
+.total{
+	text-align: left;
+	font-size:20px;
+	text-shadow: 2px 1px #999;
+	color:#fff;
+}
+.error_con{
+	text-align: center;
+	font-size: 14px;
+	color:#fff;
+	
+
+}
+
+.tips{
+	width:410px;
+	height:220px;
+	display: block;
+	background:url(../images/tips_bg.jpg) no-repeat;
+	background-size: 120% 110%;
+	position: relative;
+	margin:0px auto ;
+	display: none;
+	text-align: center;
+	font-family: myFirstFont;
+	
+}
+.tips_txt{
+	font-size: 18px;
+	color:#fff;
+	padding: 20px 0 0 10px;
+	text-align: left;
+}
+.confirm_btn{
+	font-size: 18px;
+	color:#000;
+	border: 1px solid #000;
+	width:60px;
+	border-radius: none;
+	-webkit-border-radius: none;
+	-moz-border-radius: none;
+	display: inline-block;
+	padding: 4px 0;
+	text-align: center;
+	margin-top: 40px;
+
+	
+
+}
+.tips_content{
+	margin:-310px auto ;
+}
+.close{
+	float: right;
+	margin:6px 6px 0 0;
+}
+.con{
+	font-size: 18px;
+	position: relative;
+	margin-top: 24px;
+	text-align: center;
+}
+.admin{
+	position: absolute;
+	right:0;
+	top:0;
+	width:100px;
+	height:30px;
+	background: #fff;
+}
+.admin p{
+	text-align: center;
+	margin: 6px auto;
+	color: #000;
+}
+.admin a{
+	text-decoration: none;
+}
+.loading{
+	display: none;
+	width:100%;
+	height:100%;
+	background-color: #333;
+	position: fixed;
+	top:0;
+	left:0;
+
+}
+.loading img {
+	display: block;
+	margin: 250px auto;
+	
+	
+}
+#msg{
+	height: 80px;
+	line-height: 24px;
+}
+.space{
+	padding-top: 42px;
+	display: inline-block;
+}
+
+/* vistor */
+.vistor{
+	width: 220px;
+}
+
+
+
+.codeInput_con{
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 195px;
+	width: 220px;
+	margin: 0 0 0 -110px; 
+	background: rgba(0,0,0,1);
+	z-index: 9;
+}
+
+.codeInput_con ul{
+	display: none;
+	padding: 10px 0;
+	text-align: center;
+}
+
+.codeInput_con li{
+	color: #fff;
+	padding: 6px 0;
+	text-align: center;
+	overflow: hidden;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	display: inline-block;
+	font-size: 12px;
+	width: 90%;
+	border-bottom: 1px #333 solid;
+}
+
+
+
+
+
+
+
+
+
