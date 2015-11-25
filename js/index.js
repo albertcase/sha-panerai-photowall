@@ -30,9 +30,9 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       }else if(imgtype == "user"|| imgtype == "home"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
-        // elem.setAttribute("onclick", "myVideo($(this))");
-        // elem.setAttribute("data-videourl", _content);
-        // writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
+        elem.setAttribute("onclick", "myVideo($(this))");
+        elem.setAttribute("data-videourl", _content);
+        writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
       }
 
       elem.className = 'grid-item ' + imgtype;
@@ -247,35 +247,37 @@ imagesLoaded( grid, function() {
 
 function myVideo(_this){
 
-    $(".loading").show();
-
     var vurl = _this.attr("data-videourl");
-    var liArr = [];
-    liArr.push(vurl);
-    LoadFn(liArr, function (){
+        videoFun(vurl);
 
-        $(".loading").hide();
-        var video = document.createElement("VIDEO");
-        video.setAttribute("id", "video");
-        video.setAttribute("width", "100%");
-        video.setAttribute("height", "100%");
-        video.setAttribute("autoplay", "autoplay");
-        video.setAttribute("src", vurl);
-        document.body.appendChild(video);
+    // $(".loading").show();
 
-        eventTester = function(e){
-            video.addEventListener(e,function(){
-                $("video").hide().remove();
-            })
-        }
+    // var vurl = _this.attr("data-videourl");
+    // var liArr = [];
+    // liArr.push(vurl);
+    // LoadFn(liArr, function (){
 
-        eventTester("pause");
+    //     $(".loading").hide();
+    //     var video = document.createElement("VIDEO");
+    //     video.setAttribute("id", "video");
+    //     video.setAttribute("width", "100%");
+    //     video.setAttribute("height", "100%");
+    //     video.setAttribute("autoplay", "autoplay");
+    //     video.setAttribute("src", vurl);
+    //     document.body.appendChild(video);
+
+    //     eventTester = function(e){
+    //         video.addEventListener(e,function(){
+    //             $("video").hide().remove();
+    //         })
+    //     }
+
+    //     eventTester("pause");
 
            
-    } , function (p){
-        //console.log(p+"%");
-    });
-
+    // } , function (p){
+    //     //console.log(p+"%");
+    // });
 
 
     return false;
@@ -286,6 +288,16 @@ function myVideo(_this){
 
 
 
+
+
+
+
+//var vidArr = ["r01737z30w2"];
+//var vPic = [basePath + "imgs/poster.jpg"];
+var player;
+var videoWidth = document.body.clientWidth;
+var videoHeight = videoWidth * (1080 / 1920);
+
 var videoFun = function(n){
     var video = new tvp.VideoInfo(); 
     video.setVid(n);
@@ -294,8 +306,14 @@ var videoFun = function(n){
         width: videoWidth + 'px',
         height: videoHeight + 'px',
         video: video,
+        autoplay: true,
+        isHtml5UseFakeFullScreen: true,
         //pic: vPic[n],
         modId:"mod_player", //mod_player是刚刚在页面添加的div容器 autoplay:true
+        oninited: function () {         
+            //player.pause();
+            //播放器在视频载入完毕触发
+        },
         onallended: function(){
 
         },
@@ -303,22 +321,27 @@ var videoFun = function(n){
 
         },
         onplaying: function(){
-
+        },
+        onfullscreen: function (isfull) {
+            //alert(isfull);
+            //onfullscreen(isfull); //播放器触发全屏/非全屏时，参数isfull表示当前是否是全屏
         }
     });
+
+    $("#mod_player").css({"margin-top":-(videoHeight/2),"margin-left":-(videoWidth/2)});
+    $("#video").show();
 }
 
 
+$(".video_close").click(function(){
+    $("#video").hide();
+    $("#mod_player").html("");
+})
 
-
-
-
-
-
-
-
-
-
+$(".fullpageBtn").click(function(){
+    player.enterFullScreen();
+    player.play(); 
+})
 
 
 

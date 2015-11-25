@@ -14,6 +14,13 @@ html, body{
 	left: 0;
 	top: 0;
 	background: #373530;
+	display: none;
+}
+
+#mod_player{
+	position: absolute;
+	top: 50%;
+	left: 50%;
 }
 
 video{
@@ -24,6 +31,22 @@ video{
 	left: 0;
 	top: 0;
 	background: #373530;
+}
+
+.fullpageBtn{
+	width: 46%;
+	font-size: 20px;
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	z-index: 99;
+	background: #fff1d3;
+	height: 42px;
+	line-height: 42px;
+	font-size: 18px;
+	margin: 0 0 0 -23%;
+	color: #000;
+	text-align: center;
 }
 
 
@@ -869,10 +892,10 @@ video{
 }
 
 .video_close{
-	width: 7%;
+	width: 18%;
 	position: absolute;
 	right: 5%;
-	top: 2%;
+	top: 5%;
 	z-index: 9;
 }
 
@@ -891,6 +914,14 @@ video{
 /* ipad */
 
 @media only screen and (min-device-width: 750px) and (max-device-width: 1023px){
+	.video_close{
+		width: 7%;
+		position: absolute;
+		right: 5%;
+		top: 2%;
+		z-index: 9;
+	}
+
 	#header {
 		height: 18%;
 	}
@@ -1012,7 +1043,7 @@ video{
 		font-size: 16px;
 	}
 
-	.proinfo_close{
+	.proinfo_close, .video_close{
 		width: 8%;
 		position: absolute;
 		right: 5%;
