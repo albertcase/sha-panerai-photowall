@@ -378,6 +378,7 @@ video{
 	/*float: left;*/
 	margin: 1%;
 	display: inline-block;
+	position: relative;
 }
 
 .grid{
