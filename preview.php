@@ -33,6 +33,22 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
+    <script type="text/javascript">
+        function isPC(){  
+           var userAgentInfo = navigator.userAgent;  
+           var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+           var flag = true;  
+           for (var v = 0; v < Agents.length; v++) {  
+               if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
+           }  
+           return flag;  
+        }
+
+        if(isPC()){
+            window.location.href = "pc.html";
+        }
+    </script>
+
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/emoji.css" />

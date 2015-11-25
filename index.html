@@ -13,6 +13,22 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
+    <script type="text/javascript">
+        function isPC(){  
+           var userAgentInfo = navigator.userAgent;  
+           var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+           var flag = true;  
+           for (var v = 0; v < Agents.length; v++) {  
+               if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
+           }  
+           return flag;  
+        }
+
+        if(isPC()){
+            window.location.href = "pc.html";
+        }
+    </script>
+
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -25,28 +41,55 @@
     <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
 
     <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/tvp.player_v2.js"></script>
     <script type="text/javascript">
-        // 授权登录
-        var oauthPushData = {
-            "url": window.location.href
-        };
+        
 
-
-        $.ajax({
-            type: "GET",
-            url: "/Request.php?model=islogin",
-            dataType: "json"
-        }).done(function(data){
-            if(data.code == 0){
-                window.location = "/Request.php?model=oauth&url="+oauthPushData.url
+        function isIpad(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(/ipad/i.test(ua))
+            {
+                return true;
             }
-        })
+            else{
+                return false;
+            }
+        }
+
+        if(!isIpad() && !isPC()){
+
+
+            // 授权登录
+            var oauthPushData = {
+                "url": window.location.href
+            };
+
+
+            $.ajax({
+                type: "GET",
+                url: "/Request.php?model=islogin",
+                dataType: "json"
+            }).done(function(data){
+                if(data.code == 0){
+                    window.location = "/Request.php?model=oauth&url="+oauthPushData.url
+                }
+            })
+
+        }
 
     </script>
 
 </head>
 <body>
 <div class="disable"></div>
+
+<div id="video">
+    <a href="javascript:;" class="video_close">
+        <img src="../imgs/ipad_close.png" width="100%" />
+    </a>
+    <div id="mod_player"></div>
+    <a href="javascript:;" class="fullpageBtn">全屏播放</a>
+</div>
 
 
 <div id="header">
@@ -70,10 +113,10 @@
 
     <!-- ipad -->
     <ul class="head_ipad">
-        <li class="li_all">
+        <li class="li_all" data-type="all">
             <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall_ipad')" title="臻品之墙">臻品之墙</a>
         </li>
-        <li class="li_home">
+        <li class="li_home" data-type="home">
             <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection_ipad')" title="魅力时计">魅力时计</a>
         </li>
     </ul>
@@ -87,13 +130,13 @@
         <li>
             <a href="rule.html" onclick="ga('send', 'event', 'link', '点击', 'menu_start')" title="开启探索之旅">开启探索之旅</a>
         </li>
-        <li class="li_all">
+        <li class="li_all" data-type="all">
             <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall')" title="臻品之墙">臻品之墙</a>
         </li>
-        <li class="li_home">
+        <li class="li_home" data-type="home">
             <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection')" title="魅力时计">魅力时计</a>
         </li>
-        <li class="li_user">
+        <li class="li_user" data-type="user">
             <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>

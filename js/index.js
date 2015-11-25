@@ -32,7 +32,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       }else{
         elem.setAttribute("onclick", "myVideo($(this))");
         elem.setAttribute("data-videourl", _content);
-        writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
+        writeInfoHtml = '<img src="'+imgurl+'" />';   //<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a>
       }
 
       elem.className = 'grid-item ' + imgtype;
@@ -48,20 +48,31 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
 
 var curpageindex = 1;
 function pullUpAction () {
+        //$(".loading").show();
         curpageindex ++;
-
+        console.log(curpageindex + ": " + workInfoData["_totalpage"]);
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
+        }else{
+            $("#pullUp").show();
+        }
+
+        var curchoseType;
+
+        if(isIpad()){
+            curchoseType = $(".head_ipad li.hover").attr("data-type");
+        }else{
+            curchoseType = $(".menuArea li.hover").attr("data-type");
         }
 
         // 图片列表
         var pull_photolistPushData = {
-            "type": "all",  //all   user   home
+            "type": curchoseType,  //all   user   home
             "page": curpageindex,  // 页数
             "row": "10"    // 个数，默认10
         };
 
-        $(".loading").show();
+        
         ajaxfun("POST", "/Request.php?model=photolist", pull_photolistPushData, "json", pull_photolistCallback);
 
 
@@ -98,17 +109,17 @@ function pullUpAction () {
                         // layout Masonry after each image loads
                         //isotope.layout();
                         myScroll.refresh();
-
+                        //$(".loading").hide();
                     });
                        
                 } , function (p){
                     //console.log(p+"%");
                 });
 
-                $(".loading").hide();
+                
             }else{
                 console.log(data.msg);
-                $(".loading").hide();
+                //$(".loading").hide();
             }
         } 
 
@@ -127,7 +138,7 @@ function pullUpAction () {
         myScroll.on('refresh', function () {
             if(curpageindex >= workInfoData["_totalpage"] || ismoveDisable) return false;
 
-            if (pullUpEl.className.match('loading')) {
+            if (pullUpEl.className.match('loadingp')) {
                 pullUpEl.className = '';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
             }
@@ -150,7 +161,7 @@ function pullUpAction () {
         myScroll.on('scrollEnd', function () {
 
             if (pullUpEl.className.match('flip')) {
-                pullUpEl.className = 'loading';
+                pullUpEl.className = 'loadingp';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
                 pullUpAction(); // Execute custom function (ajax call?)
             }
@@ -244,35 +255,38 @@ imagesLoaded( grid, function() {
 
 function myVideo(_this){
 
-    $(".loading").show();
-
     var vurl = _this.attr("data-videourl");
-    var liArr = [];
-    liArr.push(vurl);
-    LoadFn(liArr, function (){
+    var posterImg = _this.find("img").attr("src");
+        videoFun(vurl, posterImg);
 
-        $(".loading").hide();
-        var video = document.createElement("VIDEO");
-        video.setAttribute("id", "video");
-        video.setAttribute("width", "100%");
-        video.setAttribute("height", "100%");
-        video.setAttribute("autoplay", "autoplay");
-        video.setAttribute("src", vurl);
-        document.body.appendChild(video);
+    // $(".loading").show();
 
-        eventTester = function(e){
-            video.addEventListener(e,function(){
-                $("video").hide().remove();
-            })
-        }
+    // var vurl = _this.attr("data-videourl");
+    // var liArr = [];
+    // liArr.push(vurl);
+    // LoadFn(liArr, function (){
 
-        eventTester("pause");
+    //     $(".loading").hide();
+    //     var video = document.createElement("VIDEO");
+    //     video.setAttribute("id", "video");
+    //     video.setAttribute("width", "100%");
+    //     video.setAttribute("height", "100%");
+    //     video.setAttribute("autoplay", "autoplay");
+    //     video.setAttribute("src", vurl);
+    //     document.body.appendChild(video);
+
+    //     eventTester = function(e){
+    //         video.addEventListener(e,function(){
+    //             $("video").hide().remove();
+    //         })
+    //     }
+
+    //     eventTester("pause");
 
            
-    } , function (p){
-        //console.log(p+"%");
-    });
-
+    // } , function (p){
+    //     //console.log(p+"%");
+    // });
 
 
     return false;
@@ -287,15 +301,56 @@ function myVideo(_this){
 
 
 
+//var vidArr = ["r01737z30w2"];
+//var vPic = [basePath + "imgs/poster.jpg"];
+var player;
+var videoWidth = document.body.clientWidth;
+var videoHeight = videoWidth * (1080 / 1920);
+
+var videoFun = function(n,vPic){
+    var video = new tvp.VideoInfo(); 
+    video.setVid(n);
+    player = new tvp.Player(); 
+    player.create({
+        width: videoWidth + 'px',
+        height: videoHeight + 'px',
+        video: video,
+        autoplay: true,
+        isHtml5UseFakeFullScreen: true,
+        pic: vPic,
+        modId:"mod_player", //mod_player是刚刚在页面添加的div容器 autoplay:true
+        oninited: function () {         
+            //player.pause();
+            //播放器在视频载入完毕触发
+        },
+        onallended: function(){
+
+        },
+        onpause: function(){
+
+        },
+        onplaying: function(){
+        },
+        onfullscreen: function (isfull) {
+            //alert(isfull);
+            //onfullscreen(isfull); //播放器触发全屏/非全屏时，参数isfull表示当前是否是全屏
+        }
+    });
+
+    $("#mod_player").css({"margin-top":-(videoHeight/2),"margin-left":-(videoWidth/2)});
+    $("#video").show();
+}
 
 
+$(".video_close").click(function(){
+    $("#video").hide();
+    $("#mod_player").html("");
+})
 
-
-
-
-
-
-
+$(".fullpageBtn").click(function(){
+    player.enterFullScreen();
+    player.play(); 
+})
 
 
 
