@@ -383,7 +383,16 @@ video{
 .grid{
 	padding: 0 0 10px 0;
 	display: inline-block;
+	color: #f9ebc8;
 }
+
+.grid p{
+	padding: 10px 0;
+	width: 100%;
+	display: inline-block;
+}
+
+
 /* clear fix */
 .grid:after {
   content: '';

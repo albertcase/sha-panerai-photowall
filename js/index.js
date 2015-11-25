@@ -212,6 +212,7 @@ function photolistCallback(data){
         }
 
         if(data.msg == ""){
+            $(".loading").hide();
             $("#pl_list").html('<p>暂无作品哦</p>');
         }else{
 
