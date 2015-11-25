@@ -248,7 +248,8 @@ imagesLoaded( grid, function() {
 function myVideo(_this){
 
     var vurl = _this.attr("data-videourl");
-        videoFun(vurl);
+    var posterImg = _this.find("img").attr("src");
+        videoFun(vurl, posterImg);
 
     // $(".loading").show();
 
@@ -298,7 +299,7 @@ var player;
 var videoWidth = document.body.clientWidth;
 var videoHeight = videoWidth * (1080 / 1920);
 
-var videoFun = function(n){
+var videoFun = function(n,vPic){
     var video = new tvp.VideoInfo(); 
     video.setVid(n);
     player = new tvp.Player(); 
@@ -308,7 +309,7 @@ var videoFun = function(n){
         video: video,
         autoplay: true,
         isHtml5UseFakeFullScreen: true,
-        //pic: vPic[n],
+        pic: vPic,
         modId:"mod_player", //mod_player是刚刚在页面添加的div容器 autoplay:true
         oninited: function () {         
             //player.pause();
