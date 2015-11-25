@@ -186,10 +186,17 @@ var photolistPushData = {
 
 $(".loading").show();
 
+if(entertype == "all" || !entertype){
+    $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+}
+
+
 ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
 
 
 function photolistCallback(data){
+
+
     workInfoData["_totalpage"] = data.totalpage;
 
     //console.log(data);
