@@ -213,7 +213,7 @@ function photolistCallback(data){
 
         if(data.msg == ""){
             $(".loading").hide();
-            $("#pl_list").html('<p>暂无作品哦</p>');
+            $("#pl_list").html('<p>暂无作品!</p>');
         }else{
 
             $.map(data.msg, function(v, k){
