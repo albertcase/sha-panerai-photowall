@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>路易威登浪漫七夕</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+	<link rel="icon" href="/favicon2.ico" />
+	<script type="text/javascript" src="http://coachfoc.samesamechina.com/js/jquery.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			text-align: center;
+			height: 100%;
+		}
+
+		#con{
+			width: 100%;
+			height: 100%;
+			background: #383530 url("imgs/pc.jpg") no-repeat center;
+		}
+
+	</style>
+
+</head>
+<body>
+<div id="con"></div>
+
+<script type="text/javascript">
+function getHeight(){
+	if($(window).height() > 700){
+
+	}else{
+		$("#con").css({"height": $(window).height()});  
+	}
+	
+}
+getHeight()
+
+
+$(window).resize(function(){
+ 	 getHeight()
+});
+</script>
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67689322-3', 'auto');
+      ga('send', 'pageview');
+</script>
+
+</body>
+</html>

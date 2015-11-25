@@ -1,15 +1,4 @@
 
-function isIpad(){
-    var ua = navigator.userAgent.toLowerCase();
-    if(/ipad/i.test(ua))
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
 
 
 if(isIpad()){
