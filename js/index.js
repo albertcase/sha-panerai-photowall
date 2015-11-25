@@ -244,7 +244,9 @@ function photolistCallback(data){
                 if(data.total == 1){
 
                     grid.appendChild(fragment);
+                    $(".grid-item").css("padding-bottom", "20px");
                     $(".loading,#pullUp").hide();
+
                     myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
 
                 }else{
