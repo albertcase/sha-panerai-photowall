@@ -378,6 +378,7 @@ video{
 	/*float: left;*/
 	margin: 1%;
 	display: inline-block;
+	position: relative;
 }
 
 .grid{
@@ -442,20 +443,33 @@ video{
 
 .activeTips{
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 60px;
 	z-index: 9;
 	background: rgba(0,0,0,0.9);
 	/*display: none;*/
 }
 
+.activeTips_con{
+	width: 100%;
+	height: 60%;
+	display: inline-block;
+	overflow: auto;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	top: 10%;
+}
+
 .ruleTipsContent{
 	width: 76%;
 	display: inline-block;
-	margin: 12% 0 6% 0;
+	margin: 0 0 9% 0;
 }
+
+
 
 .upload_btn, .timeline_btn,.order_btn{
 	width: 52%;
@@ -918,7 +932,12 @@ video{
 
 
 
-
+.activeTips .rulefooter{
+	padding: 0;
+	position: absolute;
+	left: 0;
+	bottom: 18%;
+}
 
 
 

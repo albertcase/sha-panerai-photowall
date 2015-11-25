@@ -244,10 +244,15 @@ function photolistCallback(data){
                 if(data.total == 1){
 
                     grid.appendChild(fragment);
-                    $(".grid-item").css("padding-bottom", "20px");
-                    $(".loading,#pullUp").hide();
-
-                    myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                    //isotope.appended(elems);
+                    isotope.appended(elems);
+                    $(".grid-item").css({"margin-left": "26%","padding": "10px 0 30px 0"});
+                    imagesLoaded( grid, function() {
+                        // layout Masonry after each image loads
+                        isotope.layout();
+                        myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                        $(".loading,#pullUp").hide();
+                    }); 
 
                 }else{
                     // append elements to container

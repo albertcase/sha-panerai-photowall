@@ -150,11 +150,6 @@ if ($_SESSION['user_id'] == $result['uid']) {
 
 
 
-<?php
-//unset($_SESSION['ad']);
-if (!isset($_SESSION['ad'])) {
-    $_SESSION['ad'] = 1;
-?>
  <div class="activeTips">
     <div class="activeTips_con">
         <img src="../imgs/ruleTips.png" class="ruleTipsContent" />
@@ -167,9 +162,6 @@ if (!isset($_SESSION['ad'])) {
         </a>
     </div>
 </div>
-<?php
-}
-?>
 
 
 
