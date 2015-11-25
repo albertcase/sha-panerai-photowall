@@ -4,7 +4,15 @@ html, body{
 	width: 100%;
 	overflow: hidden;
 	position: relative;
+	font-family: 'Gotham_Book'
 }
+
+
+@font-face {
+    font-family: 'Gotham_Book';
+    src: url('../font/Gotham-Book.otf');
+}
+
 
 #video{
 	width: 100%;
