@@ -219,7 +219,7 @@ function photolistCallback(data){
         }else{
 
             var elem;
-            if(data.total != 1){
+            if(data.total == 1){
                 loadingImgArr.push(data.msg[0].url);
                 elem = getItemElement(data.msg[0].type, data.msg[0].id, data.msg[0].url, data.msg[0].content);
                 fragment.appendChild( elem );
@@ -241,7 +241,7 @@ function photolistCallback(data){
             // 当图片加载完成之后在添加进入页面            
             LoadFn(loadingImgArr , function (){
 
-                if(data.total != 1){
+                if(data.total == 1){
 
                     grid.appendChild(fragment);
                     //isotope.appended(elems);
