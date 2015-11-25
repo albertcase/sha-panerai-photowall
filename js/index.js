@@ -32,7 +32,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       }else{
         elem.setAttribute("onclick", "myVideo($(this))");
         elem.setAttribute("data-videourl", _content);
-        writeInfoHtml = '<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a><img src="'+imgurl+'" />';
+        writeInfoHtml = '<img src="'+imgurl+'" />';   //<a href="javascript:;" onclick="myVideo($(this))" data-videourl="'+_content+'"></a>
       }
 
       elem.className = 'grid-item ' + imgtype;
