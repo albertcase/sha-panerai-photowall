@@ -186,7 +186,7 @@ var photolistPushData = {
 
 $(".loading").show();
 
-if(entertype == "all" || !entertype){
+if(entertype == "all" || !entertype && isIpad()){
     $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
 }
 
@@ -215,7 +215,7 @@ function photolistCallback(data){
             $(".loading").hide();
             $("#pl_list").html('<p>您尚未上传任何作品，诚邀您登临“臻品之墙”</p>');
         }else{
-            
+
 
             $.map(data.msg, function(v, k){
                 loadingImgArr.push(v.url);
