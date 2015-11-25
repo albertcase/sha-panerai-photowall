@@ -213,8 +213,9 @@ function photolistCallback(data){
 
         if(data.msg == ""){
             $(".loading").hide();
-            $("#pl_list").html('<p>暂无作品!</p>');
+            $("#pl_list").html('<p>您尚未上传任何作品，诚邀您登临“臻品之墙”</p>');
         }else{
+            
 
             $.map(data.msg, function(v, k){
                 loadingImgArr.push(v.url);
