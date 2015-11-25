@@ -57,9 +57,17 @@ function pullUpAction () {
             $("#pullUp").show();
         }
 
+        var curchoseType;
+
+        if(isIpad()){
+            curchoseType = $(".head_ipad li.hover").attr("data-type");
+        }else{
+            curchoseType = $(".menuArea li.hover").attr("data-type");
+        }
+
         // 图片列表
         var pull_photolistPushData = {
-            "type": "all",  //all   user   home
+            "type": curchoseType,  //all   user   home
             "page": curpageindex,  // 页数
             "row": "10"    // 个数，默认10
         };
