@@ -186,10 +186,17 @@ var photolistPushData = {
 
 $(".loading").show();
 
+if(entertype == "all" || !entertype){
+    $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+}
+
+
 ajaxfun("POST", "/Request.php?model=photolist", photolistPushData, "json", photolistCallback);
 
 
 function photolistCallback(data){
+
+
     workInfoData["_totalpage"] = data.totalpage;
 
     //console.log(data);
@@ -204,33 +211,41 @@ function photolistCallback(data){
             $("#pullUp").show();
         }
 
-        $.map(data.msg, function(v, k){
-            loadingImgArr.push(v.url);
-            var elem = getItemElement(v.type, v.id, v.url, v.content);
-                fragment.appendChild( elem );
-                //allImgLoading.push();
-                elems.push( elem );
-            //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
-        })//.join("");
+        if(data.msg == ""){
+            $("#pl_list").html('<p>暂无作品哦</p>');
+        }else{
+
+            $.map(data.msg, function(v, k){
+                loadingImgArr.push(v.url);
+                var elem = getItemElement(v.type, v.id, v.url, v.content);
+                    fragment.appendChild( elem );
+                    //allImgLoading.push();
+                    elems.push( elem );
+                //return '<li class="grid-item" data-type="'+v.type+'"><a href="workinfo.html?wid='+v.id+'"></a><img src="'+v.url+'" /></li>';
+            })//.join("");
 
 
-        // 当图片加载完成之后在添加进入页面            
-        LoadFn(loadingImgArr , function (){
+            // 当图片加载完成之后在添加进入页面            
+            LoadFn(loadingImgArr , function (){
 
-            // append elements to container
-            grid.appendChild(fragment);
-            // add and lay out newly appended elements
-            isotope.appended(elems);
-            imagesLoaded( grid, function() {
-                // layout Masonry after each image loads
-                isotope.layout();
-                myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
-                $(".loading").hide();
+                // append elements to container
+                grid.appendChild(fragment);
+                // add and lay out newly appended elements
+                isotope.appended(elems);
+                imagesLoaded( grid, function() {
+                    // layout Masonry after each image loads
+                    isotope.layout();
+                    myScroll.refresh();     // 数据加载完成后，调用界面更新方法 
+                    $(".loading").hide();
+                });
+                   
+            } , function (p){
+                //console.log(p+"%");
             });
-               
-        } , function (p){
-            //console.log(p+"%");
-        });
+
+        }
+
+        
 
 
     }else{
