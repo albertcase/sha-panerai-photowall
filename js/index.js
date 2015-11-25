@@ -246,7 +246,7 @@ function photolistCallback(data){
                     grid.appendChild(fragment);
                     //isotope.appended(elems);
                     isotope.appended(elems);
-                    $(".grid-item").css({"float": "none","margin-left": "26%","padding": "10px 0 30px 0"});
+                    $(".grid-item").css({"margin-left": "26%","padding": "10px 0 30px 0"});
                     imagesLoaded( grid, function() {
                         // layout Masonry after each image loads
                         isotope.layout();
@@ -258,7 +258,7 @@ function photolistCallback(data){
                     // append elements to container
                     grid.appendChild(fragment);
                     // add and lay out newly appended elements
-                    
+                    isotope.appended(elems);
                     imagesLoaded( grid, function() {
                         // layout Masonry after each image loads
                         isotope.layout();

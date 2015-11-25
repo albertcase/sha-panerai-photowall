@@ -375,7 +375,7 @@ video{
 
 .proList li{
 	width: 48%;
-	float: left;
+	/*float: left;*/
 	margin: 1%;
 	display: inline-block;
 	position: relative;
