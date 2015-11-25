@@ -186,8 +186,10 @@ var photolistPushData = {
 
 $(".loading").show();
 
-if(entertype == "all" || !entertype && isIpad()){
-    $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+if(entertype == "all" || !entertype){
+    if(isIpad()){
+        $("#pl_list").append('<li class="grid-item static"><img src="../imgs/wog_wechat.jpg"></li>');
+    }
 }
 
 
