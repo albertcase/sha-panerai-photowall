@@ -289,8 +289,8 @@ var isotope = new Isotope( grid, {
     itemSelector: '.grid-item',
     percentPosition: true,
     cellsByRow: {
-      columnWidth: 10,
-      rowHeight: 10
+      columnWidth: 30,
+      rowHeight: 30
     }
 });
 
