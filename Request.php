@@ -222,6 +222,17 @@
 				echo $result = file_get_contents($request);
 				exit;
 
+			case 'subscribe':
+				if (!isset($_SESSION["user_id"])) {
+					print json_encode(array("code" => 0, "msg" => "未登录"));
+					exit;
+				}
+				$openid = $db->getOne("select openid from user where id=".$_SESSION['user_id']);
+
+				$request = "http://paneraiwx.eweixin.biz/WeChat/CheckUserIsSubscribe.ashx?openid=". $openid;
+				echo $result = file_get_contents($request);
+				exit;
+
 			case 'status':
 				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
 				if ($tag) {
