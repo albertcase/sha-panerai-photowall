@@ -60,7 +60,7 @@ function check(id){
 	<div class="container">
 		<section>
 
-			<h1 style="margin-bottom:50px; text-align:center ;color:#fff;">Parenai-PhotoWall</h1>
+			<h1 style="margin-bottom:50px; text-align:center ;color:#fff;">Panerai-PhotoWall</h1>
 			
             <strong class="total">Total : <?php echo $rowcount;?></strong>
 
@@ -70,7 +70,7 @@ function check(id){
 					<th>ID</th>
 					<th>PROFILE</th>
 					<th>NAME</th>
-					<th>PIC</th>
+					<th>PICTURE</th>
 					<th>CONTENT</th>
 					<th>STATUS</th>
 				</tr>
@@ -90,7 +90,7 @@ function check(id){
 					<td align="center"><?php echo $rs[$i]['nickname']; ?></td>
 					<td align="center"><img src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
 					<td align="center"><?php echo $rs[$i]['content']; ?></td>
-					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>"><?php echo $rs[$i]['status']==1?'approved':'unapproved'; ?></td>
+					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>" style="cursor:pointer"><?php echo $rs[$i]['status']==1?'approved':'unapproved'; ?></td>
 					</tr>
 
 					<?php     
