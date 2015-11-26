@@ -22,7 +22,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>OFFICINE PANERAI</title>
+	<title>沛纳海</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="format-detection" content="telephone=no">
 	<!--禁用手机号码链接(for iPhone)-->
