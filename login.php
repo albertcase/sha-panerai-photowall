@@ -19,7 +19,7 @@ public $success;
 $Member = new Member();
 
 
-if ($name=='admin'&&$password=='panerai') {
+if ($name=='panerai'&&$password=='P@n3&A1_@dm!%') {
 	$_SESSION['login_user']=$name; // Initializing Session
 	$Member->success = 1;
 	//header("location: report.php"); // Redirecting To Other Page
