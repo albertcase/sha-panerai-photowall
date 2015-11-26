@@ -955,6 +955,15 @@ video{
 	margin: -30% 0 0 -30%;
 }
 
+.qrc_info p{
+	color: #fff1d3;
+	font-size: 16px;
+	padding: 20px 0;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
 
 
 /* ipad */
