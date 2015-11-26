@@ -79,7 +79,7 @@ function check(id){
 					<td align="center"><?php echo $rs[$i]['id']; ?></td>
 					<td align="center"><img src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
 					<td align="center"><?php echo $rs[$i]['content']; ?></td>
-					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>"><?php echo $rs[$i]['status']==1?'checed':'non-checked'; ?></td>
+					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>"><?php echo $rs[$i]['status']==1?'checked':'non-checked'; ?></td>
 					</tr>
 
 					<?php     
