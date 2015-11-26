@@ -250,7 +250,8 @@ if (!isset($_SESSION['ad'])) {
         var curPraise = $(".heart_icon").siblings("em").html();
         if(data.code == 1){
             $(".heart_icon").siblings("em").html(parseInt(curPraise)+1);
-            alert("点赞成功！");
+            $(".heart_icon").find("img").attr("src","../imgs/heart_icon_hover.png");
+            //alert("点赞成功！");
         }else{
             //console.log(data.msg);
         }
