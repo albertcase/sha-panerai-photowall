@@ -7,6 +7,7 @@ if(!isset($_SESSION['login_user'])){
 include_once('./config/database.php');
 include_once('./config/Pdb.php');
 include_once('./config/Pager.class.php');
+include_once('./config/emoji.php');
 $db = Pdb::getDb();
 $rowcount = $db->getOne("SELECT count(*) as num FROM photo where type='user'");
 
@@ -17,8 +18,13 @@ if(isset($_GET['page'])){
 	$nowindex = $_GET["PB_Page_Select"];
 }
 $page = new Pager(array("nowindex" => $nowindex, "total" => $rowcount, "perpage" => 30, "style" => "page_break"));
-$sql = "SELECT * FROM photo where type='user' ORDER BY status,id desc LIMIT $page->offset,30";
+$sql = "SELECT photo.*,openid,nickname,headimgurl FROM photo,user where photo.uid=user.id and  type='user' ORDER BY status,id desc LIMIT $page->offset,30";
 $rs = $db->getAll($sql,true);
+
+for ($i = 0; $i < count($rs); $i++) {
+	$name = json_decode($rs[$i]['nickname'], true);
+	$rs[$i]['nickname'] = emoji_unified_to_html($name['name']);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +34,7 @@ $rs = $db->getAll($sql,true);
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" type="text/css" href="css/emoji.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
@@ -61,6 +68,8 @@ function check(id){
 				<thead style="color:#fff">
 				<tr role="row">
 					<th>ID</th>
+					<th>HEAD</th>
+					<th>NAME</th>
 					<th>PIC</th>
 					<th>CONTENT</th>
 					<th>STATUS</th>
@@ -77,9 +86,11 @@ function check(id){
 				?>
 					<tr  role="row" class="<?php if($i%2==0) echo 'even'; else echo 'odd';?>">
 					<td align="center"><?php echo $rs[$i]['id']; ?></td>
+					<td align="center"><img src="<?php echo $rs[$i]['headimgurl']; ?>" width="50"></td>
+					<td align="center"><?php echo $rs[$i]['nickname']; ?></td>
 					<td align="center"><img src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
 					<td align="center"><?php echo $rs[$i]['content']; ?></td>
-					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>"><?php echo $rs[$i]['status']==1?'checed':'non-checked'; ?></td>
+					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>"><?php echo $rs[$i]['status']==1?'checked':'non-checked'; ?></td>
 					</tr>
 
 					<?php     
