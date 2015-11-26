@@ -137,19 +137,6 @@ if ($_SESSION['user_id'] == $result['uid']) {
 
 
 
-<!-- 二维码提示 -->
-<div class="qrcode">
-    <div class="qrcode_con">
-        <img src="../imgs/qrcode.png" width="100%" />
-    </div>
-
-    <a href="javascript:;" class="qrcode_close">
-        <img src="../imgs/close.png" width="80%" />
-    </a>
-</div>
-
-
-
  <div class="activeTips">
     <div class="activeTips_con">
         <img src="../imgs/ruleTips.png" class="ruleTipsContent" />
