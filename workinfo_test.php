@@ -225,7 +225,9 @@ if ($_SESSION['user_id'] == $result['uid']) {
     ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
 
     function subscribefunc(data){
-        console.log(data);
+        if(data.result == "success" && data.jsonResponse == 0){
+            $(".qrcode").show();
+        }
     }
     
     // 投票
