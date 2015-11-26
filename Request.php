@@ -137,6 +137,10 @@
 				break;
 
 			case 'photolist':
+				if (stripos($_SERVER['HTTP_USER_AGENT'],"mobile")>=0) {
+					print json_encode(array("code" => 3, "msg" => "非法请求"));
+					exit;
+				}
 				$type = isset($_POST['type']) ? $_POST['type'] : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
@@ -167,6 +171,10 @@
 				break;
 
 			case 'product':
+				if (stripos($_SERVER['HTTP_USER_AGENT'],"mobile")>=0) {
+					print json_encode(array("code" => 3, "msg" => "非法请求"));
+					exit;
+				}
 				$sql = "select * from photo where type='pic'";
 				$product = $db->getAll($sql, true);
 				echo json_encode(array('code' => 1, 'msg' => $product));
@@ -174,6 +182,10 @@
 				break;
 
 			case 'photolistbyid':
+				if (stripos($_SERVER['HTTP_USER_AGENT'],"mobile")>=0) {
+					print json_encode(array("code" => 3, "msg" => "非法请求"));
+					exit;
+				}
 				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
