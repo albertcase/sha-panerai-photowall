@@ -287,7 +287,11 @@ function photolistCallback(data){
 var grid = document.querySelector('.grid');
 var isotope = new Isotope( grid, {
     itemSelector: '.grid-item',
-    percentPosition: true
+    percentPosition: true,
+    cellsByRow: {
+      columnWidth: 10,
+      rowHeight: 10
+    }
 });
 
 imagesLoaded( grid, function() {
