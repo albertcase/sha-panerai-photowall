@@ -137,6 +137,10 @@
 				break;
 
 			case 'photolist':
+				// if (stripos($_SERVER['HTTP_USER_AGENT'],"mobile")>=0) {
+				// 	print json_encode(array("code" => 3, "msg" => "非法请求"));
+				// 	exit;
+				// }
 				$type = isset($_POST['type']) ? $_POST['type'] : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
