@@ -108,7 +108,7 @@
             <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>
-            <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
+            <a href="http://www.panerai.com/cn/network/boutiques.html" onclick="ga('send', 'event', 'link', '点击', 'menu_official')" target="_blank" title="亲临品鉴">亲临品鉴</a>  
         </li>
     </ul>
 </div>
