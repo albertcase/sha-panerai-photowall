@@ -54,7 +54,7 @@ function pullUpAction () {
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
         }else{
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         var curchoseType;
@@ -210,7 +210,7 @@ function photolistCallback(data){
         $(".li_" + photolistPushData["type"]).addClass("hover");
 
         if(data.totalpage >1){
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         if(data.msg == ""){
