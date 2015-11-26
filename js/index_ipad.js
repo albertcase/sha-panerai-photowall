@@ -12,7 +12,7 @@ if(isIpad()){
 		//console.log(data);
 	    if(data.code == 1){
 	       
-	    	var wInfoHtml = '<div class="wa_header"><span class="heart_icon"><img src="../imgs/heart_icon.png" width="100%"></span> <em>'+data.msg.ballot+'</em> <span class="wechat_name">'+data.msg.nickname+'</span></div><dl><dt><img src="'+data.msg.url+'" width="100%"></dt><dd>'+data.msg.content+'</dd></dl>';	
+	    	var wInfoHtml = '<div class="wa_header"><span class="heart_icon_hover"><img src="../imgs/heart_icon_hover.png" width="100%"></span> <em>'+data.msg.ballot+'</em> <span class="wechat_name">'+data.msg.nickname+'</span></div><dl><dt><img src="'+data.msg.url+'" width="100%"></dt><dd>'+data.msg.content+'</dd></dl>';	
 	    	$(".workInfo_Area").html(wInfoHtml);
 
 	    	// 投票
