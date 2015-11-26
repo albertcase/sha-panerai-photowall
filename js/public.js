@@ -86,9 +86,6 @@ addEventListener('load', function(){
 
 
 
-
-
-
 /* 微信分享 */
 
 

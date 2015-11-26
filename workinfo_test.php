@@ -222,7 +222,11 @@ if ($_SESSION['user_id'] == $result['uid']) {
 <script type="text/javascript" src="js/public.js"></script>
 
 <script type="text/javascript">
-    
+    ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+
+    function subscribefunc(data){
+        console.log(data);
+    }
     
     // 投票
     var ballotdPushData = {
