@@ -84,6 +84,11 @@ addEventListener('load', function(){
     window.onorientationchange = orientationChange;
 });
 
+function subscribefunc(data){
+    if(data.result == "success" && data.jsonResponse == 0){
+        $(".qrcode").show();
+    }
+}
 
 
 /* 微信分享 */
@@ -179,7 +184,9 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数
-
+            if($(".qrcode").length <= 0){
+                ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+            }
             //alert('分享成功');
         },
         cancel: function () { 
@@ -196,8 +203,9 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
-
-
+            if($(".qrcode").length <= 0){
+                ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+            }
             //alert('分享成功');
         },
         cancel: function () { 
@@ -224,7 +232,9 @@ function editShare(){   ///demon
             success: function () {
                 // 用户确认分享后执行的回调函数
 
-                
+                if($(".qrcode").length <= 0){
+                    ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+                }
                 //alert('分享成功');
             },
             cancel: function () { 
@@ -241,7 +251,9 @@ function editShare(){   ///demon
             desc: shareData.desc,
             success: function () { 
                 // 用户确认分享后执行的回调函数
-
+                if($(".qrcode").length <= 0){
+                    ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+                }
                 //alert('分享成功');
             },
             cancel: function () { 
