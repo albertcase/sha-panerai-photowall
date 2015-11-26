@@ -46,9 +46,9 @@ function check(id){
 		dataType:"json",
 		success:function(data){
 			if(data.msg==1){
-				$("#check_"+id).html("approved");
+				$("#check_"+id).val("approved");
 			}else{
-				$("#check_"+id).html("unapproved");
+				$("#check_"+id).val("unapproved");
 			}
 		}
 	})
@@ -90,7 +90,7 @@ function check(id){
 					<td align="center"><?php echo $rs[$i]['nickname']; ?></td>
 					<td align="center"><img src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
 					<td align="center"><?php echo $rs[$i]['content']; ?></td>
-					<td align="center" onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>" style="cursor:pointer"><?php echo $rs[$i]['status']==1?'approved':'unapproved'; ?></td>
+					<td align="center"><input  onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>" style="cursor:pointer" type="button" value="<?php echo $rs[$i]['status']==1?'approved':'unapproved'; ?>"></td>
 					</tr>
 
 					<?php     
