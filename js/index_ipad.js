@@ -40,24 +40,32 @@ if(isIpad()){
 	$(".grid").delegate("li","click",function(){
 		
 		var itemType = $(this).attr("data-type");
-		if(itemType == "video" || !itemType) return false;
-		ismoveDisable = true;
-		var photolistbyidPushData = {
-		    "id": $(this).attr("data-id")
-		};
-
-		ajaxfun("GET", "/Request.php?model=photolistbyid", photolistbyidPushData, "json", photolistbyidCallback);
-
-		$("#pl_list").css({"opacity": 0});
-
-		if(itemType == "user"||itemType == "home"){
+		if(itemType == "video") return false;
+		
+		if(!itemType){
 			$(".proinfo").hide();
-			$("#imgsSection").show();
-		}else if(itemType == "pic"){
-			$(".loading").hide();
-			ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
-			curcpid = $(this).attr("data-id");
+			$("#imgsQrcode").show();
+		}else{
+			ismoveDisable = true;
+			var photolistbyidPushData = {
+			    "id": $(this).attr("data-id")
+			};
+
+			ajaxfun("GET", "/Request.php?model=photolistbyid", photolistbyidPushData, "json", photolistbyidCallback);
+
+			$("#pl_list").css({"opacity": 0});
+
+			if(itemType == "user"||itemType == "home"){
+				$(".proinfo").hide();
+				$("#imgsSection").show();
+			}else if(itemType == "pic"){
+				$(".loading").hide();
+				ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+				curcpid = $(this).attr("data-id");
+			}
 		}
+
+		
 		
 	});
 

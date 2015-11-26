@@ -947,6 +947,16 @@ video{
 }
 
 
+.qrc_info{
+	width: 60%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -30% 0 0 -30%;
+}
+
+
+
 /* ipad */
 
 @media only screen and (min-device-width: 750px) and (max-device-width: 1023px){
