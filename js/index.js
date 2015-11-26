@@ -54,7 +54,7 @@ function pullUpAction () {
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
         }else{
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         var curchoseType;
@@ -69,7 +69,7 @@ function pullUpAction () {
         var pull_photolistPushData = {
             "type": curchoseType,  //all   user   home
             "page": curpageindex,  // 页数
-            "row": "10"    // 个数，默认10
+            "row": "20"    // 个数，默认10
         };
 
         
@@ -180,7 +180,7 @@ if(!entertype){
 var photolistPushData = {
     "type": entertype,  //all   user   home
     "page": "1",  // 页数
-    "row": "10"    // 个数，默认10
+    "row": "20"    // 个数，默认10
 };
 
 
@@ -210,7 +210,7 @@ function photolistCallback(data){
         $(".li_" + photolistPushData["type"]).addClass("hover");
 
         if(data.totalpage >1){
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         if(data.msg == ""){

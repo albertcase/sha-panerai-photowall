@@ -23,7 +23,7 @@ $rs = $db->getAll($sql,true);
 <!DOCTYPE html>
 <html>
 <head>
-<title>Parerai</title>
+<title>沛纳海</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
