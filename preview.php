@@ -143,8 +143,8 @@
 
             <div class="workInfo_Area">
                 <div class="wa_header">
-                    <span class="heart_icon">
-                        <img src="../imgs/heart_icon.png" width="100%" />
+                    <span class="heart_icon hover">
+                        <img src="../imgs/heart_icon_hover.png" width="100%" />
                     </span> <em><?php echo $result['ballot']?></em> <span class="wechat_name"><?php echo $result['nickname']?></span>
                 </div>
                 <dl>
