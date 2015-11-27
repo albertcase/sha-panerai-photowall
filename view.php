@@ -111,10 +111,9 @@ function check(id){
 
 
 	<script type="text/javascript">
-		$("#showpic").show();
 		
-
 		$(".wImg").click(function(){
+			$("#showpic").show();
 			var wimgSrc = $(this).attr("src");
 			getBImg(wimgSrc);
 		})
