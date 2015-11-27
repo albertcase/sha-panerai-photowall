@@ -36,7 +36,8 @@ var myScroll;
         click:iScrollClick(), //调用判断函数
         scrollbars: false, //有滚动条
         fixedScrollbar: false,
-        momentum: true
+        // momentum: true,
+        useTransition: true
     });
 
 document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
