@@ -107,8 +107,7 @@ function check(id){
 
 		</section>
 	</div>
-	<div id="showpic">
-	</div>
+	<div id="showpic"></div>
 
 
 	<script type="text/javascript">
@@ -116,17 +115,15 @@ function check(id){
 		
 
 		$(".wImg").click(function(){
-			var wimgSrc = $(".wImg").attr("src");
+			var wimgSrc = $(this).attr("src");
 			getBImg(wimgSrc);
 		})
 		function getBImg(imgsrc){
 			var wimg = new Image();
-			wimg.src=wimgSrc;
+			wimg.src = imgsrc;
 			wimg.onload = function(){
-				console.log(this.width())
 				$("#showpic").html(wimg);
-				 //-parseInt(this.width())/2
-				$("#showpic img").css({"margin-top": -parseInt(this.height())/2, "margin-left": -parseInt(this.width())/2})
+				$("#showpic img").css({"margin-top": -parseInt(this.height)/2, "margin-left": -parseInt(this.width)/2})
 			}
 		}
 		
