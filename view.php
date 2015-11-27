@@ -134,6 +134,10 @@ function check(id){
 			event.stopPropagation();
 			return false;
 		})
+
+		$("#showpic img").click(function(){
+			return false;
+		})
 		
 
 	</script>
