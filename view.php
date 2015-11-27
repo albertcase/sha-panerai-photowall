@@ -135,7 +135,8 @@ function check(id){
 			return false;
 		})
 
-		$("#showpic img").click(function(){
+		$("#showpic img").click(function(event){
+			event.stopPropagation();
 			return false;
 		})
 		
