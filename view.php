@@ -61,7 +61,7 @@ function check(id){
 		<section>
 
 			<!-- <h1 style="margin-bottom:50px; text-align:center ;color:#fff;">Panerai-PhotoWall</h1> -->
-			<div><img src="imgs/admin_header.jpg"></div>
+			<img src="imgs/admin_header.jpg" width="100%" />
             <strong class="total">Total : <?php echo $rowcount;?></strong>
 
 			<table id="example" class="display dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%; margin-bottom:30px">
