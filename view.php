@@ -127,6 +127,12 @@ function check(id){
 				$(".showPic_con").css({"margin-top": -parseInt($(".showPic_con").css("height"))/2})
 			}
 		}
+
+		$("#showpic").click(function(){
+			$(this).hide();
+			$(".showPic_con").html("");
+			return false;
+		})
 		
 
 	</script>
