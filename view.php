@@ -107,7 +107,9 @@ function check(id){
 
 		</section>
 	</div>
-	<div id="showpic"></div>
+	<div id="showpic">
+		<div class="showPic_con"></div>
+	</div>
 
 
 	<script type="text/javascript">
@@ -121,7 +123,7 @@ function check(id){
 			var wimg = new Image();
 			wimg.src = imgsrc;
 			wimg.onload = function(){
-				$("#showpic").html("<div class='showPic_con'>"+ wimg +"</div>");
+				$(".showPic_con").html(wimg);
 				//$("#showpic img").css({"margin-top": -parseInt(this.height)/2, "margin-left": -parseInt(this.width)/2})
 			}
 		}
