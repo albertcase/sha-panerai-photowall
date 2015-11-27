@@ -60,8 +60,8 @@ function check(id){
 	<div class="container">
 		<section>
 
-			<h1 style="margin-bottom:50px; text-align:center ;color:#fff;">Panerai-PhotoWall</h1>
-			
+			<!-- <h1 style="margin-bottom:50px; text-align:center ;color:#fff;">Panerai-PhotoWall</h1> -->
+			<div><img src="imgs/admin_header.jpg"></div>
             <strong class="total">Total : <?php echo $rowcount;?></strong>
 
 			<table id="example" class="display dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%; margin-bottom:30px">
@@ -88,7 +88,7 @@ function check(id){
 					<td align="center"><?php echo $rs[$i]['id']; ?></td>
 					<td align="center"><img src="<?php echo $rs[$i]['headimgurl']; ?>" width="50"></td>
 					<td align="center"><?php echo $rs[$i]['nickname']; ?></td>
-					<td align="center"><img src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
+					<td align="center"><img class="wImg" src="<?php echo $rs[$i]['url']; ?>" width="100"></td>
 					<td align="center"><?php echo $rs[$i]['content']; ?></td>
 					<td align="center"><input  onclick="check(<?php echo $rs[$i]['id']?>)" id="check_<?php echo $rs[$i]['id']?>" style="cursor:pointer" type="button" value="<?php echo $rs[$i]['status']==1?'approved':'unapproved'; ?>"></td>
 					</tr>
@@ -107,6 +107,32 @@ function check(id){
 
 		</section>
 	</div>
+	<div id="showpic">
+	</div>
+
+
+	<script type="text/javascript">
+		$("#showpic").show();
+		
+
+		$(".wImg").click(function(){
+			var wimgSrc = $(".wImg").attr("src");
+			getBImg(wimgSrc);
+		})
+		function getBImg(imgsrc){
+			var wimg = new Image();
+			wimg.src=wimgSrc;
+			wimg.onload = function(){
+				console.log(this.width())
+				$("#showpic").html(wimg);
+				 //-parseInt(this.width())/2
+				$("#showpic img").css({"margin-top": -parseInt(this.height())/2, "margin-left": -parseInt(this.width())/2})
+			}
+		}
+		
+
+	</script>
+
 
 </body>
 </html>
