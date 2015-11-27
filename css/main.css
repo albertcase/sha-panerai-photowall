@@ -265,10 +265,16 @@ body{
 	display: none;
 }
 
-#showpic img{
+.showPic_con{
+	width: 60%;
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	margin: 0 0 0 -30%;
+}
+
+#showpic img{
+	width: 100%;
 }
 
 
