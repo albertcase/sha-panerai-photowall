@@ -124,7 +124,7 @@ function check(id){
 			wimg.src = imgsrc;
 			wimg.onload = function(){
 				$(".showPic_con").html(wimg);
-				//$("#showpic img").css({"margin-top": -parseInt(this.height)/2, "margin-left": -parseInt(this.width)/2})
+				$(".showPic_con").css({"margin-top": -parseInt($(".showPic_con").css("height"))/2})
 			}
 		}
 		
