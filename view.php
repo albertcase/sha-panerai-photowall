@@ -128,9 +128,10 @@ function check(id){
 			}
 		}
 
-		$("#showpic").click(function(){
+		$("#showpic").click(function(event){
 			$(this).hide();
 			$(".showPic_con").html("");
+			event.stopPropagation();
 			return false;
 		})
 		

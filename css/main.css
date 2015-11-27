@@ -275,9 +275,11 @@ body{
 
 #showpic img{
 	width: 100%;
-	cursor: pointer;
 }
 
+.wImg{
+	cursor: pointer;
+}
 
 
 
