@@ -662,6 +662,7 @@ video{
 	left: 0;
 	top: 0;
 	opacity: 0;
+	z-index: 2;
 }
 
 
@@ -696,15 +697,18 @@ video{
 	margin: 27px 0 0 0; 
 }
 
-.imgBox{
-	display: none;
-}
+
 .imgBox,.shell{
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
+}
+
+.imgBox{
+	display: none;
+	z-index: 6;
 }
 
 .upload_loading{
