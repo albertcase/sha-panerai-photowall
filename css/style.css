@@ -653,6 +653,7 @@ video{
 	position: absolute;
 	left: 1.6%;
 	top: 2.2%;
+	z-index: 2;
 }
 
 #uploadPhoto{
