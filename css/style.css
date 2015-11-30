@@ -529,7 +529,15 @@ video{
 
 /* rule */
 .inside_container.rule_Area{
-	margin: 10% 0 0 0;
+	width: 100%;
+	margin: 6% 0 0 0;
+}
+
+.inside_container.rule_Area .rule_con{
+	width: 80%;
+	text-align: center;
+	display: inline-block;
+	margin: 8% 0 0 0;
 }
 
 .ship{
