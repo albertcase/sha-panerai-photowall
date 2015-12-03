@@ -30,7 +30,42 @@ function ajaxfun(ajaxType, ajaxUrl, ajaxData, ajaxDataType, ajaxCallback){
 
 
 
+function parseURL(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':',''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+        hash: a.hash.replace('#',''),
+        path: a.pathname.replace(/^([^\/])/,'/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+        segments: a.pathname.replace(/^\//,'').split('/')
+    };
+}
+
+
+var myURL = parseURL(window.location.href);
+
+
+
+
+
 var myScroll;
+
+if(myURL.file == "upload.html"){
+    myScroll = new IScroll('#wrapp', { 
+        preventDefault:false,
+        //click:iScrollClick(), //调用判断函数
+        scrollbars: false, //有滚动条
+        fixedScrollbar: false,
+        // momentum: true,
+        useTransition: true
+    });
+}else{
     myScroll = new IScroll('#wrapp', { 
         preventDefault:false,
         click:iScrollClick(), //调用判断函数
@@ -39,6 +74,7 @@ var myScroll;
         // momentum: true,
         useTransition: true
     });
+};
 
 document.getElementById("wrapp").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
