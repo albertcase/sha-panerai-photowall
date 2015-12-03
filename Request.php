@@ -69,7 +69,7 @@
 					exit;
 				}
 				$image = isset($_POST['image']) ? $_POST['image'] : $tag = true;		
-				$content = isset($_POST['content']) ? $_POST['content'] : $tag = true;
+				$content = isset($_POST['content']) ? clean_xss($_POST['content']) : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
@@ -253,7 +253,7 @@
 				break;
 
 			case 'test':
-				$str = 'phpddt.com<meta http-equiv="refresh" content="0;">';
+				$str = 'phpddtcom<>,asd';
 				echo clean_xss($str);
 				exit;
 				break;	
@@ -284,7 +284,7 @@
 			$string = preg_replace ( $no, '', $string );
 			$no = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S';
 			$string = preg_replace ( $no, '', $string );
-			return True;
+			return $string;
 		}
 		$keys = array_keys ( $string );
 		foreach ( $keys as $key )
