@@ -69,7 +69,7 @@
 					exit;
 				}
 				$image = isset($_POST['image']) ? $_POST['image'] : $tag = true;		
-				$content = isset($_POST['content']) ? $_POST['content'] : $tag = true;
+				$content = isset($_POST['content']) ? clean_xss($_POST['content']) : $tag = true;
 				if ($tag) {
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
@@ -225,6 +225,7 @@
 				$request = "http://paneraiwx.eweixin.biz/weixinjs/SignWeiXinService.ashx?url=". urlencode($url);
 				echo $result = file_get_contents($request);
 				exit;
+				break;
 
 			case 'subscribe':
 				if (!isset($_SESSION["user_id"])) {
@@ -236,6 +237,7 @@
 				$request = "http://paneraiwx.eweixin.biz/WeChat/CheckUserIsSubscribe.ashx?openid=". $openid;
 				echo $result = file_get_contents($request);
 				exit;
+				break;
 
 			case 'status':
 				$id = isset($_POST['id']) ? intval($_POST['id']) : $tag = true;
@@ -248,11 +250,46 @@
 				$db->getOne("update photo set status=".$newstatus." where id=".$id);
 				print json_encode(array("code" => 1, "msg" => $newstatus ));
 				exit;
+				break;
+
+			case 'test':
+				$str = 'phpddtcom<>,asd';
+				echo clean_xss($str);
+				exit;
+				break;	
+
 			default:
 				# code...
 				print json_encode(array("code"=>9999,"msg"=>"No Model"));
 				exit;
 				break;
+		}
+	}
+
+	function clean_xss(&$string, $low = False)
+	{
+		if (! is_array ( $string ))
+		{
+			$string = trim ( $string );
+			$string = strip_tags ( $string );
+			$string = htmlspecialchars ( $string );
+			if ($low)
+			{
+				return True;
+			}
+			$string = str_replace ( array ('"', "\\", "'", "/", "..", "../", "./", "//" ), '', $string );
+			$no = '/%0[0-8bcef]/';
+			$string = preg_replace ( $no, '', $string );
+			$no = '/%1[0-9a-f]/';
+			$string = preg_replace ( $no, '', $string );
+			$no = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S';
+			$string = preg_replace ( $no, '', $string );
+			return $string;
+		}
+		$keys = array_keys ( $string );
+		foreach ( $keys as $key )
+		{
+			clean_xss ( $string [$key] );
 		}
 	}
 	print "error";
