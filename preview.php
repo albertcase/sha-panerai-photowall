@@ -152,7 +152,7 @@
                         <img src="<?php echo $result['url']?>" width="100%" />
                     </dt>
                     <dd>
-                        <?php echo $result['content']?>
+                        <?php echo htmlentities($result['content']);?>
                     </dd>
                 </dl>
             </div>
