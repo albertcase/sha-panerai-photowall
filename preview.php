@@ -47,6 +47,7 @@
         if(isPC()){
             window.location.href = "pc.html";
         }
+
     </script>
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />

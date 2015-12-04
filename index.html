@@ -43,7 +43,15 @@
     <script type="text/javascript" src="js/swiper.min.js"></script>
     <script type="text/javascript" src="js/tvp.player_v2.js"></script>
     <script type="text/javascript">
-        
+      
+        function is_weixn(){  
+            var ua = navigator.userAgent.toLowerCase();  
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+                return true;  
+            } else {  
+                return false;  
+            }  
+        }    
 
         function isIpad(){
             var ua = navigator.userAgent.toLowerCase();
@@ -56,24 +64,29 @@
             }
         }
 
+
+
+
         if(!isIpad() && !isPC()){
+            if(!is_weixn()){
+                window.location = "error.html";
+            }else{
+                // 授权登录
+                var oauthPushData = {
+                    "url": window.location.href
+                };
 
 
-            // 授权登录
-            var oauthPushData = {
-                "url": window.location.href
-            };
-
-
-            $.ajax({
-                type: "GET",
-                url: "/Request.php?model=islogin",
-                dataType: "json"
-            }).done(function(data){
-                if(data.code == 0){
-                    window.location = "/Request.php?model=oauth&url="+oauthPushData.url
-                }
-            })
+                $.ajax({
+                    type: "GET",
+                    url: "/Request.php?model=islogin",
+                    dataType: "json"
+                }).done(function(data){
+                    if(data.code == 0){
+                        window.location = "/Request.php?model=oauth&url="+oauthPushData.url
+                    }
+                })
+            }
 
         }
 
