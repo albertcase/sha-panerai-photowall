@@ -159,7 +159,7 @@
                 <!-- Swiper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper" id="productContent">
-                        <div class="swiper-slide">
+                        <!-- <div class="swiper-slide">
                             <div class="proName" data-swiper-parallax="-160">
                                 <h2>RADIOMIR 1940</h2>
                                     PAM00575
@@ -170,8 +170,23 @@
                             <div class="proDescription" data-swiper-parallax="-120">
                                 3日动力存储红金腕表-42MM
                             </div>
-                        </div>
-                        
+                        </div> -->
+                        <?php
+                        for ($i = 0; $i < count($product); $i++) {
+                            echo '<div class="swiper-slide" data-id="'.$product[$i]['id'].'">';
+                            echo '<div class="proName" data-swiper-parallax="-160">';
+                            echo '<h2>RADIOMIR 1940</h2>';
+                            echo $product[$i]['title'];
+                            echo '</div>';
+                            echo '<div class="proImg" data-swiper-parallax="-10">';
+                            echo '<img src="'.$product[$i]['bigpic'].'" />';
+                            echo '</div>';
+                            echo '<div class="proDescription" data-swiper-parallax="-120">';
+                            echo $product[$i]['content'];
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
                     </div>
                     
                     <!-- Add Arrows -->
@@ -207,6 +222,7 @@
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
     var swiper = new Swiper('.swiper-container', {
+            pagination : '.swiper-pagination',
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             spaceBetween: 30,
@@ -229,7 +245,7 @@
 
     //$(".loading").show();
 
-    //ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+    ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
 
 
     function productCallback(data){
@@ -249,11 +265,9 @@
         LoadFn(_proImgArr , function (){
 
             $(".loading").hide();
-            $("#productContent").html(productHtml);
+            //$("#productContent").html(productHtml);
 
 
-            
-            
             swiper.update();
             myScroll.refresh();
 
