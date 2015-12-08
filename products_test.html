@@ -197,7 +197,7 @@
 
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
-    var swiper;
+    var mySwiper;
     var curcpid = GetQueryString("cpid");
     var curswiperindex;
 
@@ -235,7 +235,7 @@
             $("#productContent").html(productHtml);
 
 
-            swiper = new Swiper('.swiper-container', {
+            mySwiper = new Swiper('.swiper-container', {
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
                 spaceBetween: 30,
@@ -246,10 +246,10 @@
                 centeredSlides: true
             });
             
-            swiper.update();
+            mySwiper.update();
             myScroll.refresh();
 
-            swiper.slideTo(curswiperindex, 0, true);
+            mySwiper.slideTo(curswiperindex, 0, true);
                
         } , function (p){
             //console.log(p+"%");
