@@ -83,7 +83,8 @@
                     dataType: "json"
                 }).done(function(data){
                     if(data.code == 0){
-                        window.location = "/Request.php?model=oauth&url="+oauthPushData.url
+                        window.location = "/Request.php?model=oauth&url="+oauthPushData.url;
+                        $("#wrapp").css({"opacity": 1});
                     }
                 })
             }
@@ -95,6 +96,7 @@
 
 </head>
 <body>
+
 <div class="disable"></div>
 
 <div id="video">
@@ -254,7 +256,7 @@
 
 
 
-<div id="wrapp">
+<div id="wrapp" style="opacity:0;">
 
     <div id="scroller">
 
