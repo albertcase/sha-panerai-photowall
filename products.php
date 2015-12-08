@@ -159,7 +159,7 @@
                 <!-- Swiper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper" id="productContent">
-                        <div class="swiper-slide">
+                        <!-- <div class="swiper-slide">
                             <div class="proName" data-swiper-parallax="-160">
                                 <h2>RADIOMIR 1940</h2>
                                     PAM00575
@@ -170,8 +170,23 @@
                             <div class="proDescription" data-swiper-parallax="-120">
                                 3日动力存储红金腕表-42MM
                             </div>
-                        </div>
-                        
+                        </div> -->
+                        <?php
+                        for ($i = 0; $i < count($product); $i++) {
+                            echo '<div class="swiper-slide" data-id="'.$product[$i]['id'].'">';
+                            echo '<div class="proName" data-swiper-parallax="-160">';
+                            echo '<h2>RADIOMIR 1940</h2>';
+                            echo $product[$i]['title'];
+                            echo '</div>';
+                            echo '<div class="proImg" data-swiper-parallax="-10">';
+                            echo '<img src="'.$product[$i]['bigpic'].'" />';
+                            echo '</div>';
+                            echo '<div class="proDescription" data-swiper-parallax="-120">';
+                            echo $product[$i]['content'];
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
                     </div>
                     
                     <!-- Add Arrows -->
@@ -239,11 +254,11 @@
         var productHtml = $.map(data.msg, function(v, k){
             _proImgArr.push(v.bigpic);
 
-            if(curcpid == v.id){
-                curswiperindex = k;
-            }
+            // if(curcpid == v.id){
+            //     curswiperindex = k;
+            // }
             
-            return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
+            // return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
 
@@ -251,7 +266,6 @@
 
             $(".loading").hide();
             //$("#productContent").html(productHtml);
-
 
             swiper.update();
             myScroll.refresh();
