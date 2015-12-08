@@ -1,0 +1,297 @@
+<?php
+    include_once('./config/database.php');
+    include_once('./config/Pdb.php');
+    $_POST = $_REQUEST;
+    $db = Pdb::getDb();
+    $sql = "select * from photo where type='pic'";
+    $product = $db->getAll($sql, true);
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>沛纳海</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<!--禁用手机号码链接(for iPhone)-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+	<!--自适应设备宽度-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--控制全屏时顶部状态栏的外，默认白色-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+
+    <script type="text/javascript">
+        function isPC(){  
+           var userAgentInfo = navigator.userAgent;  
+           var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+           var flag = true;  
+           for (var v = 0; v < Agents.length; v++) {  
+               if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
+           }  
+           return flag;  
+        }
+
+        if(isPC()){
+            window.location.href = "pc.html";
+        }
+
+        function isIpad(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(/ipad/i.test(ua))
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+        function is_weixn(){  
+            var ua = navigator.userAgent.toLowerCase();  
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+                return true;  
+            } else {  
+                return false;  
+            }  
+        }   
+
+        if(!isIpad() && !isPC()){
+            if(!is_weixn()){
+                window.location = "error.html";
+            }
+        }
+
+
+    </script>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="js/PxLoader.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+
+<div class="disable"></div>
+
+
+<div id="header">
+
+    <a href="javascript:;" class="logo">
+        <img src="../imgs/logo.png" width="100%" />
+    </a>
+
+    <!-- phone -->
+    <div class="head_phone">
+        <div class="menu">
+            <div class="bit-1"></div>
+            <div class="bit-2"></div>
+            <div class="bit-3"></div>
+        </div>
+
+        <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'camera')" class="camera_icon">
+            <img src="../imgs/camera_icon.png" />
+        </a>
+    </div>
+
+    <!-- ipad -->
+    <ul class="head_ipad">
+        <li>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall_ipad')" title="臻品之墙">臻品之墙</a>
+        </li>
+        <li>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection_ipad')" title="魅力时计">魅力时计</a>
+        </li>
+    </ul>
+    
+</div>
+
+
+
+<!-- menu -->
+<div class="menuArea">
+    <ul>
+        <li>
+            <a href="rule.html" onclick="ga('send', 'event', 'link', '点击', 'menu_start')" title="开启探索之旅">开启探索之旅</a>
+        </li>
+        <li>
+            <a href="index.html?type=all" onclick="ga('send', 'event', 'link', '点击', 'menu_wall')" title="臻品之墙">臻品之墙</a>
+        </li>
+        <li>
+            <a href="index.html?type=home" onclick="ga('send', 'event', 'link', '点击', 'menu_collection')" title="魅力时计">魅力时计</a>
+        </li>
+        <li>
+            <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
+        </li>
+        <li>
+            <a href="http://www.panerai.com/cn/network/boutiques.html" onclick="ga('send', 'event', 'link', '点击', 'menu_official')" target="_blank" title="亲临品鉴">亲临品鉴</a> 
+        </li>
+    </ul>
+</div>
+
+<!-- 预约弹层 -->
+<div class="orderpup">
+    
+    <div class="order_con">
+        <a href="tel:400-697-7501" onclick="ga('send', 'event', 'link', '点击', 'Reserve_Phone')" class="order_tel"></a>
+        <a href="mailto:concierge.cn@panerai.com" onclick="ga('send', 'event', 'link', '点击', 'Reserve_Email')" class="order_email"></a>
+        <img src="../imgs/order.png" width="100%" />
+    </div>
+
+    <a href="javascript:;" class="order_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+
+
+<div id="wrapp">
+    <div id="scroller">
+        <div class="loading"></div>
+        <div class="inside_container products">
+
+
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="productContent">
+                        <!-- <div class="swiper-slide">
+                            <div class="proName" data-swiper-parallax="-160">
+                                <h2>RADIOMIR 1940</h2>
+                                    PAM00575
+                            </div>
+                            <div class="proImg" data-swiper-parallax="-10">
+                                <img src="../imgs/pro.png" />
+                            </div>
+                            <div class="proDescription" data-swiper-parallax="-120">
+                                3日动力存储红金腕表-42MM
+                            </div>
+                        </div> -->
+                        <?php
+                        for ($i = 0; $i < count($product); $i++) {
+                            echo '<div class="swiper-slide" data-id="'.$product[$i]['id'].'">';
+                            echo '<div class="proName" data-swiper-parallax="-160">';
+                            echo '<h2>RADIOMIR 1940</h2>';
+                            echo $product[$i]['title'];
+                            echo '</div>';
+                            echo '<div class="proImg" data-swiper-parallax="-10">';
+                            echo '<img src="'.$product[$i]['bigpic'].'" />';
+                            echo '</div>';
+                            echo '<div class="proDescription" data-swiper-parallax="-120">';
+                            echo $product[$i]['content'];
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white">
+                        <img src="../imgs/right_arr.png" width="100%" />
+                    </div>
+                    <div class="swiper-button-prev swiper-button-white">
+                        <img src="../imgs/left_arr.png" width="100%" />
+                    </div>
+
+                </div>
+
+
+
+
+            <div class="infofooter">
+                <a href="javascript:;" class="order_btn">
+                     <img src="../imgs/order_btn.png" width="100%" />
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    var swiper;
+    var curcpid = GetQueryString("cpid");
+    var curswiperindex;
+
+    $(".order_close").click(function(){
+        $(".orderpup").hide();
+    })
+    $(".order_btn").click(function(){
+        $(".orderpup").show();
+        ga('send', 'event', '按钮', '点击', 'reserve');
+    })
+
+    $(".loading").show();
+
+    //ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
+
+
+    function productCallback(data){
+        //console.log(data);
+        var _proImgArr = [];
+        var productHtml = $.map(data.msg, function(v, k){
+            _proImgArr.push(v.bigpic);
+
+            if(curcpid == v.id){
+                curswiperindex = k;
+            }
+            
+            return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
+        }).join("");
+        
+
+        LoadFn(_proImgArr , function (){
+
+            $(".loading").hide();
+            $("#productContent").html(productHtml);
+
+
+            swiper = new Swiper('.swiper-container', {
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                speed:900,
+                parallax : true,
+                grabCursor : true,
+                // effect : 'fade',
+                centeredSlides: true
+            });
+            
+            swiper.update();
+            myScroll.refresh();
+
+            swiper.slideTo(curswiperindex, 0, true);
+               
+        } , function (p){
+            //console.log(p+"%");
+        });
+        
+    }
+
+
+</script>
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67689322-3', 'auto');
+      ga('send', 'pageview');
+</script>
+
+</body>
+</html>
