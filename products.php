@@ -254,9 +254,9 @@
         var productHtml = $.map(data.msg, function(v, k){
             _proImgArr.push(v.bigpic);
 
-            // if(curcpid == v.id){
-            //     curswiperindex = k;
-            // }
+            if(curcpid == v.id){
+                curswiperindex = k;
+            }
             
             // return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
