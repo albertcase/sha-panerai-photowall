@@ -197,17 +197,7 @@
 
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
-    var swiper = new Swiper('.swiper-container', {
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        spaceBetween: 30,
-        speed:900,
-        parallax : true,
-        grabCursor : true,
-        // effect : 'fade',
-        centeredSlides: true
-    });
-
+    var swiper;
     var curcpid = GetQueryString("cpid");
     var curswiperindex;
 
@@ -243,6 +233,17 @@
             $(".loading").hide();
             $("#productContent").html(productHtml);
 
+
+            swiper = new Swiper('.swiper-container', {
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                speed:900,
+                parallax : true,
+                grabCursor : true,
+                // effect : 'fade',
+                centeredSlides: true
+            });
             swiper.update();
             myScroll.refresh();
 
