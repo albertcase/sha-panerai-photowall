@@ -84,9 +84,9 @@
                 }).done(function(data){
                     if(data.code == 0){
                         window.location = "/Request.php?model=oauth&url="+oauthPushData.url;
-                        $("#wrapp").css({"opacity": 1});
+                        $("#wrapp").stop().animate({"opacity": 1});
                     }else{
-                        $("#wrapp").css({"opacity": 1});
+                        $("#wrapp").stop().animate({"opacity": 1});
                     }
                 })
             }
