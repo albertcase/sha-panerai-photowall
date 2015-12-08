@@ -221,7 +221,16 @@
 
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
-    var swiper;
+    var swiper = new Swiper('.swiper-container', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 30,
+            speed:900,
+            parallax : true,
+            grabCursor : true,
+            // effect : 'fade',
+            centeredSlides: true
+        });
     var curcpid = GetQueryString("cpid");
     var curswiperindex;
 
@@ -233,7 +242,7 @@
         ga('send', 'event', '按钮', '点击', 'reserve');
     })
 
-    $(".loading").show();
+    //$(".loading").show();
 
     //ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
 
@@ -258,16 +267,7 @@
             $("#productContent").html(productHtml);
 
 
-            swiper = new Swiper('.swiper-container', {
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                spaceBetween: 30,
-                speed:900,
-                parallax : true,
-                grabCursor : true,
-                // effect : 'fade',
-                centeredSlides: true
-            });
+            
             
             swiper.update();
             myScroll.refresh();
