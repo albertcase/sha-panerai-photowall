@@ -227,10 +227,11 @@
             return ' <div class="swiper-slide" data-id="'+v.id+'"><div class="proName"><h2>RADIOMIR 1940</h2>'+v.title+'</div><div class="proImg"><img src="'+v.bigpic+'" /></div><div class="proDescription">'+v.content+'</div></div>';
         }).join("");
         
-
+        alert(_proImgArr);
         LoadFn(_proImgArr , function (){
 
             $(".loading").hide();
+            alert(productHtml);
             $("#productContent").html(productHtml);
 
 
