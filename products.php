@@ -243,7 +243,7 @@
         ga('send', 'event', '按钮', '点击', 'reserve');
     })
 
-    //$(".loading").show();
+    $(".loading").show();
 
     ajaxfun("GET", "/Request.php?model=product","", "json", productCallback);
 
