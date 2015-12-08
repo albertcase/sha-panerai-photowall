@@ -26,7 +26,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
       var elem = document.createElement('li');
       var writeInfoHtml = "";
       if(imgtype == "pic"){
-        writeInfoHtml = '<a href="products.html?cpid='+imgid+'"></a><img src="'+imgurl+'" />'
+        writeInfoHtml = '<a href="products.php?cpid='+imgid+'"></a><img src="'+imgurl+'" />'
       }else if(imgtype == "user"|| imgtype == "home"){
         writeInfoHtml = '<a href="workinfo.php?id='+imgid+'"></a><img src="'+imgurl+'" />';
       }else{
