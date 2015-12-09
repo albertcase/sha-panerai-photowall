@@ -58,6 +58,7 @@
             if(/ipad/i.test(ua))
             {
                 return true;
+                $("#wrapp").stop().animate({"opacity": 1}, 300);
             }
             else{
                 return false;
