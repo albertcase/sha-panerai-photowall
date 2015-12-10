@@ -231,6 +231,11 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
             if($(".qrcode").length > 0){
                 ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
             }
+
+            if($(".wechatTips").length > 0){
+                $(".wechatTips").hide();
+            }
+            
             //alert('分享成功');
         },
         cancel: function () { 
@@ -249,6 +254,10 @@ function wechatShare(appid_val, timestamp_val, nonceStr_val, signature_val){
             // 用户确认分享后执行的回调函数
             if($(".qrcode").length > 0){
                 ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+            }
+
+            if($(".wechatTips").length > 0){
+                $(".wechatTips").hide();
             }
             //alert('分享成功');
         },
@@ -279,6 +288,10 @@ function editShare(){   ///demon
                 if($(".qrcode").length > 0){
                     ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
                 }
+
+                if($(".wechatTips").length > 0){
+                    $(".wechatTips").hide();
+                }
                 //alert('分享成功');
             },
             cancel: function () { 
@@ -297,6 +310,10 @@ function editShare(){   ///demon
                 // 用户确认分享后执行的回调函数
                 if($(".qrcode").length > 0){
                     ajaxfun("POST", "/Request.php?model=subscribe", "", "json", subscribefunc);
+                }
+                
+                if($(".wechatTips").length > 0){
+                    $(".wechatTips").hide();
                 }
                 //alert('分享成功');
             },
