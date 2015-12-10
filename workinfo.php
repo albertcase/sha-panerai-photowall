@@ -284,7 +284,7 @@ if (!isset($_SESSION['ad'])) {
             $(".heart_icon").find("img").attr("src","../imgs/heart_icon_hover.png");
             //alert("点赞成功！");
         }else{
-            //console.log(data.msg);
+            alert(data.msg);
         }
     } 
 
