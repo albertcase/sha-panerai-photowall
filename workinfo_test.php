@@ -136,6 +136,15 @@ if ($_SESSION['user_id'] == $result['uid']) {
 ?>
 
 
+<!-- 微信分享提示 -->
+<div class="wechatTips" style="display:inline-block;">
+    <img src="../imgs/wechat_tips.png" />
+    <a href="javascript:;" class="wechatTips_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
+
 
  <div class="activeTips">
     <div class="activeTips_con">
