@@ -212,9 +212,24 @@ if (!isset($_SESSION['ad'])) {
 
             <div class="workInfo_Area">
                 <div class="wa_header">
+                    
+                    <?php
+                    $isballot = $db->getOne("select id from ballot where uid='" . $_SESSION['user_id'] . "' and pid='" . $id . "'");
+                    if ($isballot) {
+                    ?>
+                    <span class="heart_icon hover">
+                        <img src="../imgs/heart_icon_hover.png" width="100%" />
+                    </span>
+                    <?php 
+                    } else {
+                    ?>
                     <span class="heart_icon">
                         <img src="../imgs/heart_icon.png" width="100%" />
-                    </span> <em><?php echo $result['ballot']?></em> <span class="wechat_name"><?php echo $result['nickname']?></span>
+                    </span>
+                    <?php
+                    }
+                    ?>
+                    <em><?php echo $result['ballot']?></em> <span class="wechat_name"><?php echo $result['nickname']?></span>
                 </div>
                 <dl>
                     <dt>
