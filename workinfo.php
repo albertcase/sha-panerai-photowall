@@ -33,7 +33,10 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
-
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/emoji.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         function isPC(){  
            var userAgentInfo = navigator.userAgent;  
@@ -73,15 +76,28 @@
         if(!isIpad() && !isPC()){
             if(!is_weixn()){
                 window.location = "error.html";
+            }else{
+                // 授权登录
+                var oauthPushData = {
+                    "url": window.location.href
+                };
+
+
+                $.ajax({
+                    type: "GET",
+                    url: "/Request.php?model=islogin",
+                    dataType: "json"
+                }).done(function(data){
+                    if(data.code == 0){
+                        window.location = "/Request.php?model=oauth&url="+oauthPushData.url;
+                    }
+                })
             }
         }
 
     </script>
 
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/emoji.css" />
-    <script type="text/javascript" src="js/jquery.js"></script>
+	
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
@@ -268,7 +284,7 @@ if (!isset($_SESSION['ad'])) {
             $(".heart_icon").find("img").attr("src","../imgs/heart_icon_hover.png");
             //alert("点赞成功！");
         }else{
-            //console.log(data.msg);
+            alert(data.msg);
         }
     } 
 

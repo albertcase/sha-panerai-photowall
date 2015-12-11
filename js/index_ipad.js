@@ -2,7 +2,8 @@
 
 
 if(isIpad()){
-
+	$("#wrapp").stop().animate({"opacity": 1}, 300);
+	
 	// 获取作品
 	var photolistbyidPushData = {
 	    "id": ""

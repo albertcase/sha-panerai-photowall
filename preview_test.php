@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include_once('./config/database.php');
     include_once('./config/Pdb.php');
     include_once('./config/emoji.php');
@@ -10,7 +9,7 @@
         Header("Location:/");
         exit;
     }
-    $sql = "select  a.*,b.nickname,b.headimgurl from (select * from photo  where id =".$id.") a left join user b on a.uid = b.id";
+    $sql = "select a.*,b.nickname,b.headimgurl from photo a,user b where a.uid = b.id and a.id = ".$id;
     $result = $db->getRow($sql, true);
     if (!$result) {
         Header("Location:/");
@@ -48,6 +47,35 @@
         if(isPC()){
             window.location.href = "pc.html";
         }
+
+
+        function isIpad(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(/ipad/i.test(ua))
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+        function is_weixn(){  
+            var ua = navigator.userAgent.toLowerCase();  
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+                return true;  
+            } else {  
+                return false;  
+            }  
+        }   
+
+        if(!isIpad() && !isPC()){
+            if(!is_weixn()){
+                window.location = "error.html";
+            }
+        }
+
     </script>
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
@@ -109,59 +137,43 @@
             <a href="index.html?type=user" onclick="ga('send', 'event', 'link', '点击', 'menu_mine')" title="我与沛纳海">我与沛纳海</a>
         </li>
         <li>
-            <a href="http://www.panerai.com/cn/network/boutiques.html " target="_blank" title="亲临品鉴">亲临品鉴</a> 
+            <a href="http://www.panerai.com/cn/network/boutiques.html" onclick="ga('send', 'event', 'link', '点击', 'menu_official')" target="_blank" title="亲临品鉴">亲临品鉴</a>  
         </li>
     </ul>
 </div>
 
 
-<?php
-if ($_SESSION['user_id'] == $result['uid']) {    
-?>
-    <!-- 自己的 -->
-    <!-- 微信分享提示 -->
-    <div class="wechatTips" style="display:none;">
-        <img src="../imgs/wechat_tips.png" />
-        <a href="javascript:;" class="wechatTips_close">
-            <img src="../imgs/close.png" width="80%" />
-        </a>
-    </div>
-
-<?php
-} else {
-?>
-    
-<?php
-}
-?>
-
-
-
- <div class="activeTips">
-    <div class="activeTips_con">
-        <img src="../imgs/ruleTips.png" class="ruleTipsContent" />
-    </div>
-    
-
-    <div class="rulefooter">
-        <a href="javascript:;" class="pupclose">
-            <img src="../imgs/close.png" width="100%" />
-        </a>
-    </div>
+<!-- 微信分享提示 -->
+<div class="wechatTips">
+    <img src="../imgs/wechat_tips.png" />
+    <a href="javascript:;" class="wechatTips_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
 </div>
+
+<!-- 二维码提示 -->
+<div class="qrcode">
+    <div class="qrcode_con">
+        <img src="../imgs/qrcode.png" width="100%" />
+    </div>
+
+    <a href="javascript:;" class="qrcode_close">
+        <img src="../imgs/close.png" width="80%" />
+    </a>
+</div>
+
 
 
 
 <div id="wrapp">
     <div id="scroller">
 
-       
         <div class="inside_container">
 
             <div class="workInfo_Area">
                 <div class="wa_header">
-                    <span class="heart_icon">
-                        <img src="../imgs/heart_icon.png" width="100%" />
+                    <span class="heart_icon hover">
+                        <img src="../imgs/heart_icon_hover.png" width="100%" />
                     </span> <em><?php echo $result['ballot']?></em> <span class="wechat_name"><?php echo $result['nickname']?></span>
                 </div>
                 <dl>
@@ -169,32 +181,19 @@ if ($_SESSION['user_id'] == $result['uid']) {
                         <img src="<?php echo $result['url']?>" width="100%" />
                     </dt>
                     <dd>
-                        <?php echo $result['content']?>
+                        <?php echo htmlentities($result['content']);?>
                     </dd>
                 </dl>
             </div>
+            
 
             <div class="infofooter">
-                <?php
-                if ($_SESSION['user_id'] == $result['uid']) {    
-                ?>
-                    <!-- 自己的 -->
-                    <a href="javascript:;" class="timeline_btn">
-                         <img src="../imgs/timeline_btn.jpg" width="100%" />
-                    </a>
-
-                <?php
-                } else {
-                ?>
-                    <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'upload');" class="upload_btn">
-                        <img src="../imgs/upload_btn.jpg" width="100%" />
-                    </a>
-                <?php
-                }
-                ?>
-
+                <a href="javascript:;" class="timeline_btn">
+                     <img src="../imgs/timeline_btn.jpg" width="100%" />
+                </a>
             </div>
             
+
         </div>
 
     </div>
@@ -205,41 +204,9 @@ if ($_SESSION['user_id'] == $result['uid']) {
 
 
 
-
 <script type="text/javascript" src="js/public.js"></script>
 
 <script type="text/javascript">
-    
-    
-    // 投票
-    var ballotdPushData = {
-        "id": "<?php echo $id;?>"
-    };
-
-    $(".heart_icon").click(function(){
-        
-        if($(this).hasClass("hover")) return false;
-
-        $(this).addClass("hover");
-        
-        ajaxfun("POST", "/Request.php?model=ballot", ballotdPushData, "json", ballotdCallback);
-    })
-
-    function ballotdCallback(data){
-        var curPraise = $(".heart_icon").siblings("em").html();
-        if(data.code == 1){
-            $(".heart_icon").siblings("em").html(parseInt(curPraise)+1);
-            alert("点赞成功！");
-        }else{
-            //console.log(data.msg);
-        }
-    } 
-
-    $(".pupclose").click(function(){
-        $(".activeTips").hide();
-    })
-    
-
 
     $(".timeline_btn").click(function(){
         $(".wechatTips").show();
@@ -254,32 +221,18 @@ if ($_SESSION['user_id'] == $result['uid']) {
         $(".qrcode").hide();
     })
 
-    
+
+    $(function(){
+        shareData = {
+            title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
+            desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
+            link: window.location.host + "/workinfo.php?id=" + <?php echo $result['id']?>,
+            imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
+        };
+        editShare();
+    })
+
 </script>
-
-
-<?php
-if ($_SESSION['user_id'] == $result['uid']) {    
-?>
-    <script type="text/javascript">
-        $(function(){
-            shareData = {
-                title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
-                desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
-                link: window.location.href,
-                imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
-            };
-            editShare();
-        })
-    </script>
-
-<?php
-} else {
-?>
-    
-<?php
-}
-?>
 
 
 <script>

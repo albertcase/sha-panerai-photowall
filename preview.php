@@ -32,7 +32,10 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
-
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/emoji.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         function isPC(){  
            var userAgentInfo = navigator.userAgent;  
@@ -73,15 +76,29 @@
         if(!isIpad() && !isPC()){
             if(!is_weixn()){
                 window.location = "error.html";
+            }else{
+                // 授权登录
+                var oauthPushData = {
+                    "url": window.location.href
+                };
+
+
+                $.ajax({
+                    type: "GET",
+                    url: "/Request.php?model=islogin",
+                    dataType: "json"
+                }).done(function(data){
+                    if(data.code == 0){
+                        window.location = "/Request.php?model=oauth&url="+oauthPushData.url;
+                    }
+                })
             }
         }
 
+
     </script>
 
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/emoji.css" />
-    <script type="text/javascript" src="js/jquery.js"></script>
+	
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="js/iscroll.js"></script>
 </head>
@@ -225,7 +242,7 @@
         shareData = {
             title: '登临“臻品之墙”，分享你与沛纳海的 故事！',
             desc: '我的照片刚刚登上了沛纳海的“臻品之墙” 期待你的参与哦。',
-            link: window.location.href,
+            link: window.location.host + "/workinfo.php?id=" + <?php echo $result['id']?>,
             imgUrl: 'http://' + window.location.host + '/imgs/share.jpg'
         };
         editShare();
