@@ -202,7 +202,7 @@
 					print json_encode(array("code" => 2, "msg" => "请填写必填项"));
 					exit;
 				}
-				$sql = "select id from ballot uid = '".$_SESSION['user_id']."' and pid= '".$id."'";
+				$sql = "select id from ballot where uid = '".$_SESSION['user_id']."' and pid= '".$id."'";
 				$rs = $db->getOne($sql);
 				if ($rs) {
 					print json_encode(array("code" => 3, "msg" => "您已经为该作品投过票了"));
