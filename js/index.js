@@ -54,7 +54,7 @@ function pullUpAction () {
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
         }else{
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         var curchoseType;
