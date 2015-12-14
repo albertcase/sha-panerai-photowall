@@ -48,13 +48,13 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
 
 var curpageindex = 1;
 function pullUpAction () {
-        $(".loading").show();
+        //$(".loading").show();
         curpageindex ++;
         console.log(curpageindex + ": " + workInfoData["_totalpage"]);
         if(curpageindex >= workInfoData["_totalpage"]){
             $("#pullUp").hide();
         }else{
-            $("#pullUp").show();
+            //$("#pullUp").show();
         }
 
         var curchoseType;
@@ -109,7 +109,7 @@ function pullUpAction () {
                         // layout Masonry after each image loads
                         //isotope.layout();
                         myScroll.refresh();
-                        $(".loading").hide();
+                        //$(".loading").hide();
                     });
                        
                 } , function (p){
