@@ -70,7 +70,7 @@ if(myURL.file == "upload.html"){
         scrollbars: false, //有滚动条
         fixedScrollbar: false,
         // momentum: true,
-        useTransition: true
+        //useTransition: true
     });
 }else{
     myScroll = new IScroll('#wrapp', { 
