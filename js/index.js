@@ -48,6 +48,7 @@ function getItemElement(imgtype, imgid, imgurl, _content) {
 
 var curpageindex = 1;
 function pullUpAction () {
+
         $(".loading").show();
         curpageindex ++;
         console.log(curpageindex + ": " + workInfoData["_totalpage"]);
