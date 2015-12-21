@@ -96,21 +96,21 @@
 
     </script>
     <style type="text/css">
-        .loading{
+        .loading, .ending{
             top: 60px;
             height: 96%;
         }
 
         /* ipad */
         @media only screen and (min-device-width: 750px) and (max-device-width: 1023px){
-            .loading{
+            .loading, .ending{
                 top: 18%;
                 height: 82%;
             }
         }
         /* ipad横屏 */
         @media only screen and (min-device-width: 750px) and (max-device-width: 1023px) and (orientation :landscape) {
-            .loading{
+            .loading, .ending{
                 top: 25%;
                 height: 75%;
             }
@@ -255,6 +255,12 @@
 
 <div class="loading"></div>
 
+<div class="ending">
+    <a href="javascript:;">
+        <img src="../imgs/review_btn.png" width="100%" />
+    </a>
+</div>
+
 <div id="wrapp" style="opacity:0;">
 
     <div id="scroller">
@@ -291,6 +297,10 @@
 <script type="text/javascript" src="js/index_ipad.js"></script>
 
 <script>
+      $(".ending a").click(function(){
+            $(".ending").fadeOut().remove();
+      })
+
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
