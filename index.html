@@ -101,18 +101,31 @@
             height: 96%;
         }
 
+        .ending{
+            height: calc(100% - 60px);
+        }
+        
+
         /* ipad */
         @media only screen and (min-device-width: 750px) and (max-device-width: 1023px){
             .loading, .ending{
                 top: 18%;
                 height: 82%;
             }
+
+            .ending{
+                height: calc(100% - 18%);
+            }
+
         }
         /* ipad横屏 */
         @media only screen and (min-device-width: 750px) and (max-device-width: 1023px) and (orientation :landscape) {
             .loading, .ending{
                 top: 25%;
                 height: 75%;
+            }
+            .ending{
+                height: calc(100% - 25%);
             }
         }
 
