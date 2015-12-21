@@ -92,7 +92,7 @@ video{
 	top: 0;
 	background: #383630 url("../imgs/ending.png") no-repeat center;
 	background-size: 100% auto; 
-	z-index: 99;
+	z-index: 101;
 	display: none;
 }
 
