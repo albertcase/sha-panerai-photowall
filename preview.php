@@ -120,9 +120,9 @@
             <div class="bit-3"></div>
         </div>
 
-        <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'camera')" class="camera_icon">
+        <!-- <a href="rule.html" onclick="ga('send', 'event', '按钮', '点击', 'camera')" class="camera_icon">
             <img src="../imgs/camera_icon.png" />
-        </a>
+        </a> -->
     </div>
 
     <!-- ipad -->
